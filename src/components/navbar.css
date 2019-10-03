@@ -1,0 +1,14 @@
+.logo { 
+    width:90px;
+    margin-top: -37px;
+}
+.navbar {
+    background-color: #000000;
+    margin-top: 30px;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:5px !important; padding-bottom:0 !important;
+    height: 30px;
+    color: #FFFFFF;
+}

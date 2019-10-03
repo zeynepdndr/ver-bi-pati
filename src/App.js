@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import MyButton from "./Button"
-
+import LandingPage from './components/landing-page';
+import Navbar from './components/navbar';
 
 class App extends Component {
   constructor(props) {
@@ -23,11 +23,10 @@ class App extends Component {
   }
 
   render() {
-    console.log("render call!")
     return (
       <div>
-        <div class="container">{this.state.text}</div>
-        <MyButton clr="red" />
+          <Navbar/>
+          <LandingPage/>
       </div>
       
     );
