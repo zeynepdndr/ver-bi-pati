@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-const WhatDoWe = ()=>
+const Activities = ()=>
   <div id="menu">
   </div>
 
-export default WhatDoWe;
+export default Activities;

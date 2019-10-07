@@ -1,0 +1,9 @@
+#jumbotronImage{
+    margin: auto;
+    width: 30%;
+}
+
+.jumbotron{
+    text-align:center;
+    background-color:#ffffff !important;
+}

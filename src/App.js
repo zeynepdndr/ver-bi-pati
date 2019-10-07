@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import './App.css';
-import LandingPage from './components/landing-page';
-import Navbar from './components/navbar';
+
+import Layout from './components/Layout/layout';
+import HomePage from './components/Tabs/homepage'
 
 class App extends Component {
   constructor(props) {
@@ -25,8 +28,9 @@ class App extends Component {
   render() {
     return (
       <div>
-          <Navbar/>
-          <LandingPage/>
+          <Layout>
+            <Router path="/homepage" component={ HomePage } />
+          </Layout>
       </div>
       
     );
