@@ -2,7 +2,8 @@
     width: 100%;
 }
 .content > p{
-    font-family: 'Poppins';
+    font-family: 'Mansalva';
+    font-size: 18px;
 }
 
 #needRemoved{
@@ -16,9 +17,12 @@
     content: "";
     margin-right: 1rem;
     display: inline-flex;
-    background-color: #005eb8;
+    background-color: #000000;
 }
 
 #row1{
     margin-bottom:50px;
+}
+h2, h6{
+    font-family:'Nunito Sans';
 }

@@ -4,9 +4,9 @@ import './homepage.css';
 const HomePage = ()=>
 <div className="container-fluid" id="needRemoved">
   <div className="row" id="row1">
-  <h2 class="h5 font-amadeus d-flex align-items-center m-0 mr-2">
+  <h2 class="h5 d-flex align-items-center m-0 mr-2">
       <span class="bar-primary align-self-center"></span>
-      DEGERLERIMIZ
+      DEĞERLERİMİZ
   </h2>
     <div className="col-sm">
       <div class="container-fluid">
@@ -37,9 +37,9 @@ const HomePage = ()=>
     </div>
   </div>
   <div className="row">
-  <h2 class="h5 font-amadeus d-flex align-items-center m-0 mr-2">
+  <h2 class="h5 d-flex align-items-center m-0 mr-2">
       <span class="bar-primary align-self-center"></span>
-      HEDEFLERIMIZ
+      HEDEFLERİMİZ
   </h2>
     <div className="col-sm">
       <div class="container-fluid">
