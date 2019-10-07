@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div>
           <Layout>
-            <Router path="/homepage" component={ HomePage } />
+            <Route path="/" component={ HomePage } />
           </Layout>
       </div>
       

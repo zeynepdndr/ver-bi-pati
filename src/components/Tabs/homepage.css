@@ -1,0 +1,24 @@
+.icon{
+    width: 100%;
+}
+.content > p{
+    font-family: 'Poppins';
+}
+
+#needRemoved{
+    margin-left: 160px;
+    margin-right: 1600px;
+    max-width: 75%;
+}
+.bar-primary {
+    width: 4px;
+    height: 1em;
+    content: "";
+    margin-right: 1rem;
+    display: inline-flex;
+    background-color: #005eb8;
+}
+
+#row1{
+    margin-bottom:50px;
+}
