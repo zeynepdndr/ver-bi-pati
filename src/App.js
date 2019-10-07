@@ -4,6 +4,9 @@ import './App.css';
 
 import Layout from './components/Layout/layout';
 import HomePage from './components/Tabs/homepage'
+import LandingPage from './components/LandingPage/landing-page'
+import Contact from './components/Tabs/contact';
+
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +31,9 @@ class App extends Component {
     return (
       <div>
           <Layout>
+            {/* <Route path="/" component={ LandingPage } /> */}
             <Route path="/" component={ HomePage } />
+            {/* <Route path="/" component={ Contact } /> */}
           </Layout>
       </div>
       

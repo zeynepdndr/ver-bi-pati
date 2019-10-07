@@ -9,7 +9,7 @@ const LandingPage = ()=>
       <h5>İstanbul Teknik Üniversitesi bünyesinde kampüs hayvanlarının her türlü bakımını üstlenmek üzere kurulmuş gönüllük esaslı bir öğrenci kulübüyüz.</h5>
       <p className="lead">
         <a className="btn btn-primary btn-lg" href="#" role="button">Daha Fazlası</a> 
-        {/* Button MainPage'e route etmeli */}
+        {/* Button homepage'e route etmeli */}
       </p>
   </div>
 
