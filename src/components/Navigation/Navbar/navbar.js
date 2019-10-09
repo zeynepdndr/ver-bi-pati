@@ -16,16 +16,16 @@ const Navbar = (props)=>(
             Neler Yapıyoruz?
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a className="dropdown-item" href="#">Projelerimiz</a>
-              <a className="dropdown-item" href="#">Etkinliklerimiz</a>
+              <a className="dropdown-item" href="/projeler">Projelerimiz</a>
+              <a className="dropdown-item" href="/etkinlikler">Etkinliklerimiz</a>
             </div>
           </li>
-          <NavigationItem link="/">Besleme Programı</NavigationItem>
-          <NavigationItem link="/">Destek Ol</NavigationItem>
-          <NavigationItem link="/">Kayıp {"&"} Sahiplendirme</NavigationItem>
-          <NavigationItem link="/">Galeri</NavigationItem>
+          <NavigationItem link="/beslemetakvimi">Besleme Programı</NavigationItem>
+          <NavigationItem link="/destekol">Destek Ol</NavigationItem>
+          <NavigationItem link="/ilanlar">Kayıp {"&"} Sahiplendirme</NavigationItem>
+          <NavigationItem link="/galeri">Galeri</NavigationItem>
           <NavigationItem link="/">Üye Ol</NavigationItem>
-          <NavigationItem link="/">İletişim</NavigationItem>
+          <NavigationItem link="/iletisim">İletişim</NavigationItem>
         </ul>
       </div>
     </nav>
