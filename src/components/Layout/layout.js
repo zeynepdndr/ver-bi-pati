@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import Navbar from '../Navigation/Navbar/navbar';
+import DonationModal from '../Modal/donationModal';
 
-// Daha sonra kaldir
-import Gallery from '../Tabs/gallery'
-import Contact from '../Tabs/contact'
-//
+import './layout.css';
 
 class Layout extends Component {
     constructor(props) {
@@ -22,6 +20,9 @@ class Layout extends Component {
           <main>
               {this.props.children}
           </main>
+          <div className="donateModal">
+              <DonationModal/>
+          </div>
         </div>
       );
     }
