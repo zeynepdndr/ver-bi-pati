@@ -6,10 +6,12 @@
     font-size: 18px;
 }
 
-#needRemoved{
-    margin-left: 160px;
-    margin-right: 1600px;
-    max-width: 75%;
+.container-fluid {
+    width: 75% !important;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .bar-primary {
     width: 4px;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './homepage.css';
 
 const HomePage = ()=>
-<div className="container-fluid" id="needRemoved">
+<div className="container-fluid" >
   <div className="row" id="row1">
   <h2 class="h5 d-flex align-items-center m-0 mr-2">
       <span class="bar-primary align-self-center"></span>
