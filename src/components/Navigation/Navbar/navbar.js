@@ -5,7 +5,7 @@ import NavigationItem from '../NavigationItem/navigationItem';
 const Navbar = (props)=>(
   <div id="menu">
     <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="#"><img className="logo" src={require('./../../Res/images/verBiPatiLogo.png')} alt="Ver Bi Pati"/></a>
+      <a className="navbar-brand" href="/anasayfa"><img className="logo" src={require('./../../Res/images/verBiPatiLogo.png')} alt="Ver Bi Pati"/></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
