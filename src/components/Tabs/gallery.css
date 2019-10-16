@@ -33,3 +33,18 @@
 h6{
     font-family:'Nunito Sans';
 }
+.container-fluid .contentGallery{
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    opacity: 0;
+    transition: .5s ease;  
+  }
+
+.container-fluid:hover .contentGallery {
+opacity: 1;
+}
