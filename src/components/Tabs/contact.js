@@ -17,13 +17,13 @@ const Contact = ()=>
       <br/>
       <div className="row text-center col-md-6 offset-md-3">
        <div className="col-sm-4">                 
-          <a href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/facebookLogo.png')} alt="Ver Bi Pati"/></a>    
+          <a href="https://twitter.com/itulupatiler"><img className="socialLogo" src={require('./../Res/images/twitterLogo.png')} alt="Ver Bi Pati"/></a>    
         </div>
         <div className="col-sm-4">                 
           <a href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/instagramLogo.png')} alt="Ver Bi Pati"/></a>    
         </div>
         <div className="col-sm-4">                 
-          <a href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/mailLogo.png')} alt="Ver Bi Pati"/></a>    
+          <a href="itulupatiler@gmail.com"><img className="socialLogo" src={require('./../Res/images/mailLogo.png')} alt="Ver Bi Pati"/></a>    
         </div>
       </div>
     </div>
