@@ -1,0 +1,43 @@
+.container-fluid {
+    position: relative;
+  }
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 32.75%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgb(111, 165, 247);;
+  }
+  .icon2>p{
+    bottom: 0;
+    color: #f1f1f1;
+    font-family:'Nunito Sans';
+    margin-top: 20px;
+  }
+  
+  .container-fluid:hover .overlay {
+    opacity: 1;
+  }
+  
+  .icon2 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .fa-user:hover {
+    color: #eee;
+}
+.icon2:hover {
+    text-decoration: none;
+}

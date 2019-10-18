@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import './gallery.css';
 
 const Gallery = ()=>
-<div className="gallery container-fluid" id="gallery">
+<div>
+  <div className="centeredButton">
+    <button className="btn btn-default filter-button " data-filter="all">Kampüs Hayvanlarımız</button>
+    <button className="btn btn-default filter-button" data-filter="hdpe">Faaliyetlerimiz</button>  
+  </div>
+  <div className="gallery container-fluid" id="gallery">
   <div className="justify-content-center"> 
     <div className="mb-3 pics animation all 2">
       <img className="img-fluid" id="image1" src={require('./../Res/images/gallery/ares.jpg')} alt="Card image cap"/>
@@ -56,5 +61,5 @@ const Gallery = ()=>
   </div>
 
 </div>
-
+</div>
 export default Gallery;
