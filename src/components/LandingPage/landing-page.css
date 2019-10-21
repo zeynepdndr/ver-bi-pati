@@ -7,8 +7,9 @@
     text-align:center;
     background-color:#ffffff !important;
 }
-h5{
+#h5{
     font-family:'Nunito Sans';
+    text-align: center !important;
 }
 .btn-primary {
     font-family:'Nunito Sans'; 
