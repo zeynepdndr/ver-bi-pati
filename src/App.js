@@ -13,6 +13,7 @@ import Donation from './components/Tabs/donation';
 import Gallery from './components/Tabs/gallery';
 import Announcements from './components/Tabs/announcements';
 import Feeding from './components/Tabs/feeding';
+import AboutUs from './components/Tabs/aboutus';
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class App extends Component {
             <Route path={ROUTES.GALLERY} component={ Gallery } />
             <Route path={ROUTES.ANNOUNCEMENTS} component={ Announcements } />
             <Route path={ROUTES.FEEDING} component={ Feeding } />
+            <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
           </Layout> }
           
       </div>

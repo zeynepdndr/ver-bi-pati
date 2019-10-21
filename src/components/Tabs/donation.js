@@ -22,7 +22,7 @@ const Donation = ()=>
           </div>
         </div>
         <div className="col-sm-4">    
-          <div className="card bg-light mb-3" id="new-orange">
+          <div className="card bg-light mb-3 text-white" id="new-orange">
             <div className="card-header">Mama Bağışı</div>
             <div className="card-body">
               <h5 className="card-title">Ormana Mama sitesine girerek kumbara başlığı ardından Verbi'pati seçerek mama gönderebilirsin. Teslimat adresi gerekmeden kumbarada biriken mamalar bize teslim ediliyor.</h5>

@@ -3,6 +3,7 @@ import Navbar from '../Navigation/Navbar/navbar';
 import DonationModal from '../Modal/donationModal';
 
 import './layout.css';
+import AboutUsModal from '../Modal/aboutusModal';
 
 class Layout extends Component {
     constructor(props) {
@@ -20,6 +21,9 @@ class Layout extends Component {
           <main>
               {this.props.children}
           </main>
+          <div className="aboutusModal">
+              <AboutUsModal/>
+          </div>
           <div className="donateModal">
               <DonationModal/>
           </div>
