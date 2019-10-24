@@ -70,8 +70,11 @@ opacity: 1;
   outline: none;
 }
 .btn:hover {
-  background-color: rgb(111, 165, 247);
-  box-shadow: 0px 15px 20px rgba(46, 73, 229, 0.4);
+  background-color: #f9771f;
+  box-shadow: 0px 15px 20px #d86b20;
   color: #fff;
   transform: translateY(-7px);
+}
+.btn:focus{
+  outline:0;
 }

@@ -1,0 +1,11 @@
+#donationModalImage{
+    max-width: 70%;
+ }
+ .modal-content {
+     border-style: none !important
+ }
+
+ #aboutusModalImage{
+    max-width: 40%;
+    margin-left: -20px;
+ }

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Navbar from '../Navigation/Navbar/navbar';
-import DonationModal from '../Modal/donationModal';
+
 
 import './layout.css';
-import AboutUsModal from '../Modal/aboutusModal';
+import CustomModal from '../Shared/customModal';
 
 class Layout extends Component {
     constructor(props) {
@@ -21,11 +21,11 @@ class Layout extends Component {
           <main>
               {this.props.children}
           </main>
-          <div className="aboutusModal">
-              <AboutUsModal/>
-          </div>
           <div className="donateModal">
-              <DonationModal/>
+              <CustomModal link = "/destekol" imgPath= {require('./../Res/images/donation4.jpeg')} id="donationModalImage"></CustomModal>
+          </div>
+          <div className="aboutusModal">
+              <CustomModal link = "/nedenuyelik" imgPath={require('./../Res/images/ask.png')} id="aboutusModalImage"></CustomModal>
           </div>
         </div>
       );
