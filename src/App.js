@@ -15,6 +15,25 @@ import Announcements from './components/Tabs/announcements';
 import Feeding from './components/Tabs/feeding';
 import AboutUs from './components/Tabs/aboutus';
 
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
+import withFirebaseAuth, { WrappedComponentProps } from 'react-with-firebase-auth';
+import firebaseConfig from './firebaseConfig';
+
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+const firebaseAppAuth = firebaseApp.auth();
+
+
+
+/** See the signature above to find out the available providers */
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+};
+/** providers can be customised as per the Firebase documentation on auth providers **/
+providers.googleProvider.setCustomParameters({hd:"mycompany.com"});
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -59,4 +78,9 @@ class App extends Component {
   }
 }
 
-export default App;
+/** Wrap it */
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+})(App);
+

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import CustomButton from './../Shared/customButton'
 import './gallery.css';
 
 const Gallery = ()=>
 <div>
   <div className="centeredButton">
-    <button className="btn btn-default filter-button " data-filter="all">Kampüs Hayvanlarımız</button>
-    <button className="btn btn-default filter-button" data-filter="hdpe">Faaliyetlerimiz</button>  
+    <CustomButton label="Kampüs Hayvanlarımız"></CustomButton>
+    <CustomButton label="Faaliyetlerimiz"></CustomButton>
   </div>
   <div className="gallery container-fluid" id="gallery">
   <div className="justify-content-center"> 

@@ -12,11 +12,12 @@ const Donation = ()=>
           <div className="card bg-light mb-3" >
             <div className="card-header">Havale/EFT </div>
             <div className="card-body">
-              <h5 className="card-title">Hesap adı: Ver'bi Pati Derneği<br/>
-                      Banka adı: Yapı ve Kredi Bankası<br/>
-                      Şube: 495<br/>
-                      IBAN No: TR16 0006 7010 0000 0050 0909 98 
-                      <br/><br/>Tedavi masrafları ve mama alımı bütçemize katkın olsun.
+              <h5 className="card-title">
+                      Banka: Türkiye Vakıflar Bankası <br/>
+                      Şube: İstanbul Teknik Üniversitesi Vakıfbank Osmanbey<br/>
+                      IBAN No: TR38 0001 5001 5800 7294 0140 71<br/>
+                      Açıklama: İTÜ Gönüllülük Kulübü Ver'bi Pati Bağış<br/>
+                      <br/>Tedavi masrafları ve mama alımı bütçemize katkın olsun.
                       </h5>
             </div>
           </div>

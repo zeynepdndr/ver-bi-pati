@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import Navbar from '../Navigation/Navbar/navbar';
-
+import CustomModal from '../Shared/customModal';
 
 import './layout.css';
-import CustomModal from '../Shared/customModal';
 
 class Layout extends Component {
     constructor(props) {

@@ -1,18 +1,3 @@
-.icon{
-    width: 100%;
-}
-.content > p{
-    font-family: 'Mansalva';
-    font-size: 18px;
-}
-
-.container-fluid {
-    width: 75% !important;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
 .bar-primary {
     width: 4px;
     height: 1em;
@@ -27,4 +12,5 @@
 }
 h2, h6{
     font-family:'Nunito Sans';
+    margin-bottom: 5px !important;
 }

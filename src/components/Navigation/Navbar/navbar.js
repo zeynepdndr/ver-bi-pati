@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './navbar.css';
 import NavigationItem from '../NavigationItem/navigationItem';
+import Auth from './../../Auth/auth'
 
 const Navbar = (props)=>(
   <div id="menu">
@@ -12,7 +13,7 @@ const Navbar = (props)=>(
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Neler Yapıyoruz?
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -24,8 +25,17 @@ const Navbar = (props)=>(
           <NavigationItem link="/destekol">Destek Ol</NavigationItem>
           <NavigationItem link="/ilanlar">Kayıp {"&"} Sahiplendirme</NavigationItem>
           <NavigationItem link="/galeri">Galeri</NavigationItem>
-          <NavigationItem link="/">Üye Ol</NavigationItem>
           <NavigationItem link="/iletisim">İletişim</NavigationItem>
+          <div id="floatRight">          
+            <li className="nav-item dropdown" >
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Bildirimler
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              </div>
+            </li>
+            <Auth></Auth>
+          </div>
         </ul>
       </div>
     </nav>
