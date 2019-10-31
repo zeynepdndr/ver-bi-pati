@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './navbar.css';
 import NavigationItem from '../NavigationItem/navigationItem';
-import Auth from './../../Auth/auth'
+import SignUp from './../../Auth/signup'
 
 const Navbar = (props)=>(
   <div id="menu">
@@ -26,16 +26,16 @@ const Navbar = (props)=>(
           <NavigationItem link="/ilanlar">Kayıp {"&"} Sahiplendirme</NavigationItem>
           <NavigationItem link="/galeri">Galeri</NavigationItem>
           <NavigationItem link="/iletisim">İletişim</NavigationItem>
-          <div id="floatRight">          
-            <li className="nav-item dropdown" >
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Bildirimler
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              </div>
-            </li>
-            <Auth></Auth>
-          </div>
+        </ul>
+        <ul className="nav navbar-nav navbar-right">
+          <li className="nav-item dropdown" >            
+            <a className="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i className="fa fa-fw fa-bell"></i>
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            </div>
+          </li>
+          <SignUp></SignUp>
         </ul>
       </div>
     </nav>

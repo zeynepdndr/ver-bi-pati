@@ -1,4 +1,9 @@
-export default{
+import firebase from 'firebase';
+import firestore from 'firebase/firestore'
+
+const settings = {timestampsInSnapshots: true};
+
+const config={
     apiKey: "AIzaSyBNE-ikrMuBjUZIFyR3pBCamXUS9DNH4Sc",
     authDomain: "verbi-pati-cfb34.firebaseapp.com",
     databaseURL: "https://verbi-pati-cfb34.firebaseio.com",
@@ -8,3 +13,6 @@ export default{
     appId: "1:900827256057:web:10b3f25845f6f5c4fefe28",
     measurementId: "G-TF30KMJH6B"
   };
+  // firebase.initializeApp(config);
+
+export default config;

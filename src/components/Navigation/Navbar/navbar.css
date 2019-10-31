@@ -29,7 +29,7 @@
     border: 0;
 }
    /* Fixes dropdown menus placed on the right side */
-    #floatRight {
+   .navbar-right {
     /* position: absolute; */
     left: auto !important;
     right: 20px;
