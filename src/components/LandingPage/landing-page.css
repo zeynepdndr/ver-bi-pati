@@ -1,16 +1,20 @@
-#jumbotronImage{
-    width: 30%;
-    margin-top: -90px;
-}
-
-.jumbotron{
-    text-align:center;
-    background-color:#ffffff !important;
-}
-#h5{
-    font-family:'Nunito Sans';
-    text-align: center !important;
-}
 .btn-primary {
     font-family:'Nunito Sans'; 
+}
+
+#intro{
+    font-family:'Mansalva'!important;
+    text-align: center !important;
+    margin-top: 55%;
+    line-height: 1.8;
+}
+h4 > #newButton{
+    background-color: red !important;
+    box-shadow: 0px 15px 20px #1971c4 !important;
+    color: #fff !important;
+    transform: translateY(-7px);}
+
+#rotation{
+    transform: rotate(-13deg);
+    padding-top: 35px;
 }

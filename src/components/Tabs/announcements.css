@@ -41,3 +41,10 @@
 .icon2:hover {
     text-decoration: none;
 }
+.centeredButton{
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 20px !important;
+}

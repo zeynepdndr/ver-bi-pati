@@ -3,9 +3,14 @@ import {Redirect} from 'react-router-dom'
 import { signUp, signIn } from '../Actions/authAction';
 import { connect } from 'react-redux';
 
+
+import firebaseConfig from "./../../firebaseConfig"
+
 class SignUp extends Component{
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
     state ={
@@ -14,6 +19,67 @@ class SignUp extends Component{
         email: "",
         department: "",
         phone: "",
+        controls: {
+          email:{
+            elementType:'input',
+            elementConfig: {
+              type:'email',
+              placeholder: 'Mail adresi'
+            },
+            value:'',
+            validation:{
+              required:true,
+              isEMail:true
+            },
+            valid:false,
+            touched:false,
+          },
+          epassword:{
+            elementType:'input',
+            elementConfig: {
+              type:'password',
+              placeholder: 'Parola'
+            },
+            value:'',
+            validation:{
+              required:false,
+              minLength:6
+            },
+            valid:false,
+            touched:false,
+          },
+        }
+    }
+    writenum=()=>{
+        console.log("sdfsfaa");
+    }
+
+    checkValidity(value, rules){
+        let isValid=true;
+        if(!rules){
+          return true;
+        }
+
+        if(rules.required){
+          isValid=value.trim() !== `` && isValid;
+        }
+
+        if(rules.minLength){
+          isValid=value.length >= rules.minLength && isValid;
+        }
+        if(rules.maxLength){
+          isValid=value.length <= rules.minLength && isValid;
+        }
+        if(rules.isEMail){
+         // const pattern = /[a-z0-p!]..
+         //isValid = pattern.test(value) && isValid;
+        }   
+        if(rules.isNumeric){
+          // const pattern = /[a-z0-p!]..
+          //isValid = pattern.test(value) && isValid;
+         }
+
+         return isValid;
     }
     handleChange=(e)=>{
         this.setState({
@@ -23,7 +89,10 @@ class SignUp extends Component{
 
     handleSubmit=(e)=>{
       e.preventDefault();
+      console.log(this.state)
       this.props.signUp(this.state);
+      this.writenum();
+      console.log(this.props)
     }
 
     render(){
@@ -62,7 +131,7 @@ class SignUp extends Component{
                       <input className="form-control" name="password" id="password" type="password"/>
                       <br className=""/>
                     </div> */}
-                    <button type="submit" id="btnLogin" className="btn btn-success btn-sm">Giris</button>
+                    <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Giris</button>
                 </form>
             </div>
           </li>        
@@ -82,6 +151,6 @@ const mapDispatchToProps=(dispatch)=>{
   }
 }
 
-export default SignUp;
+export default (SignUp);
 
         

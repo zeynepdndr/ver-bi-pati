@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './contact.css';
 
 const Contact = ()=>
-<div>
 <div className="container-fluid">  
   <div className="container-fluid">
       <div className="row"> 
@@ -51,6 +50,4 @@ const Contact = ()=>
         </div>
       </div>
   </div>
-  </div>
-
 export default Contact;

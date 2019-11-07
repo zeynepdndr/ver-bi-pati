@@ -24,6 +24,7 @@ class CustomButton extends Component {
       return (
         <button
         className="btn btn-default filter-button"
+        id="newButton"
         data-filter="all"
         onClick={this.props.handleClick}>{this.props.label}</button>
       );
