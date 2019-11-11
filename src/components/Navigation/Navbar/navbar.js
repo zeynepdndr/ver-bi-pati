@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './navbar.css';
 import NavigationItem from '../NavigationItem/navigationItem';
 import SignUp from './../../Auth/signup'
+import NotificationMenu from '../../Tabs/notificationMenu'
 
 const Navbar = (props)=>(
   <div id="menu">
@@ -28,13 +29,7 @@ const Navbar = (props)=>(
           <NavigationItem link="/iletisim">İletişim</NavigationItem>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <li className="nav-item dropdown" >            
-            <a className="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i className="fa fa-fw fa-bell"></i>
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            </div>
-          </li>
+          <NotificationMenu></NotificationMenu>
           <SignUp></SignUp>
         </ul>
       </div>

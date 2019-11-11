@@ -9,7 +9,7 @@ const LandingPage = ()=>
     <div className="col-sm-6">      
       <h4 id="intro">İstanbul Teknik Üniversitesi'nde, <br/>kampüs hayvanlarının her türlü bakımını üstlenmek üzere kurulmuş <br/>gönüllük esaslı bir öğrenci kulübüyüz.</h4>
         <a className="btn btn-primary btn-lg" href="/anasayfa" role="button">Daha Fazlası</a> 
-        <CustomButton label="Daha Fazlası"></CustomButton>
+        <CustomButton link="/anasayfa" label="Daha Fazlası"></CustomButton>
         {/* Button homepage'e route etmeli */}
 
     </div>

@@ -15,10 +15,6 @@
     font-family:'Nunito Sans';
     font-size: 18px;
 }
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
 .dropdown-item {
     font-family:'Nunito Sans';
     font-size: 16px;
@@ -29,16 +25,22 @@
     border: 0;
 }
    /* Fixes dropdown menus placed on the right side */
-   .navbar-right {
-    /* position: absolute; */
+   /* .navbar-right {
+    position: absolute;
     left: auto !important;
     right: 20px;
     float:right;
+} */
+
+ul.navbar-nav a:hover {
+    color: #007bff !important; 
 }
+
 .dropdown:hover > .dropdown-menu {
     display: block;
     padding: 15px; padding-bottom: 10px;
     width: 300px !important;
+    right:0!important;
 }
 .dropdown:hover > .dropdown-toggle:active {
     pointer-events: none;

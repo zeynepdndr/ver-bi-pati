@@ -7,7 +7,7 @@ const Contact = ()=>
       <div className="row"> 
         <div className="col-sm-6">                 
           <h4>Adres</h4>
-          <div class="pfblock-line"></div>
+          <div className="pfblock-line"></div>
             <p className="lead">
               İstanbul Teknik Üniversitesi Maslak<br/>
               Kültür Sanat Binası<br/>
@@ -19,10 +19,10 @@ const Contact = ()=>
             </div>
             <div className="row">
               <div className="col">                 
-                <a href="https://twitter.com/itulupatiler"><img className="socialLogo" src={require('./../Res/images/twitterLogo.png')} alt="Ver Bi Pati"/></a>    
+                <a target="_blank" href="https://twitter.com/itulupatiler"><img className="socialLogo" src={require('./../Res/images/twitterLogo.png')} alt="Ver Bi Pati"/></a>    
               </div>
               <div className="col">                 
-                <a href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/instagramLogo.png')} alt="Ver Bi Pati"/></a>    
+                <a target="_blank" href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/instagramLogo.png')} alt="Ver Bi Pati"/></a>    
               </div>
               <br/>
               <br/>
@@ -36,15 +36,15 @@ const Contact = ()=>
             <div className="pfblock-line"></div>  
             <form>
                 <div className="col">
-                  <input type="text" class="form-control" placeholder="Ad-Soyad"/>
+                  <input type="text" className="form-control" placeholder="Ad-Soyad"/>
                 </div>
                 <div className="col">
-                  <input type="text" class="form-control" placeholder="E-mail"/>
+                  <input type="text" className="form-control" placeholder="E-mail"/>
                 </div>      
                 <div className="form-group col">
-                  <textarea class="form-control" placeholder="Mesajınız" id="exampleFormControlTextarea1" rows="6"></textarea>
+                  <textarea className="form-control" placeholder="Mesajınız" id="exampleFormControlTextarea1" rows="6"></textarea>
                 </div>    
-                <button type="submit" class="btn btn-primary">Gönder</button>                
+                <button type="submit" className="btn btn-primary">Gönder</button>                
             </form> 
           </div>
         </div>

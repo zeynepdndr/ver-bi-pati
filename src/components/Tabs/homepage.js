@@ -10,8 +10,8 @@ const HomePage = ()=>
         DEĞERLERİMİZ
     </h2>
     <HomePageItem title="ÖZVERİ" imgPath= {require('./../Res/images/icon1.jpg')}>Gece gündüz, yağmur kar demeden var gücümüzle çalışıyoruz.</HomePageItem>
-    <HomePageItem title="HAYVANSEVERLİK" imgPath= {require('./../Res/images/icon2.jpg')}>Attığımız her adımda içimizdeki hayvan sevgisini başka insanlara da aşılıyoruz.</HomePageItem>
-    <HomePageItem title="KARARLILIK" imgPath= {require('./../Res/images/icon3.jpg')} >Hiçbir zaman durmuyoruz çünkü onların bizden başka kimselerinin olmadığının farkındayız.</HomePageItem>
+    <HomePageItem title="HAYVANSEVERLİK" imgPath= {require('./../Res/images/icon2.png')}>Attığımız her adımda içimizdeki hayvan sevgisini başka insanlara da aşılıyoruz.</HomePageItem>
+    <HomePageItem title="KARARLILIK" imgPath= {require('./../Res/images/icon3.png')} >Hiçbir zaman durmuyoruz çünkü onların bizden başka kimselerinin olmadığının farkındayız.</HomePageItem>
   </div>
   <div className="row">
     <h2 className="h5 d-flex align-items-center m-0 mr-2">

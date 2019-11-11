@@ -1,0 +1,12 @@
+.fa-bell{
+    color:white!important;
+}
+.fa-bell:hover {
+    color: #007bff !important; 
+}
+.fa-edit{
+    margin-right: 20px;
+}
+.fa-plus-circle{
+    text-align: center;
+}

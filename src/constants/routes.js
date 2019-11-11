@@ -8,3 +8,4 @@ export const GALLERY = "/galeri";
 export const ANNOUNCEMENTS = "/ilanlar";
 export const FEEDING = "/beslemetakvimi";
 export const ABOUTUS = "/nedenuyelik";
+export const NOTIFICATION = "/bildirimler";

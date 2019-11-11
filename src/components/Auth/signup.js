@@ -3,8 +3,8 @@ import {Redirect} from 'react-router-dom'
 import { signUp, signIn } from '../Actions/authAction';
 import { connect } from 'react-redux';
 
+import './signup.css';
 
-import firebaseConfig from "./../../firebaseConfig"
 
 class SignUp extends Component{
   constructor(props) {
@@ -19,36 +19,36 @@ class SignUp extends Component{
         email: "",
         department: "",
         phone: "",
-        controls: {
-          email:{
-            elementType:'input',
-            elementConfig: {
-              type:'email',
-              placeholder: 'Mail adresi'
-            },
-            value:'',
-            validation:{
-              required:true,
-              isEMail:true
-            },
-            valid:false,
-            touched:false,
-          },
-          epassword:{
-            elementType:'input',
-            elementConfig: {
-              type:'password',
-              placeholder: 'Parola'
-            },
-            value:'',
-            validation:{
-              required:false,
-              minLength:6
-            },
-            valid:false,
-            touched:false,
-          },
-        }
+        // controls: {
+        //   email:{
+        //     elementType:'input',
+        //     elementConfig: {
+        //       type:'email',
+        //       placeholder: 'Mail adresi'
+        //     },
+        //     value:'',
+        //     validation:{
+        //       required:true,
+        //       isEMail:true
+        //     },
+        //     valid:false,
+        //     touched:false,
+        //   },
+        //   epassword:{
+        //     elementType:'input',
+        //     elementConfig: {
+        //       type:'password',
+        //       placeholder: 'Parola'
+        //     },
+        //     value:'',
+        //     validation:{
+        //       required:false,
+        //       minLength:6
+        //     },
+        //     valid:false,
+        //     touched:false,
+        //   },
+        // }
     }
     writenum=()=>{
         console.log("sdfsfaa");
@@ -89,26 +89,23 @@ class SignUp extends Component{
 
     handleSubmit=(e)=>{
       e.preventDefault();
-      console.log(this.state)
-      this.props.signUp(this.state);
-      this.writenum();
-      console.log(this.props)
+      signUp(this.state);
     }
 
     render(){
-      // const {auth, authError}=this.props;
+      const {auth, authError}=this.props;
       // if(auth.uid) return <Redirect to="/"></Redirect>
 
       return (
         <div>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fa fa-fw fa-user"></i>
+              <i className="fa fa-fw fa-user fa-lg"></i>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                    <input className="form-control" name="name" id="name" type="text" placeholder="Isim" onChange={this.handleChange}/>
+                    <input className="form-control" name="name" id="name" type="text" placeholder="İsim" onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
                     <input className="form-control" name="surname" id="surname" type="text" placeholder="Soyisim" onChange={this.handleChange}/>
@@ -117,10 +114,10 @@ class SignUp extends Component{
                     <input className="form-control" name="phone" id="phone" type="text" placeholder="Cep no" onChange={this.handleChange} />
                   </div>
                   <div className="form-group">
-                    <input className="form-control" name="department" id="department" type="text" placeholder="Bolum" onChange={this.handleChange} />
+                    <input className="form-control" name="department" id="department" type="text" placeholder="Sınıf" onChange={this.handleChange} />
                   </div>
                   <div className="form-group">
-                    <input className="form-control" name="university_year" id="university_year" type="text" placeholder="Sinif" onChange={this.handleChange} />
+                    <input className="form-control" name="university_year" id="university_year" type="text" placeholder="Bölüm" onChange={this.handleChange} />
                   </div>
                   <div className="form-group">
                     <input className="form-control" name="email" id="email" type="email" placeholder="Email" onChange={this.handleChange} />
@@ -131,7 +128,7 @@ class SignUp extends Component{
                       <input className="form-control" name="password" id="password" type="password"/>
                       <br className=""/>
                     </div> */}
-                    <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Giris</button>
+                    <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Giriş</button>
                 </form>
             </div>
           </li>        
@@ -147,7 +144,7 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-    signUp: (newUser)=>dispatch(signUp(newUser))
+    signUp: (newUser)=>dispatch(SignUp(newUser))
   }
 }
 

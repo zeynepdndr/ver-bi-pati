@@ -1,3 +1,6 @@
+
+import "firebase/auth";
+
 export const signIn=(credentials)=>{
     return (dispatch, getState,{getFirebase})=>{
         const firebase = getFirebase();
@@ -24,25 +27,30 @@ export const signOut=()=>{
 }
 
 export const signUp=(newUser)=>{
-    return (dispatch, getState,{getFirebase, getFirestore})=>{
+    
+    return (dispatch, getState,{getFirebase, getFirestore})=>{    
+
         const firebase = getFirebase();
         const firestore = getFirestore();
 
         firebase.auth().createUserWithEmailAndPassword(
             newUser.email,
-            newUser.password
+            "123456"
             ).then((resp)=>{
-                return firestore.collection('users').doc(resp.user.uid).set({
-                    name: newUser.name,
-                    surname: newUser.surname,
-                    email: newUser.email,
-                    department: newUser.department,
-                    phone: newUser.phone,
-                });
+                console.log(resp);
+                // return firestore.collection('users').doc(resp.user.uid).set({
+                //     name: newUser.name,
+                //     surname: newUser.surname,
+                //     email: newUser.email,
+                //     department: newUser.department,
+                //     phone: newUser.phone,
+                //});
             }).then(()=>{
-                dispatch({type:'SIGNUP_SUCCESS'});
+                console.log("SignUp")
+                // dispatch({type:'SIGNUP_SUCCESS'});
             }).catch(err=>{
-                dispatch({type:'SIGNUP_ERROR',err});
+                // dispatch({type:'SIGNUP_ERROR',err});
+                console.log("ERROR")
             })
     }
 }
