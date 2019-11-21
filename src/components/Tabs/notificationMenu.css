@@ -8,5 +8,18 @@
     margin-right: 20px;
 }
 .fa-plus-circle{
-    text-align: center;
+    padding-left: 45%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#notificationForm {
+    border: 1px solid #1d2124;
+    padding: 10px;
+    border-spacing: 15px;
+}
+.btn-success {
+    color: #fff;
+    background-color: #1d2124;
+    border-color: #1d2124 !important;
+
 }

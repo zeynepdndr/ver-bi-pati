@@ -16,12 +16,14 @@ class NotificationMenu extends Component{
       notification: {
         messageData:"",
         sendDataTime:"",
+        receivedUser:""
       }
     }
   }
 
   handleChange = e => {
     this.setState({ [e.target.id]:e.target.value,});
+    console.log(this.state);
   };
 
   handleSubmit=(e)=>{
@@ -41,7 +43,8 @@ class NotificationMenu extends Component{
     this.setState({
       notification:{
         messageData:msg,
-        sendDataTime:new Date()
+        sendDataTime:new Date(),
+        receivedUser:this.state.receivedUser
         },
         showAdd:false
     },()=>{
@@ -68,18 +71,25 @@ class NotificationMenu extends Component{
         }
 
         {showAdd ? (
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <textarea className="form-control" name="messageData" id="messageData" value={notification.messageData} type="text" placeholder="Mesajinizi yaziniz" onChange={this.handleChange}></textarea>
-            </div>
-              {/* Admin hesaplari icin: */}
-              {/* <div className="form-group">
-                <label className="">Password</label>
-                <input className="form-control" name="password" id="password" type="password"/>
-                <br className=""/>
-              </div> */}
-              <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Ekle</button>
-          </form>    
+            <form onSubmit={this.handleSubmit} id="notificationForm">
+              <div className="form-group">
+                <textarea className="form-control" name="messageData" id="messageData" value={notification.messageData} type="text" placeholder="Mesajınızı yazınız" onChange={this.handleChange}></textarea>
+              </div>
+                {/* Admin hesaplari icin: */}
+                {/* <div className="form-group">
+                  <label className="">Password</label>
+                  <input className="form-control" name="password" id="password" type="password"/>
+                  <br className=""/>
+                </div> */}
+              <div className="form-group">
+              <select value={this.state.receivedUser} onChange={this.handleChange} className="form-control">
+                <option defaultValue>Alıcılar</option>
+                <option value="everyone">Herkes</option>
+                <option value="user">Üyeler</option>
+              </select>
+              </div>
+                <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm bg-dark">Ekle</button>
+            </form>
           ):(null)
         }
           <div className="row"> 
@@ -119,7 +129,7 @@ class NotificationMenu extends Component{
           </div>
         </li><br></br><br></br>
         <li className="footer bg-dark text-center">
-          <a href="/bildirimler" className="text-light">View All</a>
+          <a href="/bildirimler" className="text-light">Hepsini Gör</a>
         </li>
       </div>
     </div>

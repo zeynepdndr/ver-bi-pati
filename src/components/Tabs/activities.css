@@ -1,0 +1,27 @@
+.imageSlider { 
+    max-width: 100%;
+ }
+h2{
+    font-family:'Nunito Sans';
+    text-align: center;
+}
+h5{
+    font-family:'Nunito Sans' !important;
+    text-align: left !important;
+    font-size: 17px !important;
+}
+.card-header{
+    font-family: 'Mansalva';
+    font-size: 23px;
+}
+.channel{
+    text-align: justify;
+    font-family:'Nunito Sans';
+    font-size: 1.25rem;
+}
+.donationLine{
+    margin-left: 280px;
+}
+#new-orange{
+    background-color: #b25c17 !important;
+}

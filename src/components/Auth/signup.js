@@ -103,8 +103,9 @@ class SignUp extends Component{
               <i className="fa fa-fw fa-user fa-lg"></i>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="form-group">
+            <strong className="text-info">Ver bi'pati’ye Üye Ol</strong>
+                <form onSubmit={this.handleSubmit}>              
+                  <div className="form-group ">
                     <input className="form-control" name="name" id="name" type="text" placeholder="İsim" onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
@@ -128,8 +129,13 @@ class SignUp extends Component{
                       <input className="form-control" name="password" id="password" type="password"/>
                       <br className=""/>
                     </div> */}
-                    <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Giriş</button>
+                    {/* <button onClick={this.handleSubmit} id="btnLogin" className="btn btn-success btn-sm">Giriş</button> */}
+                    <br></br>
+                    <li className="footer bg-dark text-center">
+                      <a href="/bildirimler" className="text-light">Giriş</a>
+                    </li>
                 </form>
+                <small className="text-warning">Zaten üyeyim</small>
             </div>
           </li>        
         </div>

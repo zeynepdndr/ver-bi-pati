@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/storage": "^0.3.19",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.5",
@@ -15,6 +16,7 @@
     "popper.js": "^1.15.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-firebase-file-uploader": "^2.4.3",
     "react-google-font-loader": "^1.0.5",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",

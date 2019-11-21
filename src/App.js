@@ -21,7 +21,8 @@ import 'firebase/auth';
 import withFirebaseAuth, { WrappedComponentProps } from 'react-with-firebase-auth';
 import firebaseConfig from './firebaseConfig';
 
-const firebaseApp = firebase.initializeApp(firebaseConfig)
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 
 
