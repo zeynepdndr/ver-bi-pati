@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './activities.css';
 import AddItemButton from '../Shared/addItemButton';
+import { ModalDialog} from '../Shared/modalDialog';
+
 
 class Activities extends Component{
   constructor(props) {
@@ -65,6 +67,7 @@ class Activities extends Component{
       <div className=" container-fluid">
         <h2>Etkinliklerimiz</h2> 
         <AddItemButton></AddItemButton>
+        <ModalDialog></ModalDialog>
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
