@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './activities.css';
 import AddItemButton from '../Shared/addItemButton';
-import { ModalDialog} from '../Shared/modalDialog';
+import { ModalActivity } from '../Common/modalActivity';
 
 
 class Activities extends Component{
@@ -65,9 +65,10 @@ class Activities extends Component{
 
     return (
       <div className=" container-fluid">
-        <h2>Etkinliklerimiz</h2> 
-        <AddItemButton></AddItemButton>
-        <ModalDialog></ModalDialog>
+        <h2>Etkinliklerimiz</h2>
+        <div className="buttonAlign">
+            <ModalActivity></ModalActivity>
+        </div>
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
@@ -75,6 +76,8 @@ class Activities extends Component{
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   Collapsible Group Item #1
                 </button>
+                  <span><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
+                  <span><i className="fa fa-edit fa-lg" id="editAlign"title="DÜZENLE"></i></span>
               </h5>
             </div>
 

@@ -6,6 +6,7 @@ import GoogleFontLoader from 'react-google-font-loader';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import * as serviceWorker from './serviceWorker';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Popper from 'popper.js';

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CustomButton from './../Shared/customButton'
 import './gallery.css';
-import ImageUpload from '../Shared/imageUpload';
+import { ModalGallery } from '../Common/modalGallery';
 
 const Gallery = ()=>
 <div>
@@ -9,7 +9,11 @@ const Gallery = ()=>
     <CustomButton label="Kampüs Hayvanlarımız"></CustomButton>
     <CustomButton label="Faaliyetlerimiz"></CustomButton>
   </div>
-  <ImageUpload></ImageUpload>
+  <div className="container-fluid">
+  <div className="buttonAlign">
+      <ModalGallery></ModalGallery>
+  </div>
+</div>
   <div className="gallery container-fluid" id="gallery">
   <div className="justify-content-center"> 
     <div className="mb-3 pics animation all 2">

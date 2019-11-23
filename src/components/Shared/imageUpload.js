@@ -55,16 +55,9 @@ class ImageUpload extends Component {
   render() {
     return (
       <div className="center">
-          <br/>
-          <h2 className="green-text">Fotoğraf Yükle</h2>
-          <br/>
-          <br/>
-        <div className="row">
+        {/* <div className="row">
           <progress value={this.state.progress} max="100" className="progress" />
-        </div>
-        <br />
-        <br />
-        <br />
+        </div> */}
         <div className="file-field input-field">
           <div>
             <input type="file" onChange={this.handleChange} />
@@ -77,16 +70,8 @@ class ImageUpload extends Component {
           onClick={this.handleUpload}
           className="waves-effect waves-light btn"
         >
-          Upload
+          Yukle
         </button>
-        <br />
-        <br />
-        <img
-          src={this.state.url || "https://via.placeholder.com/400x300"}
-          alt="Uploaded Images"
-          height="300"
-          width="400"
-        />
       </div>
     );
   }

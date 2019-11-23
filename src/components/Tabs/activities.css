@@ -25,5 +25,13 @@ h5{
 #new-orange{
     background-color: #b25c17 !important;
 }
-
+#trashAlign{
+    margin-left: 70%;
+}
+#editAlign{
+    margin-left: 2%;
+}
+.buttonAlign{
+    margin:2%;
+}
 
