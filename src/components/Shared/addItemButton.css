@@ -1,0 +1,12 @@
+#addIconCentered{
+    background: gold;
+    border: none;
+    border-radius: 40px 10px;  
+    width: 150px;
+    height: 50px;
+}
+
+#withButton{
+    padding-right: 10% !important;
+    margin-left:-35% !important;
+}

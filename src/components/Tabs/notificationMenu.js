@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import AddItemButton from '../Shared/addItemButton';
 
 import './notificationMenu.css';
 
@@ -65,8 +66,8 @@ class NotificationMenu extends Component{
       <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li className="notification-box">
         {!showAdd ? (
-          <div className="row" id="addIconCentered" onClick={this.onClick}> 
-            <i className="fa fa-plus-circle fa-lg" title="EKLE"></i>
+          <div className="row" onClick={this.onClick}> 
+            <i className="fa fa-plus-circle fa-lg" id="withoutButton" title="EKLE"></i>
           </div>):(null)
         }
 

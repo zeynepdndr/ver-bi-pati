@@ -7,11 +7,7 @@
 .fa-edit{
     margin-right: 20px;
 }
-.fa-plus-circle{
-    padding-left: 45%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+
 #notificationForm {
     border: 1px solid #1d2124;
     padding: 10px;
@@ -22,4 +18,7 @@
     background-color: #1d2124;
     border-color: #1d2124 !important;
 
+}
+#withoutButton{
+    padding-left: 45%;
 }

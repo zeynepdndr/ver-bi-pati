@@ -103,7 +103,7 @@ class SignUp extends Component{
               <i className="fa fa-fw fa-user fa-lg"></i>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <strong className="text-info">Ver bi'pati’ye Üye Ol</strong>
+            <strong className="text-info">Ver Bi'Pati’ye Üye Ol</strong>
                 <form onSubmit={this.handleSubmit}>              
                   <div className="form-group ">
                     <input className="form-control" name="name" id="name" type="text" placeholder="İsim" onChange={this.handleChange}/>
