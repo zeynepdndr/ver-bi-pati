@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { storage } from "../../App"
+
 import firebase from '@firebase/app';
 import Firebase from 'firebase'
 
@@ -13,7 +15,6 @@ class ImageUpload extends Component {
       url: "",
       progress: 0
     };
-    const storage = firebase.storage();
   }
 
   handleChange = e => {
@@ -27,30 +28,31 @@ class ImageUpload extends Component {
     const { image } = this.state;
     const uploadTask = this.storage.ref(`images/${image.name}`).put(image);
     console.log(image);
-    // uploadTask.on(
-    //   "state_changed",
-    //   snapshot => {
-    //     // progress function ...
-    //     const progress = Math.round(
-    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-    //     );
-    //     this.setState({ progress });
-    //   },
-    //   error => {
-    //     // Error function ...
-    //     console.log(error);
-    //   },
-    //   () => {
-    //     // complete function ...
-    //     this.state.storage
-    //       .ref("images")
-    //       .child(image.name)
-    //       .getDownloadURL()
-    //       .then(url => {
-    //         this.setState({ url });
-    //       });
-    //   }
-    // );
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        // progress function ...
+        // const progress = Math.round(
+        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        // );
+        // this.setState({ progress });
+      },
+      error => {
+        // Error function ...
+        console.log(error);
+      },
+      () => {
+        // complete function ...
+        this.state.storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            this.setState({ url });
+            console.log(this.state);
+          });
+      }
+    );
   };
   render() {
     return (

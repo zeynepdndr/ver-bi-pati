@@ -17,14 +17,14 @@ class Layout extends Component {
           <div>
               <Navbar/>
           </div>     
-          <main>
+          <main className="mainClass">
               {this.props.children}
           </main>
           <div className="donateModal">
               <CustomModal link = "/destekol" imgPath= {require('./../Res/images/donation4.jpeg')} id="donationModalImage"></CustomModal>
           </div>
           <div className="aboutusModal">
-              <CustomModal link = "/nedenuyelik" imgPath={require('./../Res/images/ask.png')} id="aboutusModalImage"></CustomModal>
+              <CustomModal link = "/nedenuyelik" imgPath={require('./../Res/images/ask.jpg')} id="aboutusModalImage"></CustomModal>
           </div>
         </div>
       );

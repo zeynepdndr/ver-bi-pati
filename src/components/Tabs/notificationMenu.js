@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import AddItemButton from '../Shared/addItemButton';
 
+// import * as firebase from 'firebase';
+// import 'firebase/firestore';
+
+import  db  from '../../App'
+
 import './notificationMenu.css';
+
 
 class NotificationMenu extends Component{
   constructor(props) {
@@ -41,6 +47,7 @@ class NotificationMenu extends Component{
   }
 
   addItem=(msg)=> {
+    // const firestore = firebaseApp.firestore();
     this.setState({
       notification:{
         messageData:msg,
@@ -49,6 +56,14 @@ class NotificationMenu extends Component{
         },
         showAdd:false
     },()=>{
+      db().collection("notifications").add({
+        messageData:msg,
+        sendDataTime:new Date(),
+        receivedUser:this.state.receivedUser     
+      }).then(function (snapshot) {
+        console.log(snapshot.val())
+      });
+
       console.log("New Notification: ",this.state);
     })
   }
@@ -57,6 +72,7 @@ class NotificationMenu extends Component{
 
     const showAdd = this.state.showAdd;
     const notification = this.state;
+    const receivedUser = this.state.receivedUser;
 
     return (
       <div className="nav-item dropdown">
@@ -83,7 +99,7 @@ class NotificationMenu extends Component{
                   <br className=""/>
                 </div> */}
               <div className="form-group">
-              <select value={this.state.receivedUser} onChange={this.handleChange} className="form-control">
+              <select value={notification.receivedUser} onChange={this.handleChange} className="form-control">
                 <option defaultValue>Alıcılar</option>
                 <option value="everyone">Herkes</option>
                 <option value="user">Üyeler</option>

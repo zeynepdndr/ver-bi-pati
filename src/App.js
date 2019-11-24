@@ -25,7 +25,10 @@ import firebaseConfig from './firebaseConfig';
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 
+const db = firebaseApp.firestore();
+const storage = firebaseApp.storage();
 
+console.log(db);
 
 /** See the signature above to find out the available providers */
 const providers = {
@@ -82,6 +85,8 @@ class App extends Component {
 /** Wrap it */
 export default withFirebaseAuth({
   providers,
+  db,
   firebaseAppAuth,
+  storage
 })(App);
 
