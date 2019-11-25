@@ -48,6 +48,19 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log("hello hello ")
+    db.collection("notifications").add({
+      hello: "world"
+    })
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
+  }
+
   clickhandler = () => {
     const {text, clickMeText} = this.props;
     this.setState({

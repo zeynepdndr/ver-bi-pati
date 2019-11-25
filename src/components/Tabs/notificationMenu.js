@@ -29,8 +29,7 @@ class NotificationMenu extends Component{
   }
 
   handleChange = e => {
-    this.setState({ [e.target.id]:e.target.value,});
-    console.log(this.state);
+    this.setState({ [e.target.id]:e.target.value,});   
   };
 
   handleSubmit=(e)=>{
@@ -55,11 +54,12 @@ class NotificationMenu extends Component{
         receivedUser:this.state.receivedUser
         },
         showAdd:false
-    },()=>{
-      db().collection("notifications").add({
-        messageData:msg,
-        sendDataTime:new Date(),
-        receivedUser:this.state.receivedUser     
+    }
+    ,()=>{
+      db.collection("notifications").add({
+        messageData:"msg",
+        sendDataTime:"jhnk",
+        receivedUser: "asd"     
       }).then(function (snapshot) {
         console.log(snapshot.val())
       });
@@ -90,7 +90,7 @@ class NotificationMenu extends Component{
         {showAdd ? (
             <form onSubmit={this.handleSubmit} id="notificationForm">
               <div className="form-group">
-                <textarea className="form-control" name="messageData" id="messageData" value={notification.messageData} type="text" placeholder="Mesajınızı yazınız" onChange={this.handleChange}></textarea>
+                <textarea className="form-control" name="messageData" id="messageData" type="text" placeholder="Mesajınızı yazınız" onChange={this.handleChange}></textarea>
               </div>
                 {/* Admin hesaplari icin: */}
                 {/* <div className="form-group">
@@ -99,7 +99,7 @@ class NotificationMenu extends Component{
                   <br className=""/>
                 </div> */}
               <div className="form-group">
-              <select value={notification.receivedUser} onChange={this.handleChange} className="form-control">
+              <select  id="recievedUser" onChange={this.handleChange} className="form-control">
                 <option defaultValue>Alıcılar</option>
                 <option value="everyone">Herkes</option>
                 <option value="user">Üyeler</option>
