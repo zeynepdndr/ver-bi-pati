@@ -15,30 +15,11 @@ import Announcements from './components/Tabs/announcements';
 import Feeding from './components/Tabs/feeding';
 import AboutUs from './components/Tabs/aboutus';
 
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
+import { withFirebase } from "./components/Firebase"
 
-import withFirebaseAuth, { WrappedComponentProps } from 'react-with-firebase-auth';
-import firebaseConfig from './firebaseConfig';
+const LayoutFire = withFirebase(Layout)
 
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const firebaseAppAuth = firebaseApp.auth();
-
-const db = firebaseApp.firestore();
-const storage = firebaseApp.storage();
-
-console.log(db);
-
-/** See the signature above to find out the available providers */
-const providers = {
-  googleProvider: new firebase.auth.GoogleAuthProvider(),
-};
-/** providers can be customised as per the Firebase documentation on auth providers **/
-providers.googleProvider.setCustomParameters({hd:"mycompany.com"});
-
-
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,16 +30,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("hello hello ")
-    db.collection("notifications").add({
-      hello: "world"
-    })
-    .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
-  });
   }
 
   clickhandler = () => {
@@ -77,7 +48,7 @@ class App extends Component {
           <Route exact path={ROUTES.LANDING} component={ LandingPage } />
           {location === "/" ? <div></div> 
           : 
-          <Layout>
+          <LayoutFire>
             <Route path={ROUTES.HOME} component={ HomePage } />
             <Route path={ROUTES.CONTACT} component={ Contact } />
             <Route path={ROUTES.ACTIVITIES} component={ Activities } />
@@ -87,19 +58,11 @@ class App extends Component {
             <Route path={ROUTES.ANNOUNCEMENTS} component={ Announcements } />
             <Route path={ROUTES.FEEDING} component={ Feeding } />
             <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
-          </Layout> }
+          </LayoutFire> }
           
       </div>
       
     );
   }
 }
-
-/** Wrap it */
-export default withFirebaseAuth({
-  providers,
-  db,
-  firebaseAppAuth,
-  storage
-})(App);
 

@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import AddItemButton from '../Shared/addItemButton';
 
-// import * as firebase from 'firebase';
-// import 'firebase/firestore';
-
-import  db  from '../../App'
 
 import './notificationMenu.css';
 
@@ -33,8 +29,22 @@ class NotificationMenu extends Component{
   };
 
   handleSubmit=(e)=>{
+    const { firebase } = this.props
+    const { messageData, recievedUser} = this.state
     e.preventDefault();
-    this.addItem(this.state.messageData);
+    const form = {
+      messageData:messageData,
+      sendDataTime:Date(),
+      receivedUser:recievedUser
+    };
+    this.setState({
+      notification:form,
+        showAdd:false
+    }
+    ,()=>{
+      console.log(form)
+      firebase.doAddDoc("notifications", form )
+    })
   }
 
   onClick(){
@@ -46,26 +56,8 @@ class NotificationMenu extends Component{
   }
 
   addItem=(msg)=> {
-    // const firestore = firebaseApp.firestore();
-    this.setState({
-      notification:{
-        messageData:msg,
-        sendDataTime:new Date(),
-        receivedUser:this.state.receivedUser
-        },
-        showAdd:false
-    }
-    ,()=>{
-      db.collection("notifications").add({
-        messageData:"msg",
-        sendDataTime:"jhnk",
-        receivedUser: "asd"     
-      }).then(function (snapshot) {
-        console.log(snapshot.val())
-      });
-
-      console.log("New Notification: ",this.state);
-    })
+    const { firebase } = this.props
+    
   }
 
   render(){

@@ -29,7 +29,7 @@ const Navbar = (props)=>(
           <NavigationItem link="/iletisim">İletişim</NavigationItem>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <NotificationMenu></NotificationMenu>
+          <NotificationMenu firebase={props.firebase}></NotificationMenu>
           <SignUp></SignUp>
         </ul>
       </div>

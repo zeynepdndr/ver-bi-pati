@@ -14,6 +14,8 @@ import $ from 'jquery';
 
 import { BrowserRouter } from 'react-router-dom'
 
+import Firebase, {FirebaseContext} from './components/Firebase'
+
 const app = (
     <>
     {/* Use it! */}
@@ -39,7 +41,9 @@ const app = (
     <p style={{ fontFamily: 'Mansalva, sans-serif' }}>This will be in Roboto!</p> */}
 
     <BrowserRouter>
+      <FirebaseContext.Provider value={new Firebase()}>
         <App/>
+      </FirebaseContext.Provider>
     </BrowserRouter>
   </>
 )

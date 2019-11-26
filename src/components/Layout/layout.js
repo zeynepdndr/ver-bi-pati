@@ -11,11 +11,13 @@ class Layout extends Component {
         text:"Zeynep",
       }
     }
+
     render() {
+      const { firebase } = this.props
       return (
         <div>
           <div>
-              <Navbar/>
+              <Navbar firebase = {firebase}/>
           </div>     
           <main className="mainClass">
               {this.props.children}
