@@ -22,7 +22,6 @@ const config = {
       }
 
       doAddDoc = (ref, doc) => {
-          console.log("Hello World")
         this.database.collection(ref).add(doc)
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -32,4 +31,13 @@ const config = {
         });
       }
         
+      removeProvider =(ref,doc) =>{
+        this.database.collection(ref).doc(doc).delete()
+        .then(function() {
+            console.log("Document removed with ID: ")
+        })
+        .catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
+      }
   }

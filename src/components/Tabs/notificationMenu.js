@@ -9,7 +9,6 @@ class NotificationMenu extends Component{
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.onClick = this.onClick.bind(this);
 
@@ -40,24 +39,22 @@ class NotificationMenu extends Component{
     this.setState({
       notification:form,
         showAdd:false
-    }
-    ,()=>{
-      console.log(form)
+    },()=>{
       firebase.doAddDoc("notifications", form )
     })
   }
+
+  // componentDidMount(){
+  //   const rootRef 
+  // }
 
   onClick(){
     this.setState({showAdd: true});
   }
 
   deleteItem=(uid)=> {
-    this.props.firebase.notification(uid);
-  }
-
-  addItem=(msg)=> {
-    const { firebase } = this.props
-    
+   const { firebase } = this.props
+   firebase.removeProvider("notifications",uid);
   }
 
   render(){
@@ -109,7 +106,7 @@ class NotificationMenu extends Component{
               </div>
               <small className="text-warning">27.11.2015, 15:00</small>
             </div>    
-            <div className="col-lg-4 col-sm-4 col-4" onClick={this.deleteItem}>
+            <div className="col-lg-4 col-sm-4 col-4" onClick={this.deleteItem("GUnQWKvrMUzmKOutg262")}>
               <span><i className="fa fa-edit fa-lg" title="DÜZENLE"></i></span>
               <span><i className="fa fa-trash fa-lg" title="SİL"></i></span>
             </div>
