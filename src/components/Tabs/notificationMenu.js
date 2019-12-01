@@ -44,9 +44,24 @@ class NotificationMenu extends Component{
     })
   }
 
-  // componentDidMount(){
-  //   const rootRef 
-  // }
+  componentDidMount(){
+    const { firebase } = this.props;
+
+    // firebase.firestore().collection("notifications").on('value', snapshot => {
+    //   const notificationObject = snapshot.val();
+    //   const notificationsList = Object.keys(notificationsList).map(key => ({
+    //     ...notificationsList[key],
+    //     uid: key,
+    //   }));
+
+    //   this.setState({
+    //     notification: notificationsList,
+    //   });
+
+    // });
+    // console.log(this.state);
+    console.log(firebase);
+  }
 
   onClick(){
     this.setState({showAdd: true});
@@ -134,7 +149,7 @@ class NotificationMenu extends Component{
             </div>    
           </div>
         </li><br></br><br></br>
-        <li className="footer bg-dark text-center">
+        <li className="footer viewAll text-center">
           <a href="/bildirimler" className="text-light">Hepsini Gör</a>
         </li>
       </div>

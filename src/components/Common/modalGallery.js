@@ -18,22 +18,26 @@ export const ModalGallery=()=>{
         <AddItemButton addActivity={handleShow}></AddItemButton> 
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Fotograf Ekle</Modal.Title>
+            <Modal.Title>Fotoğraf Ekle</Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <form>
             <div className="form-group">
               <div className="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"/>
-                <label className="custom-control-label" for="customRadioInline1">Hayvanlarimiz</label>
+                <label className="custom-control-label" for="customRadioInline1">Hayvanlarımız</label>
               </div>
               <div className="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"/>
                 <label className="custom-control-label" for="customRadioInline2">Faaliyetlerimiz</label>
               </div>
             </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Başlık</label>
+              <input class="form-control" id="exampleFormControlInput1" />
+            </div>
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">Bilgi</label>
+              <label for="exampleFormControlTextarea1">İçerik</label>
               <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div className="form-group">
@@ -41,15 +45,15 @@ export const ModalGallery=()=>{
               <CustomDatePicker></CustomDatePicker>
             </div>            
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">Fotograf Yukle</label><br/>
+              <label for="exampleFormControlTextarea1">Fotoğraf Yükle</label><br/>
               <ImageUpload></ImageUpload>
             </div>         
             <div className="form-group">
-              <label for="exampleFormControlSelect1">Bildirim Gonder</label>
+              <label for="exampleFormControlSelect1">Bildirim Gönder</label>
               <select className="form-control" id="exampleFormControlSelect1">
-                <option>Gonderme</option>
+                <option>Gönderme</option>
                 <option>Herkes</option>
-                <option>Uyeler</option>
+                <option>Üyeler</option>
               </select>
             </div>
           </form>

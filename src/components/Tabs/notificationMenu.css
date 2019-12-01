@@ -22,3 +22,8 @@
 #withoutButton{
     padding-left: 45%;
 }
+.viewAll{
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}

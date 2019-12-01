@@ -10,7 +10,7 @@
     transition: all 0.3s ease 0s;
     outline: none;
   }
-  .btn:hover {
+  #newButton:hover {
     background-color: #2f94fc !important;
     box-shadow: 0px 15px 20px #1971c4 !important;
     color: #fff !important;

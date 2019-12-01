@@ -17,10 +17,14 @@ const Navbar = (props)=>(
             <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Neler Yapıyoruz?
             </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a className="dropdown-item" href="/projeler">Projelerimiz</a>
-              <a className="dropdown-item" href="/etkinlikler">Etkinliklerimiz</a>
-            </div>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li className="nav-item dropdown">
+                <a className="dropdown-item" href="/projeler">Projelerimiz</a>
+              </li>
+              <li className="nav-item dropdown">
+                <a className="dropdown-item" href="/etkinlikler">Etkinliklerimiz</a>
+              </li>
+            </ul>
           </li>
           <NavigationItem link="/beslemetakvimi">Besleme Programı</NavigationItem>
           <NavigationItem link="/destekol">Destek Ol</NavigationItem>

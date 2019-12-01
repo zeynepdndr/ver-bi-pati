@@ -14,6 +14,7 @@ import Gallery from './components/Tabs/gallery';
 import Announcements from './components/Tabs/announcements';
 import Feeding from './components/Tabs/feeding';
 import AboutUs from './components/Tabs/aboutus';
+import Notification from './components/Tabs/notification';
 
 import { withFirebase } from "./components/Firebase"
 
@@ -58,6 +59,7 @@ export default class App extends Component {
             <Route path={ROUTES.ANNOUNCEMENTS} component={ Announcements } />
             <Route path={ROUTES.FEEDING} component={ Feeding } />
             <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
+            <Route path={ROUTES.NOTIFICATION} component={ Notification } />
           </LayoutFire> }
           
       </div>
