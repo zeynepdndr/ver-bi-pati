@@ -1,15 +1,13 @@
 .donateModal{
     float: right;
-    margin-right: -90px;
     position: relative !important
 }
 
 .aboutusModal{
-    float: left;
-    margin-right: -90px;
+    float: right;
     max-width: 100%;
     position: relative !important
 }
 .mainClass{
-    /* position: absolute !important; */
+    position: absolute !important;
 }

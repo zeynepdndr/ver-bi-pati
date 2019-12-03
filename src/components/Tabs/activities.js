@@ -64,16 +64,16 @@ class Activities extends Component{
     const notification = this.state;
 
     return (
-      <div className=" container-fluid">
+      <div className="container-fluid">
         <h2>Etkinliklerimiz</h2>
         <div className="buttonAlign">
             <ModalActivity></ModalActivity>
         </div>
         <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn collapseACT" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <div className="card">
+            <div className="card-header" id="headingOne">
+              <h5 className="mb-0">
+                <button className="btn collapseACT" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                  VER BI'PATI Tanışma Toplantısı
                 </button>
                   <span><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
@@ -81,21 +81,21 @@ class Activities extends Component{
               </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">Hey İTÜ’lü 🐶
+            <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div className="card-body">Hey İTÜ’lü 🐶
               Sen de Ver Bi’ Pati ailesiyle tanışmak ve aramıza katılmak istersen seni bu akşam 18:00’de MED A32’deki tanışma toplantımıza bekliyoruz.🐾 </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <div className="card">
+            <div className="card-header" id="headingTwo">
+              <h5 className="mb-0">
+                <button className="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Hepinizi kermesimize bekliyoruz
                 </button>
               </h5>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
+            <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div className="card-body">
               Sütişin yanında acıkanları ve canı tatlı çekenleri bekliyoruz.
               </div>
             </div>

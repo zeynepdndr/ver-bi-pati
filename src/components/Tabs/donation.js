@@ -3,10 +3,9 @@ import './donation.css';
 
 const Donation = ()=>
 <div className="container-fluid text-center">
-<img className="imageSlider" src={require('./../Res/images/donationSlider.png')} alt="" />       
-  <div className="container-fluid">
-  <h2>Desteğinle daha fazlasını mutlu edelim</h2>  
-  <div className="pfblock-line donationLine"></div> 
+  <img className="imageSlider" src={require('./../Res/images/donationSlider.png')} alt="" />       
+  {/* <div className="container-fluid"> */}
+    <h2>Desteğinle daha fazlasını mutlu edelim</h2>  
       <div className="row"> 
         <div className="col-sm-4">
           <div className="card bg-light mb-3" >
@@ -40,7 +39,7 @@ const Donation = ()=>
           </div>
         </div>
       </div>
-  </div>
+  {/* </div> */}
 </div>
 export default Donation;
 

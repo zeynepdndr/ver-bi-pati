@@ -1,0 +1,42 @@
+/* #donationModalImage{
+    max-width: 70%;
+ }
+ .modal-content {
+     border-style: none !important
+ }
+
+ #aboutusModalImage{
+    max-width: 40%;
+    margin-left: -20px;
+ }
+ .modal-dialog{
+     position: relative !important
+ } */
+
+ .solid {
+    border-style: solid;
+    margin:10px;
+    position: relative;
+    padding: 6px 20px 6px 12px;
+
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    text-decoration: none !important;
+}
+
+ul.navbar-nav a:hover {
+    color: #2f94fc !important; 
+}
+
+.solid:hover{
+    background-color:#2f94fc;
+    color:white;
+    text-decoration: none !important;
+}
+.solid span > i {
+    padding-right: 6px;
+}
+

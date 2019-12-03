@@ -3,8 +3,7 @@ import './contact.css';
 
 const Contact = ()=>
 <div className="container-fluid">  
-  <div className="container-fluid">
-      <div className="row"> 
+    <div className="row"> 
         <div className="col-sm-6">                 
           <h4>Adres</h4>
           <div className="pfblock-line"></div>
@@ -48,6 +47,5 @@ const Contact = ()=>
             </form> 
           </div>
         </div>
-      </div>
   </div>
 export default Contact;

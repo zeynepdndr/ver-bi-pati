@@ -14,7 +14,7 @@ const Announcements = ()=>
       <div className="buttonAlign">
           <ModalAnnouncement></ModalAnnouncement>
       </div>
-    </div>
+  </div>
   <div className="gallery container-fluid" id="gallery">
     <div className="justify-content-center bg"> 
      <img className="img-fluid" id="image1" src={require('./../Res/images/gallery/caki.jpg')} alt="Card image cap"/>

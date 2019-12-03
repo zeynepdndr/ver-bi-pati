@@ -11,6 +11,34 @@ export const ModalActivity=()=>{
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [activityInfo, setActivitiyInfo] = React.useState(
+      {
+        title:"osi", description: "", capacity:"", date:"", content_type:"", 
+        number_of_participants:"0", push_notification:""
+      }
+    );
+
+    const handleChange = (e) =>{
+      let form = {
+        title:"osi", description: "", capacity:"", date:"", content_type:"", 
+        number_of_participants:"0", push_notification:""
+      };
+      form.title = activityInfo.title;
+      //console.log("form:",form,"state" ,activityInfo)
+      form[e.target.id] = e.target.value
+      console.log(form);
+      setActivitiyInfo(form);
+    };
+
+    const addActivity = () =>{
+      setTimeout(() => console.log('Hello'), 1000)
+    };
+
+    const handleClick = () =>{
+      handleClose();
+      addActivity()
+    };
   
     return (
       <>
@@ -20,28 +48,28 @@ export const ModalActivity=()=>{
             <Modal.Title>Etkinlik Ekle</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Başlık</label>
-              <input class="form-control" id="exampleFormControlInput1" />
+          <form >
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Başlık</label>
+              <input className="form-control" name="title" id="title" onChange={handleChange}/>
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">İçerik</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">İçerik</label>
+              <textarea className="form-control" name="description" id="description" type="text" rows="3" onChange={handleChange}></textarea>
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Katılımcı sayısı</label>
-              <input class="form-control" id="exampleFormControlInput1"/>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Katılımcı sayısı</label>
+              <input className="form-control" name="capacity" id="capacity" onChange={handleChange}/>
             </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Tarih</label><br/>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Tarih</label><br/>
               <CustomDatePicker></CustomDatePicker>
             </div>            
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Kimler Katılabilir?</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Herkes</option>
-                <option>Üyeler</option>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">Kimler Katılabilir?</label>
+              <select className="form-control"  id="content_type">
+                <option value="everyone">Herkes</option>
+                <option value="user">Üyeler</option>
               </select>
             </div>
             <div className="form-group">
@@ -52,6 +80,7 @@ export const ModalActivity=()=>{
                 <option>Üyeler</option>
               </select>
             </div>
+            <p>{activityInfo.title}</p>
           </form>
 
           </Modal.Body>
@@ -59,7 +88,7 @@ export const ModalActivity=()=>{
             <Button variant="secondary" onClick={handleClose}>
               Kapat
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleClick}>
               Kaydet
             </Button>
           </Modal.Footer>

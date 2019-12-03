@@ -1,3 +1,6 @@
+.container-fluid {
+    position: relative !important;
+}
 .imageSlider { 
     max-width: 100%;
  }

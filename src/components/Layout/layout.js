@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from '../Navigation/Navbar/navbar';
-import CustomModal from '../Shared/customModal';
+import CustomFrame from '../Shared/customFrame';
 
 import './layout.css';
 
@@ -23,10 +23,10 @@ class Layout extends Component {
               {this.props.children}
           </main>
           <div className="donateModal">
-              <CustomModal link = "/destekol" imgPath= {require('./../Res/images/donation4.jpeg')} id="donationModalImage"></CustomModal>
+              <CustomFrame link = "/destekol" title="DESTEK OL" icon="fa fa-heartbeat"></CustomFrame>
           </div>
           <div className="aboutusModal">
-              <CustomModal link = "/nedenuyelik" imgPath={require('./../Res/images/ask.jpg')} id="aboutusModalImage"></CustomModal>
+              <CustomFrame link = "/nedenuyelik"  title="BİZ KİMİZ" icon="fa fa-question"></CustomFrame>
           </div>
         </div>
       );
