@@ -47,8 +47,6 @@ export default class App extends Component {
     return (
       <div>
           <Route exact path={ROUTES.LANDING} component={ LandingPage } />
-          {location === "/" ? <div></div> 
-          : 
           <LayoutFire>
             <Route path={ROUTES.HOME} component={ HomePage } />
             <Route path={ROUTES.CONTACT} component={ Contact } />

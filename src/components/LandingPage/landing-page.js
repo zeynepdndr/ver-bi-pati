@@ -3,15 +3,12 @@ import React, {Component} from 'react';
 import './landing-page.css';
 import  CustomButton  from './../Shared/customButton'
 
-const LandingPage = ()=>
+const LandingPage = (props)=>
 <div className="container-fluid">  
   <div className="row"> 
     <div className="col-sm-6">      
       <h4 id="intro">İstanbul Teknik Üniversitesi'nde, <br/>kampüs hayvanlarının her türlü bakımını üstlenmek üzere kurulmuş <br/>gönüllük esaslı bir öğrenci kulübüyüz.</h4>
-        <a className="btn btn-primary btn-lg" href="/anasayfa" role="button">Daha Fazlası</a> 
-        <CustomButton link="/anasayfa" label="Daha Fazlası"></CustomButton>
-        {/* Button homepage'e route etmeli */}
-
+        <CustomButton link="/anasayfa" label="Daha Fazlası" history={props.history}></CustomButton>
     </div>
     <div className="col-sm-6" id="rotation">
       <img id="jumbotronImage" src={require('./../Res/images/verBiPatiLogo.png')} alt="Ver Bi Pati"/>

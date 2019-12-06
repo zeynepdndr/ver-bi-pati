@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom'
 import './customButton.css';
 
 class CustomButton extends Component {
@@ -12,12 +13,12 @@ class CustomButton extends Component {
     }
   
     handleClick = () => {
-      const {text, clickMeText} = this.props;
-      this.setState({
-        clickMeText: this.state.buttonState ? "Goodbye" : "Welcome",
-        buttonState: !this.state.buttonState,
-      });
-      console.log("ButtonState:", this.state.buttonState);
+      if (this.props.link === undefined) {
+        //TODO: click logic this.props.onClick()
+        console.log(this.props)
+      } else {
+        this.props.history.push(this.props.link);
+      }
     }
   
     render() {
@@ -26,7 +27,8 @@ class CustomButton extends Component {
         className="btn btn-default filter-button"
         id="newButton"
         data-filter="all"
-        onClick={this.props.handleClick}>{this.props.label}
+        onClick={this.handleClick}>
+        {this.props.label}
         </button>
       );
     }
