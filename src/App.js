@@ -60,10 +60,8 @@ export default class App extends Component {
             <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
             <Route path={ROUTES.NOTIFICATION} component={ Notification } />
           </LayoutFire> 
-        </Switch>}
-          
-      </div>
-      
+        </Switch>       
+      </div>     
     );
   }
 }

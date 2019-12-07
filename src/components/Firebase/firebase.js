@@ -31,7 +31,7 @@ const config = {
         });
       }
         
-      removeProvider =(ref,doc) =>{
+      removeDoc =(ref,doc) =>{
         this.database.collection(ref).doc(doc).delete()
         .then(function() {
             console.log("Document removed with ID: ")

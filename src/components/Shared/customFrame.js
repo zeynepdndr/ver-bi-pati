@@ -6,7 +6,7 @@ const CustomFrame = (props) =>{
     return (
         <Link to={props.link} className="Button_link">
             <div className="solid">       
-                    <div ><span><i class={props.icon}></i></span>{props.title}</div>
+                    <div ><span><i className={props.icon}></i></span>{props.title}</div>
                     {/* <div className="modal-body">               
                         <img className="img-responsive" id={props.id} src={props.imgPath} alt=""/>                                     
                     </div>             */}

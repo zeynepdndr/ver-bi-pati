@@ -3,38 +3,43 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import AddItemButton from '../Shared/addItemButton';
 import CustomDatePicker from '../Shared/customDatePicker';
+import {withFirebase} from '../Firebase'
 
 
-
-export const ModalActivity=()=>{
+const ModalActivityBase=(props)=>{
     const [show, setShow] = React.useState(false);
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
     const [activityInfo, setActivitiyInfo] = React.useState(
       {
-        title:"osi", description: "", capacity:"", date:"", content_type:"", 
-        number_of_participants:"0", push_notification:""
+        title:"", description: "", capacity:"", date:"", content_type:"", 
+        number_of_participants:"", push_notification:""
       }
     );
 
     const handleChange = (e) =>{
       let form = {
-        title:"osi", description: "", capacity:"", date:"", content_type:"", 
-        number_of_participants:"0", push_notification:""
+        title:"", description: "", capacity:"", date:"", content_type:"", 
+        number_of_participants:"", push_notification:""
       };
-      form.title = activityInfo.title;
-      //console.log("form:",form,"state" ,activityInfo)
+      form = activityInfo;
       form[e.target.id] = e.target.value
-      console.log(form);
       setActivitiyInfo(form);
     };
 
     const addActivity = () =>{
-      setTimeout(() => console.log('Hello'), 1000)
+      const { firebase } = props
+      firebase.doAddDoc('activity', activityInfo)
     };
 
+    const getDate = (date) =>{
+      setActivitiyInfo({
+        ...activityInfo,
+        date:date});
+    };
     const handleClick = () =>{
       handleClose();
       addActivity()
@@ -48,7 +53,7 @@ export const ModalActivity=()=>{
             <Modal.Title>Etkinlik Ekle</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <form >
+          <form onSubmit={handleClick} id="activityForm">
             <div className="form-group">
               <label htmlFor="exampleFormControlInput1">Başlık</label>
               <input className="form-control" name="title" id="title" onChange={handleChange}/>
@@ -63,36 +68,38 @@ export const ModalActivity=()=>{
             </div>
             <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">Tarih</label><br/>
-              <CustomDatePicker></CustomDatePicker>
+              <CustomDatePicker newDate={getDate}></CustomDatePicker>
             </div>            
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Kimler Katılabilir?</label>
-              <select className="form-control"  id="content_type">
+              <select className="form-control" id="content_type" onChange={handleChange}>
+                <option defaultValue >Seçiniz</option>
                 <option value="everyone">Herkes</option>
                 <option value="user">Üyeler</option>
               </select>
             </div>
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Bildirim Gönder</label>
-              <select className="form-control" id="exampleFormControlSelect1">
-                <option>Gönderme</option>
-                <option>Herkes</option>
-                <option>Üyeler</option>
+              <select className="form-control" id="push_notification" onChange={handleChange}>
+                <option defaultValue >Gönderme</option>
+                <option value="everyone">Herkes</option>
+                <option value="user">Üyeler</option>
               </select>
             </div>
-            <p>{activityInfo.title}</p>
-          </form>
-
-          </Modal.Body>
-          <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Kapat
             </Button>
             <Button variant="primary" onClick={handleClick}>
               Kaydet
             </Button>
+          </form>
+          </Modal.Body>
+          <Modal.Footer>
           </Modal.Footer>
         </Modal>
         </>
     );
 }
+
+const ModalActivity = withFirebase(ModalActivityBase);
+export default ModalActivity;

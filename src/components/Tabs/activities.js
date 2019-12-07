@@ -1,36 +1,27 @@
 import React, {Component} from 'react';
 import './activities.css';
 import AddItemButton from '../Shared/addItemButton';
-import { ModalActivity } from '../Common/modalActivity';
+import ModalActivity from '../Common/modalActivity';
+import {withFirebase} from '../Firebase'
 
 
-class Activities extends Component{
+class ActivitiesBase extends Component{
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.onClick = this.onClick.bind(this);
 
     this.state = {
       showEdit: false,
       showAdd:false,
-      activity: {
-        messageData:"",
-        sendDataTime:"",
-        receivedUser:"",
-
-        contentType:"" ,  //allUsers || allAuthenticatedUsers
-        activityTitle:"",
-        activityText:""
-
-      }
+      showDelete:false,
+      allActivities: [],
     }
   }
 
   handleChange = e => {
     this.setState({ [e.target.id]:e.target.value,});
-    console.log(this.state);
   };
 
   handleSubmit=(e)=>{
@@ -43,25 +34,31 @@ class Activities extends Component{
   }
 
   deleteItem=(uid)=> {
-    this.props.firebase.notification(uid);
-  }
+    const { firebase } = this.props;
+    firebase.removeDoc("activity",'nBLcuppq6p2qzW0f5Enc');
+   }
 
-  addItem=(msg)=> {
-    this.setState({
-      notification:{
-        messageData:msg,
-        sendDataTime:new Date(),
-        receivedUser:this.state.receivedUser
-        },
-        showAdd:false
-    },()=>{
-      console.log("New Notification: ",this.state);
-    })
-  }
+   componentDidMount(){
+    const { firebase } = this.props;
+    var activityList =[];
+   
+    firebase.database.collection("activity").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {        
+          activityList.push(doc.data());
+        });
+      });
+      this.setState(prevState => ({
+        allActivities: [...prevState.allActivities, activityList]
+      })
+    )
+    console.log(activityList)
+    console.log(this.state);
+   }
 
   render(){
     const showAdd = this.state.showAdd;
     const notification = this.state;
+    var markers  = this.state.mapdata;  
 
     return (
       <div className="container-fluid">
@@ -76,7 +73,7 @@ class Activities extends Component{
                 <button className="btn collapseACT" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                  VER BI'PATI Tanışma Toplantısı
                 </button>
-                  <span><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
+                  <span onClick={this.deleteItem("nBLcuppq6p2qzW0f5Enc")}><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
                   <span><i className="fa fa-edit fa-lg" id="editAlign"title="DÜZENLE"></i></span>
               </h5>
             </div>
@@ -106,4 +103,5 @@ class Activities extends Component{
   }
 }
 
+const Activities = withFirebase(ActivitiesBase)
 export default Activities;

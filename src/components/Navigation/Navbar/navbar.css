@@ -66,3 +66,6 @@ ul.navbar-nav>li>ul{
 .dropdown:hover > .dropdown-toggle:active {
     pointer-events: none;
 }
+.navbar-expand-lg  {
+    margin: 40px 0px 40px 0px !important;
+}

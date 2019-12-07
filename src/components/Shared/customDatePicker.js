@@ -12,8 +12,9 @@ class CustomDatePicker extends Component {
  
   handleChange = date => {
     this.setState({
-      startDate: date
+      startDate: date,
     });
+    this.props.newDate(date);
   };
  
   render() {

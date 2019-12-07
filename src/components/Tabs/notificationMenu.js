@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import AddItemButton from '../Shared/addItemButton';
-
-
 import './notificationMenu.css';
 
 
@@ -60,7 +58,6 @@ class NotificationMenu extends Component{
 
     // });
     // console.log(this.state);
-    console.log(firebase);
   }
 
   onClick(){
@@ -69,7 +66,7 @@ class NotificationMenu extends Component{
 
   deleteItem=(uid)=> {
    const { firebase } = this.props
-   firebase.removeProvider("notifications",uid);
+   firebase.removeDoc("notifications",uid);
   }
 
   render(){
