@@ -1,13 +1,24 @@
 .donateModal{
     float: right;
-    position: relative !important
+    width: 56%;
+    overflow-y: visible;
 }
-
 .aboutusModal{
     float: right;
-    max-width: 100%;
-    position: relative !important
+    width: 56%;
+    overflow-y: visible;
 }
 .mainClass{
-    position: absolute !important;
+    position: relative !important;
+    margin: 0;
+    padding: 0;
+}
+.rightmostframe{
+}
+
+.rightmostframeWrapper{
+    position: fixed;
+    right: 7px;
+    max-width: 47%;
+    
 }

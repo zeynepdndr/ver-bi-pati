@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import * as ROUTES from './constants/routes';
 
@@ -45,7 +45,8 @@ export default class App extends Component {
   render() {
     const location = window.location.pathname;
     return (
-      <div>
+      <div>  
+        <Switch> 
           <Route exact path={ROUTES.LANDING} component={ LandingPage } />
           <LayoutFire>
             <Route path={ROUTES.HOME} component={ HomePage } />
@@ -58,7 +59,8 @@ export default class App extends Component {
             <Route path={ROUTES.FEEDING} component={ Feeding } />
             <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
             <Route path={ROUTES.NOTIFICATION} component={ Notification } />
-          </LayoutFire> }
+          </LayoutFire> 
+        </Switch>}
           
       </div>
       

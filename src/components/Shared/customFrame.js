@@ -4,7 +4,7 @@ import './customFrame.css';
 
 const CustomFrame = (props) =>{
     return (
-        <Link to={props.link} className="link">
+        <Link to={props.link} className="Button_link">
             <div className="solid">       
                     <div ><span><i class={props.icon}></i></span>{props.title}</div>
                     {/* <div className="modal-body">               

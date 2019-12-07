@@ -60,6 +60,8 @@ ul.navbar-nav>li>ul{
     padding: 15px; padding-bottom: 10px;
     width: 300px !important;
     right:0!important;
+    z-index: 1000;
+    position: absolute !important;
 }
 .dropdown:hover > .dropdown-toggle:active {
     pointer-events: none;

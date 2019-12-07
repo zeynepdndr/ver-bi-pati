@@ -39,4 +39,6 @@ ul.navbar-nav a:hover {
 .solid span > i {
     padding-right: 6px;
 }
-
+.Button_link:link {
+    text-decoration: none;
+  }

@@ -22,13 +22,17 @@ class Layout extends Component {
           <main className="mainClass">
               {this.props.children}
           </main>
-          <div className="donateModal">
-              <CustomFrame link = "/destekol" title="DESTEK OL" icon="fa fa-heartbeat"></CustomFrame>
+          <div className="rightmostframe">
+            <div className="rightmostframeWrapper">      
+                  <div className="donateModal">
+                      <CustomFrame link = "/destekol" title="DESTEK OL" icon="fa fa-heartbeat"></CustomFrame>
+                  </div>        
+                  <div className="aboutusModal">
+                      <CustomFrame link = "/nedenuyelik"  title="BİZ KİMİZ" icon="fa fa-question"></CustomFrame>
+                  </div>
+            </div>
           </div>
-          <div className="aboutusModal">
-              <CustomFrame link = "/nedenuyelik"  title="BİZ KİMİZ" icon="fa fa-question"></CustomFrame>
-          </div>
-        </div>
+       </div>
       );
     }
   }
