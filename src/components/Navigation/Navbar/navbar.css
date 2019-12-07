@@ -34,19 +34,22 @@
 ul.navbar-nav a:hover {
     color: #2f94fc !important; 
 }
+element.style {
+    /* margin: 40px; */
+}
 
 ul.navbar-nav>li>ul>li>a {
-        color: #212529; 
-        display: block;
-        padding: 8px 25px;
-        line-height: 1em;
-        position: relative;
-        -webkit-transition: all 0.5s ease-in-out;
-        -moz-transition: all 0.5s ease-in-out;
-        -ms-transition: all 0.5s ease-in-out;
-        -o-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-        font-weight: 400;
+    color: #212529; 
+    display: block;
+    padding: 8px 25px;
+    line-height: 1em;
+    position: relative;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    font-weight: 400;
 }
 ul.navbar-nav>li>ul>li:hover>a  {
     background: #2f94fc;
@@ -65,4 +68,7 @@ ul.navbar-nav>li>ul{
 }
 .dropdown:hover > .dropdown-toggle:active {
     pointer-events: none;
+}
+.navbar-expand-lg{
+    margin: 40px 0px 40px 0px;
 }
