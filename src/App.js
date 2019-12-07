@@ -21,29 +21,7 @@ import { withFirebase } from "./components/Firebase"
 const LayoutFire = withFirebase(Layout)
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text:"Zeynep",
-      clickMeText:"Welcome",
-      buttonState: true,
-    }
-  }
-
-  componentDidMount() {
-  }
-
-  clickhandler = () => {
-    const {text, clickMeText} = this.props;
-    this.setState({
-      clickMeText: this.state.buttonState ? "Goodbye" : "Welcome",
-      buttonState: !this.state.buttonState,
-    });
-    console.log("ButtonState:", this.state.buttonState);
-  }
-
   render() {
-    const location = window.location.pathname;
     return (
       <div>  
         <Switch> 
@@ -63,8 +41,6 @@ export default class App extends Component {
         </Switch>}
           
       </div>
-      
     );
   }
 }
-
