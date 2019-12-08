@@ -1,39 +1,29 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import "./customButton.css";
 
-class CustomButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: "Zeynep",
-      clickMeText: "Welcome",
-      buttonState: true
-    };
-  }
-
-  handleClick = () => {
-    const { onClick } = this.props;
-    if (this.props.link === undefined) {
+const CustomButton = props => {
+  let history = useHistory();
+  const handleClick = () => {
+    const { onClick } = props;
+    if (props.link === undefined) {
       if (onClick !== undefined) {
         onClick();
       }
     } else {
-      this.props.history.push(this.props.link);
+      history.push(props.link);
     }
   };
 
-  render() {
-    return (
-      <button
-        className="btn btn-default filter-button"
-        id="newButton"
-        data-filter="all"
-        onClick={this.handleClick}
-      >
-        {this.props.label}
-      </button>
-    );
-  }
-}
+  return (
+    <button
+      className="btn btn-default filter-button"
+      id="newButton"
+      data-filter="all"
+      onClick={handleClick}
+    >
+      {props.label}
+    </button>
+  );
+};
 export default CustomButton;
