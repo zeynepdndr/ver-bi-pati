@@ -23,26 +23,6 @@ const LayoutFire = withFirebase(Layout);
 export default class App extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div>  
-        <Switch> 
-          <Route exact path={ROUTES.LANDING} component={ LandingPage } />
-          <LayoutFire>
-            <Route path={ROUTES.HOME} component={ HomePage } />
-            <Route path={ROUTES.CONTACT} component={ Contact } />
-            <Route path={ROUTES.ACTIVITIES} component={ Activities } />
-            <Route path={ROUTES.PROJECTS} component={ Projects} />
-            <Route path={ROUTES.DONATION} component={ Donation } />
-            <Route path={ROUTES.GALLERY} component={ Gallery } />
-            <Route path={ROUTES.ANNOUNCEMENTS} component={ Announcements } />
-            <Route path={ROUTES.FEEDING} component={ Feeding } />
-            <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
-            <Route path={ROUTES.NOTIFICATION} component={ Notification } />
-          </LayoutFire> 
-<<<<<<< HEAD
-        </Switch>}
-          
-=======
       <div>
         <Switch>
           <Route exact path={ROUTES.LANDING} render={() => <LandingPage />} />
@@ -76,12 +56,7 @@ export default class App extends Component {
           path={ROUTES.NOTIFICATION}
           render={props => <Notification {...props} />}
         />
->>>>>>> user_context
-      </div>
-=======
-        </Switch>       
-      </div>     
->>>>>>> CRUD_hakki
+      </div>  
     );
   }
 }
