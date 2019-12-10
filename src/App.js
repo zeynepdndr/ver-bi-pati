@@ -38,9 +38,14 @@ export default class App extends Component {
             <Route path={ROUTES.ABOUTUS} component={ AboutUs } />
             <Route path={ROUTES.NOTIFICATION} component={ Notification } />
           </LayoutFire> 
+<<<<<<< HEAD
         </Switch>}
           
       </div>
+=======
+        </Switch>       
+      </div>     
+>>>>>>> CRUD_hakki
     );
   }
 }
