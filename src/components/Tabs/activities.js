@@ -38,10 +38,10 @@ class ActivitiesBase extends Component{
     firebase.removeDoc("activity",uid);
    }
 
-   mySpan=(type)=> {
-    <span><i className="fa fa-edit fa-lg" id="editAlign" title={type}></i></span>
-    return <li>{props.message}</li>;
-   }
+  //  mySpan=(type)=> {
+  //   <span><i className="fa fa-edit fa-lg" id="editAlign" title={type}></i></span>
+  //   return <li>{props.message}</li>;
+  //  }
 
    componentDidMount(){
     const { firebase } = this.props;

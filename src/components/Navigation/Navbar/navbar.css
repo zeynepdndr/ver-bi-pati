@@ -66,15 +66,7 @@ ul.navbar-nav>li>ul{
 .dropdown:hover > .dropdown-toggle:active {
     pointer-events: none;
 }
-<<<<<<< HEAD
-.navbar-expand-lg{
-<<<<<<< HEAD
-    margin: 40px 0px 40px 0px;
-=======
+
 .navbar-expand-lg  {
     margin: 40px 0px 40px 0px !important;
->>>>>>> CRUD_hakki
-=======
-    margin: 40px 0px 40px 0px !important;
->>>>>>> user_context
 }

@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import React, {Component} from 'react';
 import AddItemButton from '../Shared/addItemButton';
 import './notificationMenu.css';
 
 
 class NotificationMenu extends Component{
-=======
-import React, { Component } from "react";
-import AddItemButton from "../Shared/addItemButton";
-
-import "./notificationMenu.css";
-
-class NotificationMenu extends Component {
->>>>>>> user_context
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -76,20 +67,10 @@ class NotificationMenu extends Component {
     this.setState({ showAdd: true });
   }
 
-<<<<<<< HEAD
   deleteItem=(uid)=> {
    const { firebase } = this.props
    firebase.removeDoc("notifications",uid);
   }
-
-  render(){
-=======
-  deleteItem = uid => {
-    //  const { firebase } = this.props
-    //  firebase.removeProvider("notifications",uid);
-  };
->>>>>>> user_context
-
   render() {
     const showAdd = this.state.showAdd;
     const notification = this.state;
@@ -165,7 +146,6 @@ class NotificationMenu extends Component {
               </div>
               <div
                 className="col-lg-4 col-sm-4 col-4"
-                onClick={this.deleteItem("GUnQWKvrMUzmKOutg262")}
               >
                 <span>
                   <i className="fa fa-edit fa-lg" title="DÜZENLE"></i>
