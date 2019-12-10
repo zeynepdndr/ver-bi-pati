@@ -34,9 +34,6 @@
 ul.navbar-nav a:hover {
     color: #2f94fc !important; 
 }
-element.style {
-    /* margin: 40px; */
-}
 
 ul.navbar-nav>li>ul>li>a {
     color: #212529; 
@@ -71,9 +68,13 @@ ul.navbar-nav>li>ul{
 }
 <<<<<<< HEAD
 .navbar-expand-lg{
+<<<<<<< HEAD
     margin: 40px 0px 40px 0px;
 =======
 .navbar-expand-lg  {
     margin: 40px 0px 40px 0px !important;
 >>>>>>> CRUD_hakki
+=======
+    margin: 40px 0px 40px 0px !important;
+>>>>>>> user_context
 }
