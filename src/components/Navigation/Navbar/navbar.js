@@ -81,12 +81,7 @@ const Navbar = () => {
             <NotificationMenu></NotificationMenu>
             {user.type === "guest" && <SignUp></SignUp>}
             {user.type !== "guest" && (
-              <ButtonDropdown
-                isOpen={dropdownOpen}
-                onMouseEnter={toggle}
-                onMouseLeave={toggle}
-                toggle={toggle}
-              >
+              <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle color="black">
                   <div style={{ color: "white" }}>{user.data.name}</div>
                 </DropdownToggle>
