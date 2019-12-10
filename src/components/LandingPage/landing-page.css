@@ -5,7 +5,6 @@
 #intro{
     font-family:'Mansalva'!important;
     text-align: center !important;
-    margin-top: 55%;
     line-height: 1.8;
 }
 h4 > #newButton{
@@ -18,3 +17,23 @@ h4 > #newButton{
     transform: rotate(-13deg);
     padding-top: 35px;
 }
+#leftSide{
+    text-align: center;
+    margin: auto;
+}
+
+#introButton{
+        color: #fff;
+        background-color: #ffc107;
+        font-family: "Circular Std","Lato",sans-serif;
+        font-weight: bold;
+        font-size: 1.4em;
+        padding: 12px 20px !important;
+        border-radius: 4px;
+        transition: .2s ease-in-out all;
+        -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
+        display: inline-block;
+        margin: 5px auto;
+    }
