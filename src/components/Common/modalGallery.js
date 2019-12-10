@@ -68,8 +68,8 @@ const ModalGalleryBase=(props)=>{
               <CustomDatePicker newDate={getDate}></CustomDatePicker>
             </div>            
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">Fotoğraf Yükle</label><br/>
-              <ImageUpload></ImageUpload>
+              <label htmlFor="exampleFormControlTextarea1">Fotoğraf Yükle</label><br/>
+              <ImageUpload firebase={props.firebase}></ImageUpload>
             </div>         
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Bildirim Gönder</label>

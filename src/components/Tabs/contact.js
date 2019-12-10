@@ -67,9 +67,6 @@ class Contact extends Component {
               <div className="col">                 
                 <a target="_blank" href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/instagramLogo.png')} alt="Ver Bi Pati"/></a>    
               </div>
-              <br/>
-              <br/>
-              <br/>
             </div>
             <p className="mail"><span><img className="mailLogo" src={require('./../Res/images/mailLogo.png')} alt="Ver Bi Pati"/></span>itulupatiler@gmail.com</p>
           </div>     
@@ -82,13 +79,15 @@ class Contact extends Component {
                 <div className="col">
                   <input type="text" name="user_name" className="form-control" placeholder="Ad-Soyad" onChange={this.handleChange.bind(this, 'user_name')}/>
                 </div>
+                <br/>
                 <div className="col">
                   <input type="email" name="user_email" className="form-control" placeholder="E-mail" onChange={this.handleChange.bind(this, 'user_email')}/>
-                </div>      
+                </div>   
+                <br/>   
                 <div className="form-group col">
                   <textarea className="form-control"  name="message" placeholder="Mesajınız" id="exampleFormControlTextarea1" rows="6" onChange={this.handleChange.bind(this, 'message')}></textarea>
                 </div>    
-                <input value="Send" type="submit"/>              
+                <input id="contactForm" value="Gönder" type="submit"/>              
             </form> 
           </div>
         </div>

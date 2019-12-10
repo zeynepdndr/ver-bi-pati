@@ -35,7 +35,7 @@ class ActivitiesBase extends Component{
 
   deleteItem=(uid)=> {
     const { firebase } = this.props;
-    firebase.removeDoc("activity",'nBLcuppq6p2qzW0f5Enc');
+    firebase.removeDoc("activity",uid);
    }
 
    componentDidMount(){
@@ -45,21 +45,38 @@ class ActivitiesBase extends Component{
     firebase.database.collection("activity").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {        
           activityList.push(doc.data());
+          console.log(doc);
         });
-      });
-      this.setState(prevState => ({
-        allActivities: [...prevState.allActivities, activityList]
-      })
-    )
-    console.log(activityList)
-    console.log(this.state);
+      }).then(() => {
+        const renderItems  = activityList.map(item => (
+        <div className="card" key={item}>
+          <div className="card-header" id="headingOne" >
+            <h5 className="mb-0">
+              <button className="btn collapseACT" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              {item.title}
+              </button>
+                <span  onClick={console.log('span')}><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
+                <span><i className="fa fa-edit fa-lg" id="editAlign"title="DÜZENLE"></i></span>
+            </h5>
+          </div>
+
+          <div id="collapseOne" className="collapse show" aria-labelledby="headingOne"data-parent="#accordion">
+            <div className="card-body"> 
+             {item.definition}
+            </div>
+          </div>
+        </div>
+        ))
+        this.setState({
+          allActivities: renderItems
+        })
+      }
+
+      )
    }
 
   render(){
-    const showAdd = this.state.showAdd;
-    const notification = this.state;
-    var markers  = this.state.mapdata;  
-
+    const showAdd = this.state.showAdd;  
     return (
       <div className="container-fluid">
         <h2>Etkinliklerimiz</h2>
@@ -67,37 +84,8 @@ class ActivitiesBase extends Component{
             <ModalActivity></ModalActivity>
         </div>
         <div id="accordion">
-          <div className="card">
-            <div className="card-header" id="headingOne">
-              <h5 className="mb-0">
-                <button className="btn collapseACT" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                 VER BI'PATI Tanışma Toplantısı
-                </button>
-                  <span onClick={this.deleteItem("nBLcuppq6p2qzW0f5Enc")}><i className="fa fa-trash fa-lg" id= "trashAlign" title="SİL"></i></span>
-                  <span><i className="fa fa-edit fa-lg" id="editAlign"title="DÜZENLE"></i></span>
-              </h5>
-            </div>
-
-            <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-              <div className="card-body">Hey İTÜ’lü 🐶
-              Sen de Ver Bi’ Pati ailesiyle tanışmak ve aramıza katılmak istersen seni bu akşam 18:00’de MED A32’deki tanışma toplantımıza bekliyoruz.🐾 </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header" id="headingTwo">
-              <h5 className="mb-0">
-                <button className="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Hepinizi kermesimize bekliyoruz
-                </button>
-              </h5>
-            </div>
-            <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div className="card-body">
-              Sütişin yanında acıkanları ve canı tatlı çekenleri bekliyoruz.
-              </div>
-            </div>
-          </div>
-        </div>    
+          {this.state.allActivities}
+        </div>
       </div>
     )    
   }

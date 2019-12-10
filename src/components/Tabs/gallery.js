@@ -18,7 +18,6 @@ const GalleryBase = (props)=>{
           gallery.push(doc.data())
         });
       });
-      console.log(gallery);
   }, [])
 
   return(

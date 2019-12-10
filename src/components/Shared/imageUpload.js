@@ -1,12 +1,5 @@
 import React, { Component } from "react";
 
-import { storage } from "../../App"
-
-import firebase from '@firebase/app';
-import Firebase from 'firebase'
-
-
-
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
@@ -25,34 +18,34 @@ class ImageUpload extends Component {
   };
 
   handleUpload = () => {
+    const { firebase } = this.props;
     const { image } = this.state;
-    const uploadTask = this.storage.ref(`images/${image.name}`).put(image);
-    console.log(image);
-    uploadTask.on(
-      "state_changed",
-      snapshot => {
-        // progress function ...
-        // const progress = Math.round(
-        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        // );
-        // this.setState({ progress });
-      },
-      error => {
-        // Error function ...
-        console.log(error);
-      },
-      () => {
-        // complete function ...
-        this.state.storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then(url => {
-            this.setState({ url });
-            console.log(this.state);
-          });
+
+    // IMAGE KONROLU => TAMAMLANACAK
+    if(image.name === 'bizkimiz.txt') {
+      console.error(`not an image, the image file is a ${typeof(image.name)}`)
+    }
+
+    const uploadRef=firebase.storage.ref(`images/${image.name}`);
+
+    const uploadTask= uploadRef.put(image);
+    
+
+    uploadTask.on('stage_changed',
+      (snapshot)=>{
+        console.log("snapshot",snapshot);
+      },(err)=>{
+        console.log("err",err);        
+      },()=>{
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        uploadRef.child('images').getDownloadURL()
+         .then(fireBaseUrl => {
+          //  setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl
+          console.log("URL",fireBaseUrl);
+          })
       }
-    );
+    )
   };
   render() {
     return (

@@ -1,6 +1,7 @@
 import app from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
+import "firebase/storage";
 
 const config = {
     apiKey: "AIzaSyBNE-ikrMuBjUZIFyR3pBCamXUS9DNH4Sc",
@@ -19,6 +20,7 @@ const config = {
 
           this.auth = app.auth()
           this.database = app.firestore()
+          this.storage =app.storage()
       }
 
       doAddDoc = (ref, doc) => {
@@ -33,8 +35,8 @@ const config = {
         
       removeDoc =(ref,doc) =>{
         this.database.collection(ref).doc(doc).delete()
-        .then(function() {
-            console.log("Document removed with ID: ")
+        .then(function(snapshot) {
+            console.log("Document removed with ID: ", snapshot.id)
         })
         .catch(function(error) {
             console.error("Error removing document: ", error);
