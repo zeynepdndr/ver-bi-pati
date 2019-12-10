@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import app from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-=======
 import app from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
 import "firebase/storage";
->>>>>>> CRUD_hakki
 
 const config = {
   apiKey: "AIzaSyBNE-ikrMuBjUZIFyR3pBCamXUS9DNH4Sc",
@@ -24,16 +18,10 @@ export default class Firebase {
   constructor() {
     app.initializeApp(config);
 
-<<<<<<< HEAD
-    this.auth = app.auth();
-    this.database = app.firestore();
-  }
-=======
           this.auth = app.auth()
           this.database = app.firestore()
           this.storage =app.storage()
       }
->>>>>>> CRUD_hakki
 
   doSignInAsAdmin = (email, password, callback) => {
     this.auth
@@ -44,7 +32,6 @@ export default class Firebase {
           authType: "admin",
           message: "Logged in as admin"
         });
-<<<<<<< HEAD
       })
       .catch(function(error) {
         var errorCode = error.code;
@@ -69,17 +56,6 @@ export default class Firebase {
             message: "Logged as user",
             userData: doc.data()
           });
-=======
-      }
-        
-      removeDoc =(ref,doc) =>{
-        this.database.collection(ref).doc(doc).delete()
-        .then(function(snapshot) {
-            console.log("Document removed with ID: ", snapshot.id)
-        })
-        .catch(function(error) {
-            console.error("Error removing document: ", error);
->>>>>>> CRUD_hakki
         });
       });
   };
