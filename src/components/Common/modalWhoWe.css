@@ -1,0 +1,18 @@
+.think-in-react {
+    padding: 70px 40px;
+    background: #F8FAFF;
+    border-top: 3px solid #3166DE;
+    border-bottom: 3px solid #3166DE;
+    display: flex;
+    align-items: flex-start;
+}
+.think-in-react .notch {
+    width: 25px;
+    height: 25px;
+    box-shadow: -3px -3px #3166DE;
+    transform: translate(-50%,0) rotate(45deg);
+    background: #fff;
+    position: absolute;
+    bottom: 57px;
+    left: 50%;
+}
