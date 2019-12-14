@@ -8,17 +8,17 @@ import './modalWhoWe.css';
 const ModalWhoWeBase=(props)=>{
   
     return (
-        <Modal  show={props.showInfo} onHide={props.closeInfo} animation={false}>
+        <Modal id="modalWe" show={props.showInfo} onHide={props.closeInfo} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Etkinlik Eklhe</Modal.Title>
+            <Modal.Title><h3>BİZ KİMİZ?</h3></Modal.Title>
           </Modal.Header>
           <div className="think-in-react">
-            <img src="https://daveceddia.com/images/pure-react-plant-sm.png" srcset="https://daveceddia.com/images/pure-react-plant-sm@2x.png 2x" alt="Pure React plant"/>
+            <img src={require('./../Res/images/biz.jpg')} id="wearecute" alt="Pure React plant"/>
             <div className="think-in-react--cta">
           <Modal.Body>
 
             <div className="modal-body">
-              <p>Biz kimiz?
+              <p>
               Ver Bi Pati kampüs hayvanlarının maddi ve manevi ihtiyaçlarını karşılayan, hayvan haklarıyla 
               ilgilenen, insanlar ve hayvanlar arasındaki ilişkiyi guclendirmeye yönelik çeşitli etkinlik 
               ve çalışmalar yapan bir kulüp olarak gönüllülük kulübünün altında aktif olarak çalışmalarına 

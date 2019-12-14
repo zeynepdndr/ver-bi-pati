@@ -1,9 +1,8 @@
 .think-in-react {
-    padding: 70px 40px;
+    padding: 28px 28px;
     background: #F8FAFF;
     border-top: 3px solid #3166DE;
     border-bottom: 3px solid #3166DE;
-    display: flex;
     align-items: flex-start;
 }
 .think-in-react .notch {
@@ -15,4 +14,10 @@
     position: absolute;
     bottom: 57px;
     left: 50%;
+}
+#wearecute{
+    max-width: 100%;
+}
+#modalWe{
+    max-width: 60% !important;
 }
