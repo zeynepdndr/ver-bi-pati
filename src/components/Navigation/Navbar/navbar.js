@@ -11,6 +11,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import { Popover } from "antd";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
@@ -20,13 +21,13 @@ const Navbar = () => {
   return (
     <div id="menu">
       <nav className="navbar navbar-expand-lg" style={{ margin: "40px" }}>
-        <a className="navbar-brand" href="/anasayfa">
+        <Link className="navbar-brand" to="/anasayfa">
           <img
             className="logo"
             src={require("./../../Res/images/verBiPatiLogo.png")}
             alt="Ver Bi Pati"
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -88,6 +89,7 @@ const Navbar = () => {
                 <DropdownMenu>
                   <DropdownItem
                     onClick={() => {
+                      localStorage.removeItem("userDataInLocal");
                       setUser({ type: "guest", data: {} });
                     }}
                   >

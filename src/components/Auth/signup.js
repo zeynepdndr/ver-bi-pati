@@ -37,6 +37,13 @@ const SignUpBase = props => {
         setPasswordError(true);
       }
     } else if (response.loginStatus) {
+      localStorage.setItem(
+        "userDataInLocal",
+        JSON.stringify({
+          type: response.authType,
+          data: response.userData
+        })
+      );
       setUser({ type: response.authType, data: response.userData });
     }
   };
