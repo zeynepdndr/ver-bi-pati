@@ -124,5 +124,22 @@ ul.navbar-nav>li>ul{
 
 .navbar-user-notif-group>div {
     margin:0px 0px
+}
 
+.loggedin-user-button {
+    color:white;
+    transition: color 0.3s ease;
+}
+
+.loggedin-user-button:hover {
+    color:#007bff
+}
+
+.fa-bell {
+    color:white;
+    transition: all 0.3s ease;
+}
+
+.fa-bell:hover {
+    color:#007bff
 }

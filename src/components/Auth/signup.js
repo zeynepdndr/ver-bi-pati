@@ -2,19 +2,31 @@ import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { UserContext } from "./UserContext";
 import { withFirebase } from "../Firebase";
+import { notification } from "antd";
 
 import "./signup.css";
 
-const SignUpBase = props => {
-  const [userInfo, setUserInfo] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    department: "",
-    phone: ""
-  });
+const initialState = {
+  name: "",
+  surname: "",
+  email: "",
+  department: "",
+  phone: "",
+  university_year: ""
+};
 
-  const [view, setView] = useState(0);
+const openNotification = (title, message, type) => {
+  notification[type]({
+    message: title,
+    description: message,
+    placement: "bottomLeft"
+  });
+};
+
+const SignUpBase = props => {
+  const [userInfo, setUserInfo] = useState(initialState);
+
+  const [view, setView] = useState(1);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [user, setUser] = useContext(UserContext);
@@ -24,9 +36,15 @@ const SignUpBase = props => {
   };
 
   const handleSignUp = e => {
-    const { firebase } = props;
     e.preventDefault();
-    firebase.doAddDoc("/users/", this.state);
+    const { firebase } = props;
+    firebase.doAddDoc("/users/", userInfo);
+    openNotification(
+      "Kayıt Başarılı",
+      "Kullanıcı kaydı başarıyla oluşturuldu!",
+      "success"
+    );
+    setUserInfo(initialState);
   };
 
   const getAuthStatus = response => {
@@ -61,18 +79,8 @@ const SignUpBase = props => {
   };
   return (
     <div>
-      <li className="nav-item dropdown">
-        <a
-          className="nav-link dropdown"
-          href="#"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <i className="fa fa-fw fa-user fa-lg"></i>
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <li>
+        <div>
           {view === 0 && (
             <form onSubmit={handleSignUp} style={{ width: "300px" }}>
               <div
@@ -90,6 +98,7 @@ const SignUpBase = props => {
                     id="name"
                     type="text"
                     placeholder="İsim"
+                    value={userInfo.name}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />
@@ -99,6 +108,7 @@ const SignUpBase = props => {
                     id="surname"
                     type="text"
                     placeholder="Soyisim"
+                    value={userInfo.surname}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />
@@ -108,6 +118,7 @@ const SignUpBase = props => {
                     id="phone"
                     type="text"
                     placeholder="Cep no"
+                    value={userInfo.phone}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />
@@ -117,6 +128,7 @@ const SignUpBase = props => {
                     id="department"
                     type="text"
                     placeholder="Bölüm"
+                    value={userInfo.department}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />
@@ -127,6 +139,7 @@ const SignUpBase = props => {
                     id="university_year"
                     type="text"
                     placeholder="Sınıf"
+                    value={userInfo.university_year}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />
@@ -136,6 +149,7 @@ const SignUpBase = props => {
                     id="email"
                     type="email"
                     placeholder="Email"
+                    value={userInfo.email}
                     onChange={handleChange}
                     style={{ margin: "20px 0px" }}
                   />

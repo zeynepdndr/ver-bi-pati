@@ -5,6 +5,7 @@ import SignUp from "./../../Auth/signup";
 import NotificationMenu from "../../Tabs/notificationMenu";
 import { UserContext } from "../../Auth/UserContext";
 import { Link } from "react-router-dom";
+import { withFirebase } from "../../Firebase";
 import {
   ButtonDropdown,
   DropdownToggle,
@@ -24,7 +25,7 @@ const submenu_activities = (
   </Menu>
 );
 
-const Navbar = () => {
+const NavbarBase = props => {
   const [user, setUser] = useContext(UserContext);
   const [dropdownOpen, setOpen] = useState(false);
 
@@ -84,18 +85,28 @@ const Navbar = () => {
           </div>
           <div>
             {user.type === "guest" && (
-              <i className="fa fa-fw fa-user fa-lg"></i>
+              <Popover
+                content={<SignUp />}
+                tittle="Login"
+                trigger="click"
+                placement="bottomLeft"
+              >
+                <Link>
+                  <i className="fa fa-fw fa-user fa-lg"></i>
+                </Link>
+              </Popover>
             )}
             {user.type !== "guest" && (
               <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle color="black">
-                  <div style={{ color: "white" }}>{user.data.name}</div>
+                  <div className="loggedin-user-button">{user.data.name}</div>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem
                     onClick={() => {
                       localStorage.removeItem("userDataInLocal");
                       setUser({ type: "guest", data: {} });
+                      props.firebase.doSignOut();
                     }}
                   >
                     Çıkış Yap
@@ -110,4 +121,5 @@ const Navbar = () => {
   );
 };
 
+const Navbar = withFirebase(NavbarBase);
 export default Navbar;
