@@ -1,6 +1,7 @@
 .logo { 
     width:90px;
     margin-top: -37px;
+    margin-left:40px
 }
 .navbar {
     background-color: #000000;
@@ -69,4 +70,59 @@ ul.navbar-nav>li>ul{
 
 .navbar-expand-lg  {
     margin: 40px 0px 40px 0px !important;
+}
+
+.navbar-main-container {
+    margin:40px 0px;
+    width:100%;
+    height: 60px;
+    background-color: #000000
+}
+
+.site-navbar {
+    display:flex;
+    width:100%;
+    height: 60px;
+    background-color: black;
+}
+
+.navbar-banner {
+    margin-top:20px
+}
+
+.navbar-links-group {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height:60px;
+    width:900px;
+    min-width:715px
+}
+
+.navbar-links-group>div>a {
+    color:white;
+    margin-top:5px;
+    margin-left:20px;
+    font: 18px "Nunito Sans";
+
+}
+
+.navbar-links-group>div>a:hover {
+    color:#007bff;
+    text-decoration: none;
+}
+
+.navbar-user-notif-group {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    height:60px;
+    width:290px
+}
+
+.navbar-user-notif-group>div {
+    margin:0px 0px
+
 }

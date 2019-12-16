@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import AddItemButton from '../Shared/addItemButton';
-import './notificationMenu.css';
+import React, { Component } from "react";
+import AddItemButton from "../Shared/addItemButton";
+import "./notificationMenu.css";
 
-
-class NotificationMenu extends Component{
+class NotificationMenu extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -67,28 +66,18 @@ class NotificationMenu extends Component{
     this.setState({ showAdd: true });
   }
 
-  deleteItem=(uid)=> {
-   const { firebase } = this.props
-   firebase.removeDoc("notifications",uid);
-  }
+  deleteItem = uid => {
+    const { firebase } = this.props;
+    firebase.removeDoc("notifications", uid);
+  };
   render() {
     const showAdd = this.state.showAdd;
     const notification = this.state;
     const receivedUser = this.state.receivedUser;
 
     return (
-      <div className="nav-item dropdown">
-        <a
-          className="nav-link dropdown"
-          href="#"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <i className="fa fa-fw fa-bell fa-lg"></i>
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <div>
+        <div>
           <li className="notification-box">
             {!showAdd ? (
               <div className="row" onClick={this.onClick}>
@@ -144,9 +133,7 @@ class NotificationMenu extends Component{
                 <div>Lorem ipsum dolor sit amet, consectetur</div>
                 <small className="text-warning">27.11.2015, 15:00</small>
               </div>
-              <div
-                className="col-lg-4 col-sm-4 col-4"
-              >
+              <div className="col-lg-4 col-sm-4 col-4">
                 <span>
                   <i className="fa fa-edit fa-lg" title="DÜZENLE"></i>
                 </span>
