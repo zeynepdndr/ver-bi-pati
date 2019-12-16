@@ -69,19 +69,23 @@ const Navbar = () => {
         </div>
         <div className="navbar-user-notif-group">
           <div>
-            <Popover
-              content={<NotificationMenu />}
-              title="Notifications"
-              trigger="click"
-              placement="bottomLeft"
-            >
-              <Link>
-                <i className="fa fa-fw fa-bell fa-lg"></i>
-              </Link>
-            </Popover>
+            {user.type !== "guest" && (
+              <Popover
+                content={<NotificationMenu />}
+                title="Notifications"
+                trigger="click"
+                placement="bottomLeft"
+              >
+                <Link>
+                  <i className="fa fa-fw fa-bell fa-lg"></i>
+                </Link>
+              </Popover>
+            )}
           </div>
           <div>
-            {user.type === "guest" && <SignUp></SignUp>}
+            {user.type === "guest" && (
+              <i className="fa fa-fw fa-user fa-lg"></i>
+            )}
             {user.type !== "guest" && (
               <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle color="black">
