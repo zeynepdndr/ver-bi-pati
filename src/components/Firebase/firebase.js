@@ -42,7 +42,7 @@ export default class Firebase {
           loginStatus: true,
           authType: "admin",
           message: "Logged as admin",
-          userData: { name: user.displayName }
+          userData: { name: user.displayName, email: user.email }
         });
       } else {
         // No user is signed in.
@@ -81,6 +81,23 @@ export default class Firebase {
       .catch(function(error) {
         console.error("Error adding document: ", error);
       });
+  };
+
+  doListenNotificationsQuery = (query, callback) => {
+    this.detachNotificationsListen = this.database
+      .collection("notifications")
+      .where(query.firstOp, query.comparisonOp, query.secondOp)
+      .onSnapshot(function(querySnapshot) {
+        var notifications = [];
+        querySnapshot.forEach(function(doc) {
+          notifications.push(doc.data());
+        });
+        callback(notifications);
+      });
+  };
+
+  doDetachNotificationsListener = () => {
+    this.detachNotificationsListen();
   };
 
   removeProvider = (ref, doc) => {

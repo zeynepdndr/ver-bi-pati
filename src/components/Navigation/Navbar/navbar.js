@@ -70,18 +70,16 @@ const NavbarBase = props => {
         </div>
         <div className="navbar-user-notif-group">
           <div>
-            {user.type !== "guest" && (
-              <Popover
-                content={<NotificationMenu />}
-                title="Notifications"
-                trigger="click"
-                placement="bottomLeft"
-              >
-                <Link>
-                  <i className="fa fa-fw fa-bell fa-lg"></i>
-                </Link>
-              </Popover>
-            )}
+            <Popover
+              content={<NotificationMenu />}
+              title="Notifications"
+              trigger="click"
+              placement="topLeft"
+            >
+              <Link>
+                <i className="fa fa-fw fa-bell fa-lg"></i>
+              </Link>
+            </Popover>
           </div>
           <div>
             {user.type === "guest" && (

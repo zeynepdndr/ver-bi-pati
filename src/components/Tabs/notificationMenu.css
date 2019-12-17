@@ -27,3 +27,7 @@
     color: #FFFFFF !important;
     text-decoration: none !important;
 }
+
+.notification-menu-main-container {
+    width: 300px;
+}
