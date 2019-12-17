@@ -51,6 +51,7 @@ const FeedingScheduleBase = props => {
   const [tableData, setTableData] = useState([]);
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
+  const [checkboxChecked, setCheckboxChecked] = useState(true);
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -64,7 +65,6 @@ const FeedingScheduleBase = props => {
 
   useEffect(() => {
     if (!props.editMode && !firstRender) {
-      console.log("im writiiiiiiiing");
       props.firebase.database
         .collection("feeding")
         .doc("1")
@@ -298,7 +298,6 @@ const FeedingScheduleBase = props => {
     const rowIndex = id[1];
     const columnKey = id[0];
     if (e.target.checked) {
-      console.log(tableData[1]);
       if (tableData[rowIndex][columnKey] === undefined) {
         const volun = [];
         volun.push({
@@ -334,11 +333,6 @@ const FeedingScheduleBase = props => {
             </td>
           );
         } else {
-          console.log(
-            tableData[props.rowid][props.idb.key].find(
-              item => item.name === user.data.name
-            )
-          );
           if (
             tableData[props.rowid][props.idb.key] !== undefined &&
             tableData[props.rowid][props.idb.key].length < 2 &&
@@ -357,6 +351,25 @@ const FeedingScheduleBase = props => {
               </td>
             );
           } else {
+            if (
+              tableData[props.rowid][props.idb.key].find(
+                item => item.name === user.data.name
+              ) !== undefined
+            ) {
+              return (
+                <td>
+                  <Checkbox
+                    style={{ margin: "0px 45%" }}
+                    disabled={false}
+                    id={props.idb.key + "," + props.rowid}
+                    defaultChecked
+                    onChange={e => {
+                      handleCheckBoxChange(e);
+                    }}
+                  />
+                </td>
+              );
+            }
             return (
               <td>
                 <Checkbox
@@ -385,7 +398,6 @@ const FeedingScheduleBase = props => {
   };
 
   const TableRow = props => {
-    console.log(props);
     return (
       <tr>
         <TableItem idb={props.children[0]} rowid={props["data-row-key"]} />
@@ -424,9 +436,7 @@ const FeedingScheduleBase = props => {
           bordered
           size="middle"
           scroll={{ x: "calc(700px + 50%)", y: 240 }}
-          onSelect={e => console.log(e)}
           pagination={false}
-          rowKey={record => record.feedingPlace}
         />
       </TabPane>
     </Tabs>
