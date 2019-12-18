@@ -24,19 +24,36 @@ h4 > #newButton{
 
 #introButton{
         color: #fff;
-        background-color: #ffc107;
+        /* background-color: #ffc107; */
         font-family: "Circular Std","Lato",sans-serif;
         font-weight: bold;
         font-size: 1.4em;
         padding: 12px 20px !important;
-        border-radius: 4px;
         transition: .2s ease-in-out all;
         -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
-        -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,.22);
         display: inline-block;
         margin: 5px auto;
+        border-radius: 3px 3px 0 0;
+        -webkit-box-shadow: -2px -4px 30px rgba(0,0,0,.25);
+        box-shadow: -2px -4px 30px rgba(0,0,0,.25);
+        background: -webkit-gradient(linear,left top,right top,from(#eb4971),to(#fc9c0c));
+        background: linear-gradient(90deg,#eb4971 0,#fc9c0c);
 }
 p{
 /* background-color:#9f5089 */
 }
+/* display: none;
+    background: -webkit-gradient(linear,left top,right top,from(#eb4971),to(#fc9c0c));
+    background: linear-gradient(90deg,#eb4971 0,#fc9c0c);
+    border: 0;
+    border-radius: 3px 3px 0 0;
+    -webkit-box-shadow: -2px -4px 30px rgba(0,0,0,.25);
+    box-shadow: -2px -4px 30px rgba(0,0,0,.25);
+    color: #fff!important;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1;
+    padding: .6875rem 1.5rem .5625rem;
+    right: 1.25rem;
+    z-index: 7;
+} */

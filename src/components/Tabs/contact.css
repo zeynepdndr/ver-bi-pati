@@ -31,5 +31,9 @@
     text-decoration: none;
     margin: 4px 16px;
     cursor: pointer;
-
+}
+#mailaddress{
+    color: #2f94fc;
+    font-size: 22px;
+    margin-left: 3px;
 }

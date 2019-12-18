@@ -22,6 +22,10 @@ h5{
 .donationLine{
     margin-left: 280px;
 }
-#new-orange{
-    background-color: #b25c17 !important;
+
+#new-pink{
+    background-color:rgba(252,156,12,1)!important;
+}
+#new-blue{
+    background-color: rgba(0,185,190,1)!important;
 }

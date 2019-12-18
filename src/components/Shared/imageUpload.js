@@ -42,6 +42,7 @@ class ImageUpload extends Component {
         uploadRef.child('images').getDownloadURL()
          .then(fireBaseUrl => {
           //  setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl
+          // firebase.updateDoc('activity', activityInfo)
           console.log("URL",fireBaseUrl);
           })
       }

@@ -72,16 +72,34 @@ export default class Firebase {
       });
   };
 
-  removeProvider = (ref, doc) => {
+  updateDoc= (ref, doc, data) => {
+    this.database
+      .collection(ref)
+      .doc(doc)
+      .set(data)
+      .then(function() {
+        console.log("Document updated with ID: ", doc);
+      })
+      .catch(function(error) {
+        console.error("Error updating document: ", error);
+      });
+  };
+
+  removeDoc= (ref, doc) => {
     this.database
       .collection(ref)
       .doc(doc)
       .delete()
       .then(function() {
-        console.log("Document removed with ID: ");
+        console.log("Document removed with ID: ", doc);
       })
       .catch(function(error) {
         console.error("Error removing document: ", error);
       });
   };
+
+  retrieveDoc= (ref, doc) => {
+    return this.database.collection(ref).doc(doc).on();
+  };
+
 }

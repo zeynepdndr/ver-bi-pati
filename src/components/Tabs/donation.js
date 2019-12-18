@@ -8,7 +8,7 @@ const Donation = ()=>
     <h2>Desteğinle daha fazlasını mutlu edelim</h2>  
       <div className="row"> 
         <div className="col-sm-4">
-          <div className="card bg-light mb-3" >
+          <div className="card bg-light mb-3 text-white" id="new-pink">
             <div className="card-header">Havale/EFT </div>
             <div className="card-body">
               <h5 className="card-title">
@@ -22,7 +22,7 @@ const Donation = ()=>
           </div>
         </div>
         <div className="col-sm-4">    
-          <div className="card bg-light mb-3 text-white" id="new-orange">
+          <div className="card  mb-3 text-white" id="new-orange">
             <div className="card-header">Mama Bağışı</div>
             <div className="card-body">
               <h5 className="card-title"><a  target="_blank" href={"https://www.ormanamama.com/itu-nun-patileri"}>Ormana Mama</a> sitesine girerek kumbara başlığı ardından Verbi'pati seçerek mama gönderebilirsin. Teslimat adresi gerekmeden kumbarada biriken mamalar bize teslim ediliyor.</h5>
@@ -30,7 +30,7 @@ const Donation = ()=>
           </div>                
         </div>
         <div className="col-sm-4">
-          <div className="card text-white bg-dark">
+          <div className="card text-white" id="new-blue">
             <div className="card-header">Kulübümüze Üye</div>
             <div className="card-body">
               <h5 className="card-title">Kulübümüze üye olarak kampüs hayvanlarımızın beslenme, tedavi gibi ihtiyaçlarını birlikte karşılayabiliriz.

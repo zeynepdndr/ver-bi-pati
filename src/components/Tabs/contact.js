@@ -68,7 +68,8 @@ class Contact extends Component {
                 <a target="_blank" href="https://www.instagram.com/itulupatiler/? hl=tr"><img className="socialLogo" src={require('./../Res/images/instagramLogo.png')} alt="Ver Bi Pati"/></a>    
               </div>
             </div>
-            <p className="mail"><span><img className="mailLogo" src={require('./../Res/images/mailLogo.png')} alt="Ver Bi Pati"/></span>itulupatiler@gmail.com</p>
+            <br></br><br></br><br></br>
+            <p className="mail">Aklınıza takılan her şeyi sormak için <span id="mailaddress">itulupatiler@gmail.com</span></p>
           </div>     
           {/* Burasi nasil 2. column olur */}
           <div className="col-sm-6">

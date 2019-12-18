@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { useEffect }  from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import AddItemButton from '../Shared/addItemButton';
@@ -9,8 +9,29 @@ import {withFirebase} from '../Firebase'
 const ModalActivityBase=(props)=>{
     const [show, setShow] = React.useState(false);
   
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+      setShow(false);
+      props.callback()
+    }
     const handleShow = () => setShow(true);
+    const [typeModal, setTypeModal] = React.useState(props.id);
+
+    const updateItem=(uid)=> {
+    //   const { firebase } = this.props;
+    //   firebase.retrieveDoc("activity",uid).then((querySnapshot) => {
+    //     querySnapshot((doc) => {
+    //       console.log(doc);
+    //     })
+    // });
+    }
+
+    useEffect(() => {
+      if(props.id === "Güncelle") {    
+        updateItem(props.uid);
+        setTypeModal("Güncelle")
+        handleShow();
+      }
+    }, [props.id])
 
 
     const [activityInfo, setActivitiyInfo] = React.useState(
@@ -31,32 +52,45 @@ const ModalActivityBase=(props)=>{
     };
 
     const addActivity = () =>{
-      const { firebase } = props
+      const { firebase } = props;
       firebase.doAddDoc('activity', activityInfo)
     };
+    const completeUpdate=(uid)=> {
+      const { firebase } = props;
+      firebase.updateDoc("activity",uid,activityInfo);
+     }
 
     const getDate = (date) =>{
       setActivitiyInfo({
         ...activityInfo,
         date:date});
     };
+
+    const changeShowType = () =>{
+      setTypeModal("Etkinlik Ekle");
+      handleShow();
+    };
+
     const handleClick = () =>{
       handleClose();
-      addActivity()
+      if(props.uid !== "") {    
+        completeUpdate(props.uid);
+      }
+      else
+        addActivity()
     };
-  
     return (
       <>
-        <AddItemButton addActivity={handleShow}></AddItemButton> 
+        <AddItemButton addActivity={changeShowType}></AddItemButton> 
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Etkinlik Ekle</Modal.Title>
+            <Modal.Title>{typeModal}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <form onSubmit={handleClick} id="activityForm">
             <div className="form-group">
               <label htmlFor="exampleFormControlInput1">Başlık</label>
-              <input className="form-control" name="title" id="title" onChange={handleChange}/>
+              <input className="form-control" type="text" name="title" id="title" onChange={handleChange}/>
             </div>
             <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">İçerik</label>
