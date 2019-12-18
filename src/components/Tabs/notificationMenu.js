@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import "./notificationMenu.css";
 import { withFirebase } from "../Firebase";
 import { Link } from "react-router-dom";
-import { Select, notification } from "antd";
+import { Select, notification as NotificationBox, Divider, Icon } from "antd";
 import { UserContext } from "../Auth/UserContext";
 const { Option } = Select;
 
 const openNotification = (title, message, type) => {
-  notification[type]({
+  NotificationBox[type]({
     message: title,
     description: message,
     placement: "bottomLeft"
@@ -20,90 +20,72 @@ const NotificationMenuBase = props => {
   const [notification, setNotification] = useState({
     messageData: "",
     sendDataTime: "",
-    receivedUser: ""
+    receivedUser: "",
+    title: ""
   });
   const [notificationsToRender, setNotificationsToRender] = useState([]);
   const [user, setUser] = useContext(UserContext);
 
+  const handleHover = item => {
+    if (user.data.email !== undefined) {
+      item.seen[user.data.email] = true;
+      props.firebase.database
+        .collection("notifications")
+        .doc(item.id)
+        .update({ ...item });
+    }
+  };
+
   useEffect(() => {
-    if (user.type === "guest") {
-      props.firebase.doListenNotificationsQuery(
-        {
-          firstOp: "receivedUser",
-          comparisonOp: "==",
-          secondOp: "everyone"
-        },
-        getAllNotifications
-      );
-    } else if (user.type === "user") {
-      props.firebase.doListenNotificationsQuery(
-        {
-          firstOp: "receivedUser",
-          comparisonOp: "in",
-          secondOp: ["everyone", "user"]
-        },
-        getAllNotifications
-      );
-    } else {
-      props.firebase.doListenNotificationsQuery(
-        {
-          firstOp: "receivedUser",
-          comparisonOp: "in",
-          secondOp: ["everyone", "user", "admin"]
-        },
-        getAllNotifications
-      );
-    }
-    return function cleanup() {
-      props.firebase.doDetachNotificationsListener();
-    };
-    // eslint-disable-next-line
-  }, [props.firebase, user.data.email, user.type]);
-
-  const getAllNotifications = notifications => {
-    let filteredNotifications = [];
-    if (user.type === "guest") {
-      filteredNotifications = notifications;
-    } else {
-      filteredNotifications = notifications.filter(item => {
-        if (item.seen !== undefined) {
-          if (item.seen[user.data.email] === undefined) {
-            return true;
-          } else {
-            return false;
-          }
-        }
-        return true;
-      });
-    }
-
     setNotificationsToRender(
       <div>
-        {filteredNotifications.map(item => (
-          <div className="notification-item-container">
-            <strong className="text-info">A Title</strong>
-            <div>{item.messageData}</div>
+        {props.notifications.map(item => (
+          <div
+            className="notification-item-container"
+            style={{
+              borderColor:
+                item.seen[user.data.email] === undefined ? "#F2DA82" : "white"
+            }}
+            onMouseEnter={() => handleHover(item)}
+          >
+            <strong className="text-info">{item.title}</strong>
+            <div onClick={() => deleteItem(item.id)}>
+              {item.messageData}
+              {user.type === "admin" && (
+                <Icon
+                  type="delete"
+                  width="100em"
+                  height="100em"
+                  style={{ float: "right", fontSize: "24px" }}
+                />
+              )}
+            </div>
             <small className="text-warning">
               {new Date(item.sendDataTime).toLocaleString("tr-TR")}
             </small>
+            <Divider />
           </div>
         ))}
       </div>
     );
-  };
+    // eslint-disable-next-line
+  }, [user.data.email, props.notifications]);
 
   const handleChange = e => {
-    setNotification({ [e.target.id]: e.target.value });
+    setNotification({ ...notification, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const { firebase } = props;
-    const { messageData, recievedUser } = notification;
+    const { messageData, recievedUser, title } = notification;
+    console.log(notification.title);
     const form = {
+      title: title,
       messageData: messageData,
       sendDataTime: Date(),
-      receivedUser: recievedUser
+      receivedUser: recievedUser,
+      seen: {}
     };
     setShowAdd(false);
     setNotification();
@@ -118,14 +100,14 @@ const NotificationMenuBase = props => {
 
   const deleteItem = uid => {
     const { firebase } = props;
-    firebase.removeDoc("notifications", uid);
+    firebase.removeProvider("notifications", uid);
   };
 
   return (
     <div className="notification-menu-main-container">
       <div>
         <li className="notification-box">
-          {!showAdd ? (
+          {!showAdd && user.type === "admin" ? (
             <div className="row" onClick={() => setShowAdd(true)}>
               <i
                 className="fa fa-plus-circle fa-lg"
@@ -141,6 +123,16 @@ const NotificationMenuBase = props => {
                 style={{ float: "right", marginBottom: "9px" }}
               >
                 <i class="fa fa-times"></i>
+              </div>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  name="title"
+                  id="title"
+                  type="text"
+                  placeholder="Başlık"
+                  onChange={handleChange}
+                ></input>
               </div>
               <div className="form-group">
                 <textarea

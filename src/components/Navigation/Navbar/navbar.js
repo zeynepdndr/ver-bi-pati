@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./navbar.css";
 import * as ROUTES from "../../../constants/routes";
 import SignUp from "./../../Auth/signup";
@@ -12,7 +12,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { Popover, Menu, Dropdown } from "antd";
+import { Popover, Menu, Dropdown, Badge } from "antd";
 
 const submenu_activities = (
   <Menu>
@@ -26,10 +26,55 @@ const submenu_activities = (
 );
 
 const NavbarBase = props => {
+  const [notifications, setNotifications] = useState([]);
+  const [notifCount, setNotifCount] = useState(0);
   const [user, setUser] = useContext(UserContext);
   const [dropdownOpen, setOpen] = useState(false);
-
   const toggle = () => setOpen(!dropdownOpen);
+
+  const getAllNotifications = notifications => {
+    const filteredNotifications = notifications.filter(
+      item => item.seen[user.data.email] === undefined
+    );
+    setNotifCount(filteredNotifications.length);
+    setNotifications(notifications);
+  };
+
+  useEffect(() => {
+    if (user.type === "guest") {
+      props.firebase.doListenNotificationsQuery(
+        {
+          firstOp: "receivedUser",
+          comparisonOp: "==",
+          secondOp: "everyone"
+        },
+        getAllNotifications
+      );
+    } else if (user.type === "user") {
+      props.firebase.doListenNotificationsQuery(
+        {
+          firstOp: "receivedUser",
+          comparisonOp: "in",
+          secondOp: ["everyone", "user"]
+        },
+        getAllNotifications
+      );
+    } else {
+      props.firebase.doListenNotificationsQuery(
+        {
+          firstOp: "receivedUser",
+          comparisonOp: "in",
+          secondOp: ["everyone", "user", "admin"]
+        },
+        getAllNotifications
+      );
+    }
+    return function cleanup() {
+      props.firebase.doDetachNotificationsListener();
+    };
+    // eslint-disable-next-line
+  }, [props.firebase, user.data.email, user.type]);
+
   return (
     <div className="navbar-main-container">
       <nav className="site-navbar">
@@ -71,13 +116,18 @@ const NavbarBase = props => {
         <div className="navbar-user-notif-group">
           <div>
             <Popover
-              content={<NotificationMenu />}
-              title="Notifications"
+              content={<NotificationMenu notifications={notifications} />}
+              title="Bildirimler"
               trigger="click"
               placement="topLeft"
             >
               <Link>
-                <i className="fa fa-fw fa-bell fa-lg"></i>
+                <Badge
+                  count={notifCount}
+                  style={{ backgroundColor: "#E0BF3D" }}
+                >
+                  <i className="fa fa-fw fa-bell fa-lg"></i>
+                </Badge>
               </Link>
             </Popover>
           </div>

@@ -90,7 +90,7 @@ export default class Firebase {
       .onSnapshot(function(querySnapshot) {
         var notifications = [];
         querySnapshot.forEach(function(doc) {
-          notifications.push(doc.data());
+          notifications.push({ ...doc.data(), id: doc.id });
         });
         callback(notifications);
       });
