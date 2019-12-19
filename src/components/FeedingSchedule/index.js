@@ -51,7 +51,7 @@ const FeedingScheduleBase = props => {
   const [tableData, setTableData] = useState([]);
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
-  const [changeList, setChangeList] = useState({});
+  const [changedList, setChangedList] = useState({});
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -302,6 +302,8 @@ const FeedingScheduleBase = props => {
     id = id.split(",");
     const rowIndex = id[1];
     const columnKey = id[0];
+    setChangedList({ one: ["sundayMorning", 1] });
+    setChangedList({ ...changedList, 1: [...changedList.one, 2] });
     if (e.target.checked) {
       if (tableData[rowIndex][columnKey] === undefined) {
         const volun = [];
