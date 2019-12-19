@@ -96,6 +96,10 @@ export default class Firebase {
       });
   };
 
+  doCreateNotification = notification => {
+    this.database.collection("notifications").set(notification);
+  };
+
   doDetachNotificationsListener = () => {
     this.detachNotificationsListen();
   };

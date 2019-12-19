@@ -51,7 +51,7 @@ const FeedingScheduleBase = props => {
   const [tableData, setTableData] = useState([]);
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
-  const [checkboxChecked, setCheckboxChecked] = useState(true);
+  const [changeList, setChangeList] = useState({});
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -69,6 +69,11 @@ const FeedingScheduleBase = props => {
         .collection("feeding")
         .doc("1")
         .set({ rowData: tableData });
+      // const notification = {
+      //   title: "Beslenme Takvimi Uyarısı",
+      //   message:"Kullanıcı " + user.data.email + " s"
+      // }
+      // props.firebase.doCreateNotification()
     }
     //FIXME: Bad Solution
     setFirstRender(false);

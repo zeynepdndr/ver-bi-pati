@@ -49,17 +49,18 @@ const NotificationMenuBase = props => {
             onMouseEnter={() => handleHover(item)}
           >
             <strong className="text-info">{item.title}</strong>
-            <div onClick={() => deleteItem(item.id)}>
-              {item.messageData}
-              {user.type === "admin" && (
+            {user.type === "admin" && (
+              <div onClick={() => deleteItem(item.id)}>
+                {item.messageData}
+
                 <Icon
                   type="delete"
                   width="100em"
                   height="100em"
                   style={{ float: "right", fontSize: "24px" }}
                 />
-              )}
-            </div>
+              </div>
+            )}
             <small className="text-warning">
               {new Date(item.sendDataTime).toLocaleString("tr-TR")}
             </small>
@@ -85,7 +86,8 @@ const NotificationMenuBase = props => {
       messageData: messageData,
       sendDataTime: Date(),
       receivedUser: recievedUser,
-      seen: {}
+      seen: {},
+      type: "notification"
     };
     setShowAdd(false);
     setNotification();
@@ -171,7 +173,13 @@ const NotificationMenuBase = props => {
         <br></br>
         <br></br>
         <li className="footer viewAll text-center">
-          <Link to="/bildirimler" className="text-light">
+          <Link
+            to={{
+              pathname: "/bildirimler",
+              state: { notifications: props.notifications }
+            }}
+            className="text-light"
+          >
             Hepsini Gör
           </Link>
         </li>
