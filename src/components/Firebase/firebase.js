@@ -1,6 +1,6 @@
-import app from "firebase/app"
-import "firebase/auth"
-import "firebase/firestore"
+import app from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 import "firebase/storage";
 
 const config = {
@@ -18,21 +18,15 @@ export default class Firebase {
   constructor() {
     app.initializeApp(config);
 
-          this.auth = app.auth()
-          this.database = app.firestore()
-          this.storage =app.storage()
-      }
+    this.auth = app.auth();
+    this.database = app.firestore();
+    this.storage = app.storage();
+  }
 
   doSignInAsAdmin = (email, password, callback) => {
     this.auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        callback({
-          loginStatus: true,
-          authType: "admin",
-          message: "Logged in as admin"
-        });
-      })
+      .then(() => {})
       .catch(function(error) {
         var errorCode = error.code;
         if (errorCode === "auth/wrong-password") {
@@ -41,6 +35,23 @@ export default class Firebase {
           callback({ loginStatus: false, message: "user-not-found" });
         }
       });
+
+    this.auth.onAuthStateChanged(function(user) {
+      if (user) {
+        callback({
+          loginStatus: true,
+          authType: "admin",
+          message: "Logged as admin",
+          userData: { name: user.displayName, email: user.email }
+        });
+      } else {
+        // No user is signed in.
+      }
+    });
+  };
+
+  doSignOut = () => {
+    this.auth.signOut();
   };
 
   doSignInAsUser = (email, callback) => {
@@ -86,6 +97,30 @@ export default class Firebase {
   };
 
   removeDoc= (ref, doc) => {
+
+  };
+
+  doListenNotificationsQuery = (query, callback) => {
+    this.detachNotificationsListen = this.database
+      .collection("notifications")
+      .where(query.firstOp, query.comparisonOp, query.secondOp)
+      .onSnapshot(function(querySnapshot) {
+        var notifications = [];
+        querySnapshot.forEach(function(doc) {
+          notifications.push({ ...doc.data(), id: doc.id });
+        });
+        callback(notifications);
+      });
+  }
+  doCreateNotification = notification => {
+    this.database.collection("notifications").set(notification);
+  };
+
+  doDetachNotificationsListener = () => {
+    this.detachNotificationsListen();
+  };
+
+  removeProvider = (ref, doc) => {
     this.database
       .collection(ref)
       .doc(doc)

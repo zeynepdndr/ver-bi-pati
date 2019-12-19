@@ -1,72 +1,64 @@
-import React, { Component } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import "./notification.css";
 
-class Notification extends Component {
-  render() {
-    return (
-      <div id="w">
-        <div id="content">
-          <div class="notify successbox">
-            {/* <Emoji symbol="💕" label="love" /> */}
+const Notification = props => {
+  const [renderNotif, setRenderNotif] = useState();
+  useEffect(() => {
+    const { notifications } = props.location.state;
+    setRenderNotif(
+      notifications.map(item => (
+        <div className="notify successbox" key={item.id}>
+          {item.type === "notification" && (
             <h1>
-              Yeni etkinlik!{" "}
+              {item.title}
+              <span aria-label="a rocket blasting off" role="img">
+                🕊
+              </span>
+            </h1>
+          )}
+          {item.type === "activity" && (
+            <h1>
+              {item.title}
               <span aria-label="a rocket blasting off" role="img">
                 🚀
               </span>
             </h1>
-            <p>
-              Tüm gönüllülerimizle beraber 41. Vodafone İstanbul Maratonuna
-              katılıyoruz. Oraya hep beraber gidip kalabalik bir şekilde
-              danslarla ve çeşitli etkinliklerle farkındalık yaratmaya
-              çalışacağız. Detaylar için{" "}
-            </p>
-          </div>
-          <div class="notify errorbox">
+          )}
+          {item.type === "announcement" && (
             <h1>
-              Kayıp ilanı eklendi{" "}
+              {item.title}
               <span aria-label="acrying cat" role="img">
                 😿
               </span>
             </h1>
-            <p>
-              You did not set the proper return e-mail address. Please fill out
-              the fields and then submit the form.
-            </p>
-          </div>
-          <div class="notify successbox">
-            {/* <Emoji symbol="💕" label="love" /> */}
+          )}
+          {item.type === "adoptation" && (
             <h1>
-              Yeni yuvasını arıyoruz{" "}
+              {item.title}
               <span aria-label="wedding" role="img">
                 💒
               </span>
             </h1>
-            <p>
-              Tüm gönüllülerimizle beraber 41. Vodafone İstanbul Maratonuna
-              katılıyoruz. Oraya hep beraber gidip kalabalik bir şekilde
-              danslarla ve çeşitli etkinliklerle farkındalık yaratmaya
-              çalışacağız. Detaylar için{" "}
-            </p>
-          </div>
-          <div class="notify successbox">
-            {/* <Emoji symbol="💕" label="love" /> */}
+          )}
+          {item.type === "gallery" && (
             <h1>
-              Yeni fotograflara göz at
+              {item.title}
               <span aria-label="face with monocle" role="img">
                 🧐
               </span>
             </h1>
-            <p>
-              Tüm gönüllülerimizle beraber 41. Vodafone İstanbul Maratonuna
-              katılıyoruz. Oraya hep beraber gidip kalabalik bir şekilde
-              danslarla ve çeşitli etkinliklerle farkındalık yaratmaya
-              çalışacağız. Detaylar için{" "}
-            </p>
-          </div>
+          )}
+          <p>{item.messageData}</p>
         </div>
-      </div>
+      ))
     );
-  }
-}
+  }, [props.location.state]);
+  return (
+    <div id="w">
+      <div id="content">{renderNotif}</div>
+    </div>
+  );
+};
+
 export default Notification;

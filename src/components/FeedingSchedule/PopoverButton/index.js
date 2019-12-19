@@ -6,7 +6,6 @@ const { Text } = Typography;
 
 const PopoverButton = props => {
   const [visible, setVisibility] = useState(false);
-
   return (
     <Popover
       content={
