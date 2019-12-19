@@ -36,7 +36,7 @@ h4 > #newButton{
         border-radius: 3px 3px 0 0;
         -webkit-box-shadow: -2px -4px 30px rgba(0,0,0,.25);
         box-shadow: -2px -4px 30px rgba(0,0,0,.25);
-        background: -webkit-gradient(linear,left top,right top,from(#eb4971),to(#fc9c0c));
+        /* background: -webkit-gradient(linear,left top,right top,from(#eb4971),to(#fc9c0c)); */
         /* background: linear-gradient(90deg,#eb4971 0,#fc9c0c); */
     }
 p{
