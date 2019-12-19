@@ -109,7 +109,7 @@ ul.navbar-nav>li>ul{
 }
 
 .navbar-links-group>div>a:hover {
-    color:#007bff;
+    color:#2f94fc;
     text-decoration: none;
 }
 
@@ -132,7 +132,7 @@ ul.navbar-nav>li>ul{
 }
 
 .loggedin-user-button:hover {
-    color:#007bff
+    color:#2f94fc
 }
 
 .fa-bell {
@@ -141,5 +141,35 @@ ul.navbar-nav>li>ul{
 }
 
 .fa-bell:hover {
-    color:#007bff
+    color:#2f94fc
+}
+
+.link1:hover {
+    color:rgb(235,73,113,1) !important
+}
+
+.link2>a:hover {
+    color:#ffc107 !important
+    
+}
+
+.link3>a:hover {
+    color:rgb(0,172,224,1) !important
+}
+
+.link4>a:hover {
+    color:#AC5916 !important
+}
+
+.link5>a:hover {
+    color:rgb(255, 0, 0) !important
+}
+
+.link6>a:hover {
+color: #ffc107 !important
+}
+
+.navbar-submenu-buttons:hover {
+    text-decoration: none;
+    background-color: black;
 }
