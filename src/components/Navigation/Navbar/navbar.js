@@ -94,22 +94,22 @@ const NavbarBase = props => {
               overlay={submenu_activities}
               overlayStyle={{ width: "200px" }}
             >
-              <Link>Neler Yapıyoruz?</Link>
+              <Link className="link1">Neler Yapıyoruz?</Link>
             </Dropdown>
           </div>
-          <div>
+          <div className="link2">
             <Link to={ROUTES.FEEDING}>Besleme Programı</Link>
           </div>
-          <div>
+          <div className="link3">
             <Link to={ROUTES.DONATION}>Destek Ol</Link>
           </div>
-          <div>
+          <div className="link4">
             <Link to={ROUTES.ANNOUNCEMENTS}>Kayıp&Sahiplendirme</Link>
           </div>
-          <div>
+          <div className="link5">
             <Link to={ROUTES.GALLERY}>Galeri</Link>
           </div>
-          <div>
+          <div className="link6">
             <Link to={ROUTES.CONTACT}>İletişim</Link>
           </div>
         </div>
