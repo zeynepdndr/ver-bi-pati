@@ -30,15 +30,23 @@
 ul.navbar-nav a:hover {
     color: #2f94fc !important; 
 }
-
+.solid{
+    border-color:#2f94fc  !important;
+    color: #2f94fc;
+}
 .solid:hover{
     background-color:#2f94fc;
     color:white;
     text-decoration: none !important;
+}
+#whowe:hover{
+    background-color:#2f94fc;
+    color:white;
+    text-decoration: none !important;   
 }
 .solid span > i {
     padding-right: 6px;
 }
 .Button_link:link {
     text-decoration: none;
-  }
+}

@@ -13,7 +13,6 @@ import Donation from "./components/Tabs/donation";
 import Gallery from "./components/Tabs/gallery";
 import Announcements from "./components/Tabs/announcements";
 import Feeding from "./components/Tabs/feeding";
-import AboutUs from "./components/Tabs/aboutus";
 import Notification from "./components/Tabs/notification";
 
 import { withFirebase } from "./components/Firebase";
@@ -51,7 +50,6 @@ export default class App extends Component {
           render={props => <Announcements {...props} />}
         />
         <Route path={ROUTES.FEEDING} render={props => <Feeding {...props} />} />
-        <Route path={ROUTES.ABOUTUS} render={props => <AboutUs {...props} />} />
         <Route
           path={ROUTES.NOTIFICATION}
           render={props => <Notification {...props} />}

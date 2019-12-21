@@ -28,25 +28,11 @@ class ImageUpload extends Component {
 
     const uploadRef=firebase.storage.ref(`images/${image.name}`);
 
-    const uploadTask= uploadRef.put(image);
-    
 
-    uploadTask.on('stage_changed',
-      (snapshot)=>{
-        console.log("snapshot",snapshot);
-      },(err)=>{
-        console.log("err",err);        
-      },()=>{
-        // gets the functions from storage refences the image storage in firebase by the children
-        // gets the download url then sets the image from firebase as the value for the imgUrl key:
-        uploadRef.child('images').getDownloadURL()
-         .then(fireBaseUrl => {
-          //  setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl
-          // firebase.updateDoc('activity', activityInfo)
-          console.log("URL",fireBaseUrl);
-          })
-      }
-    )
+    const uploadTask= uploadRef.put(image);
+
+    this.props.image(image.name);
+    
   };
   render() {
     return (
@@ -63,10 +49,11 @@ class ImageUpload extends Component {
           </div>
         </div>
         <button
-          onClick={this.handleUpload}
+          onClick={this.handleUpload} 
           className="waves-effect waves-light btn"
-        >
-          Yukle
+          placeholder="Yukle"
+          type="button">
+         Yukle
         </button>
       </div>
     );

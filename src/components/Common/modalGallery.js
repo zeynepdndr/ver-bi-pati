@@ -16,14 +16,14 @@ const ModalGalleryBase=(props)=>{
     const [galleryInfo, setGalleryInfo] = React.useState(
       {
         title:"", description: "", send_date_time:"", content_type:"", 
-        push_notification:""
+        push_notification:"", image_name:""
       }
     );
 
     const handleChange = (e) =>{
       let form = {
         title:"", description: "", send_date_time:"", content_type:"", 
-        push_notification:""
+        push_notification:"", image_name:""
       };
       form = galleryInfo;
       form[e.target.id] = e.target.value
@@ -44,7 +44,12 @@ const ModalGalleryBase=(props)=>{
       handleClose();
       addGallery()
     };
-
+    const getImage= (name) =>{
+      setGalleryInfo({
+        ...galleryInfo,
+        image_name:name});
+      console.log(galleryInfo);
+    };
 
     return (
       <>
@@ -69,7 +74,7 @@ const ModalGalleryBase=(props)=>{
             </div>            
             <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">Fotoğraf Yükle</label><br/>
-              <ImageUpload firebase={props.firebase}></ImageUpload>
+              <ImageUpload image={getImage} firebase={props.firebase}></ImageUpload>
             </div>         
             <div className="form-group">
               <label htmlFor="exampleFormControlSelect1">Bildirim Gönder</label>
