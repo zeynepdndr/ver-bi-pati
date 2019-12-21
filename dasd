@@ -1,0 +1,266 @@
+[33mcommit d12de2b20c2c635aae4aa4c4d4a1451d819e72dd[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Sun Dec 22 00:06:23 2019 +0300
+
+    accept and decline in notifications
+
+[33mcommit f961e63fabb150e98eec1ffb8b07b6f64af71859[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: zeynepdndr <dundarzey@itu.edu.tr>
+Date:   Thu Dec 19 21:12:21 2019 +0300
+
+    test
+
+[33mcommit b467666af62e6337ccec143016f59ade98ef0e7d[m
+Merge: c62752a 38d9810
+Author: zeynepdndr <dundarzey@itu.edu.tr>
+Date:   Thu Dec 19 21:12:12 2019 +0300
+
+    test
+
+[33mcommit c62752a7fd52473e5bb894a1dc019debc0955e20[m
+Author: zeynepdndr <dundarzey@itu.edu.tr>
+Date:   Thu Dec 19 21:03:50 2019 +0300
+
+    hover color change
+
+[33mcommit 38d98101b32fcbb8cfbbf29ec54526bb76a60cec[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 20:57:29 2019 +0300
+
+    zeynep
+
+[33mcommit 86e68364c473576c10b1a291b1754a3d43398143[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 20:49:59 2019 +0300
+
+    dfgdfgd
+
+[33mcommit 82a4c148ac24a20bd314f9c96a2c0e770241a838[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 20:26:48 2019 +0300
+
+    no
+
+[33mcommit 340b980ac46deb9d108f12037b2003c3493fc1c2[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 20:20:55 2019 +0300
+
+    push
+
+[33mcommit 8fca41aeb317cc447539ad321bc816f041c09be8[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 20:10:38 2019 +0300
+
+    button blacked
+
+[33mcommit 0883bc4869d82528804ab071f864c90915bdb2ba[m[33m ([m[1;31morigin/gallery_zeynep[m[33m)[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 19:52:30 2019 +0300
+
+    button blacked
+
+[33mcommit 50bbcad5477eb3eb92121761a1707113945d4382[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 19:49:32 2019 +0300
+
+    button oranged
+
+[33mcommit fc1d3d5ea956fed81279def815ca5a3619882826[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 19:03:05 2019 +0300
+
+    button pinked
+
+[33mcommit 58487e48c58ab96ab468562a841d1748922bc8cc[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 18:59:08 2019 +0300
+
+    old form
+
+[33mcommit 048b5d1c780a24aaada3d836b24387515f48af0d[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 18:57:54 2019 +0300
+
+    button yellowed
+
+[33mcommit 334a1e4c69b43c69440c240375d8831a5a3ca73e[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 18:52:05 2019 +0300
+
+    button old
+
+[33mcommit 23c719ed4f9fa1bfc15ad21c66f4f1116e60a857[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 18:44:33 2019 +0300
+
+    button blacked
+
+[33mcommit 2ab9f92f93de721f5957a0258c405ff3b6621292[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 18:19:49 2019 +0300
+
+    button oranged
+
+[33mcommit 276a352b1905c9d1e7890fb7406383326c4fcc0f[m[33m ([m[1;31morigin/CRUD/gallery_zeynep[m[33m)[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 17:52:26 2019 +0300
+
+    button reded
+
+[33mcommit 9507b33245ac418d2cdf0546b6993e99d62ad598[m
+Merge: 9ae2514 4689507
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 17:22:44 2019 +0300
+
+    Merge remote-tracking branch 'origin/navbar_fixed'
+
+[33mcommit 9ae2514b831b9dd0e987ecad6b21bb49b62307d0[m[33m ([m[1;31morigin/CRUD/gallery_hakki[m[33m)[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Thu Dec 19 16:57:57 2019 +0300
+
+    packege installed
+
+[33mcommit 4689507db7209eee795ba26c0c29e9168ed8ecdc[m[33m ([m[1;31morigin/navbar_fixed[m[33m, [m[1;32mnavbar_fixed[m[33m)[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Thu Dec 19 16:37:33 2019 +0300
+
+    Notifications are arrenged.
+
+[33mcommit 078171cc1710d35145a95d9e6bc039bc40869826[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Wed Dec 18 13:21:40 2019 +0300
+
+    color editted in donationpage
+
+[33mcommit 5b93c05d179d531b0ddbf079edb13e06dbcc1074[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Wed Dec 18 03:16:44 2019 +0300
+
+    Notification menu is enchanced.
+
+[33mcommit f45d85f22f349a1ad2ebd78840584784ccab5ded[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Tue Dec 17 21:21:46 2019 +0300
+
+    notification system implementation. Notification will now be filtered according to user auth.
+
+[33mcommit b6436a72a02750094168b3dceb13f10bed39baaa[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Tue Dec 17 15:44:20 2019 +0300
+
+    Remove self from feeding schedule option is added. Instead of disabled checkbox, user now see fields that he or she has been commited as enabled and checked checkboxes.
+
+[33mcommit fb721bdd6d2ead93b8c9aec4655204c0736caf94[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Tue Dec 17 01:43:08 2019 +0300
+
+    SignUp fixed, and login set as default
+
+[33mcommit 6d76382b78deb36d827949eaf495d42e82cb6258[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Mon Dec 16 20:22:14 2019 +0300
+
+    the announcements bell is removed when the user is not logged in.
+
+[33mcommit 1f13b7e314c47a82ccdbf338867e27b5cde04de4[m
+Author: ospirentos <ospirentos@gmail.com>
+Date:   Mon Dec 16 20:13:08 2019 +0300
+
+    Navbar has been made responsive, and some of its bugs are fixed.
+
+[33mcommit cf5332fe691eaa68816cd76441783990b947241a[m[33m ([m[1;31morigin/local_storage[m[33m, [m[1;32mlocal_storage[m[33m)[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Sun Dec 15 21:05:34 2019 +0300
+
+    login information is saved into persistant location
+
+[33mcommit edb2362275c65d0ba3314bd61b5a6cd6cd7b39d1[m[33m ([m[1;31morigin/beslenme_tablosu[m[33m, [m[1;32mbeslenme_tablosu[m[33m)[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Sun Dec 15 17:54:48 2019 +0300
+
+    feeding table is created and modified accordingly
+
+[33mcommit 2040fc6fc3a044511eb7df46883351a6ff44b4a6[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Sat Dec 14 14:34:57 2019 +0300
+
+    photo added to landingpage modal
+
+[33mcommit cc5a6f5936f36e0bae3e3382f4cda756c965808c[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Fri Dec 13 17:58:50 2019 +0300
+
+    Modal added to landingpage
+
+[33mcommit d62149a6624eb39da42e713fda6277c1e34d20ae[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 18:45:25 2019 +0300
+
+    landingpage editted
+
+[33mcommit 1aff852571a74ac557850652e34761bc41a3a823[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 16:39:58 2019 +0300
+
+    Last version of merging
+
+[33mcommit cc5ddd77a4989bd32ff445454e9e70624fb8e1b4[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 16:12:50 2019 +0300
+
+    merge issues
+
+[33mcommit 797fdcf34ac3beede1fc97ea0c9a00ae592b9290[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 16:10:20 2019 +0300
+
+    maps_fatih mergd already
+
+[33mcommit 9ba9dfb0c681b98a9a85492352bd941f93fc42a8[m
+Merge: 7e6ff60 68fc4e1
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 16:08:43 2019 +0300
+
+    merge user_context
+
+[33mcommit 7e6ff607f4dbb453018f5689e498c7c0e26e39ff[m
+Merge: 3c17a3a 212fdd2
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 16:03:55 2019 +0300
+
+    last changes
+
+[33mcommit 212fdd2bc4f9425116942d5c08999b5d3e40bc48[m[33m ([m[1;31morigin/CRUD_hakki[m[33m)[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Tue Dec 10 11:25:53 2019 +0300
+
+    item listed from firestore in activityPage
+
+[33mcommit 68fc4e18e86a5e0bf7b12a182a6a479266cc87c1[m[33m ([m[1;31morigin/user_context[m[33m, [m[1;32muser_context[m[33m)[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Tue Dec 10 11:24:18 2019 +0300
+
+    Feeding table integration
+
+[33mcommit 83ecb8eb350fa18dd70083aac0565d333c514414[m
+Author: mfatihkocabas <kocabasmu16@itu.edu.tr>
+Date:   Sun Dec 8 16:33:08 2019 +0300
+
+    Authenticaiton and user contex is created.
+
+[33mcommit 6e692ac4f3e196044c7560a1847e7bf880268269[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Sun Dec 8 02:48:19 2019 +0300
+
+    fetch data from firestore
+
+[33mcommit 3c17a3aca767e47dc25cee4c61925e078d2aa523[m
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Sat Dec 7 16:48:48 2019 +0300
+
+    navbar margin fixed
+
+[33mcommit ea72e67132c323f09dff88c7813d23ee1ba93ad0[m
+Merge: 55e45d3 d2805ae
+Author: topalh16 <topalh@itu.edu.tr>
+Date:   Sat Dec 7 16:31:56 2019 +03
