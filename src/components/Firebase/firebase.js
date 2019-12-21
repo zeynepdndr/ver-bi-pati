@@ -83,7 +83,7 @@ export default class Firebase {
       });
   };
 
-  updateDoc = (ref, doc, data) => {
+  updateDoc= (ref, doc, data) => {
     this.database
       .collection(ref)
       .doc(doc)
@@ -96,7 +96,9 @@ export default class Firebase {
       });
   };
 
-  removeDoc = (ref, doc) => {};
+  removeDoc= (ref, doc) => {
+
+  };
 
   doListenNotificationsQuery = (query, callback) => {
     this.detachNotificationsListen = this.database
@@ -109,9 +111,9 @@ export default class Firebase {
         });
         callback(notifications);
       });
-  };
+  }
   doCreateNotification = notification => {
-    this.database.collection("notifications").add(notification);
+    this.database.collection("notifications").set(notification);
   };
 
   doDetachNotificationsListener = () => {
@@ -131,10 +133,8 @@ export default class Firebase {
       });
   };
 
-  retrieveDoc = (ref, doc) => {
-    return this.database
-      .collection(ref)
-      .doc(doc)
-      .on();
+  retrieveDoc= (ref, doc) => {
+    return this.database.collection(ref).doc(doc).on();
   };
+
 }

@@ -37,9 +37,3 @@
     border-left: 5px solid;
     padding-left: 10px;
 }
-.notification-menu-accept-reject-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0px;
-    padding: 0px 50px;
-}

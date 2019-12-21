@@ -51,28 +51,7 @@ const FeedingScheduleBase = props => {
   const [tableData, setTableData] = useState([]);
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
-  const [changedList, setChangedList] = useState({
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-    10: [],
-    11: [],
-    12: [],
-    13: [],
-    14: [],
-    15: [],
-    16: [],
-    17: [],
-    18: [],
-    19: []
-  });
+  const [changedList, setChangedList] = useState({});
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -90,19 +69,11 @@ const FeedingScheduleBase = props => {
         .collection("feeding")
         .doc("1")
         .set({ rowData: tableData });
-      const notification = {
-        title: "Beslenme Takvimi Uyarısı",
-        message:
-          "Kullanıcı " +
-          user.data.email +
-          " beslenme tablosuna eklenmek istiyor.",
-        type: "feeding",
-        data: changedList,
-        receivedUser: "admin",
-        seen: [],
-        sendDataTime: Date()
-      };
-      props.firebase.doCreateNotification(notification);
+      // const notification = {
+      //   title: "Beslenme Takvimi Uyarısı",
+      //   message:"Kullanıcı " + user.data.email + " s"
+      // }
+      // props.firebase.doCreateNotification()
     }
     //FIXME: Bad Solution
     setFirstRender(false);
@@ -331,12 +302,9 @@ const FeedingScheduleBase = props => {
     id = id.split(",");
     const rowIndex = id[1];
     const columnKey = id[0];
-
+    setChangedList({ one: ["sundayMorning", 1] });
+    setChangedList({ ...changedList, 1: [...changedList.one, 2] });
     if (e.target.checked) {
-      setChangedList({
-        ...changedList,
-        [rowIndex]: [...changedList[rowIndex], columnKey]
-      });
       if (tableData[rowIndex][columnKey] === undefined) {
         const volun = [];
         volun.push({
@@ -354,13 +322,6 @@ const FeedingScheduleBase = props => {
         tableData[rowIndex][columnKey].push(newVolun);
       }
     } else {
-      let newList = { ...changedList };
-      let deletedItemIndex = newList[rowIndex].findIndex(
-        item => item === columnKey
-      );
-      console.log(newList[rowIndex]);
-      newList[rowIndex].splice(deletedItemIndex, 1);
-      setChangedList(newList);
       tableData[rowIndex][columnKey].pop();
       if (tableData[rowIndex][columnKey].length === 0) {
         delete tableData[rowIndex][columnKey];

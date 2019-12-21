@@ -4,7 +4,6 @@ import { withFirebase } from "../Firebase";
 import { Link } from "react-router-dom";
 import { Select, notification as NotificationBox, Divider, Icon } from "antd";
 import { UserContext } from "../Auth/UserContext";
-import { Button } from "reactstrap";
 const { Option } = Select;
 
 const openNotification = (title, message, type) => {
@@ -37,100 +36,37 @@ const NotificationMenuBase = props => {
     }
   };
 
-  const handleAccept = data => {
-    props.firebase.database
-      .collection("feeding")
-      .doc("1")
-      .get()
-      .then(snapshot => {
-        let feedingTable = snapshot.data();
-      });
-  };
-
-  const handleReject = data => {
-    console.log("reject", data);
-  };
-
   useEffect(() => {
     setNotificationsToRender(
       <div>
-        {props.notifications.map(item => {
-          if (item.type !== "feeding") {
-            return (
-              <div
-                className="notification-item-container"
-                style={{
-                  borderColor:
-                    item.seen[user.data.email] === undefined
-                      ? "#F2DA82"
-                      : "white"
-                }}
-                onMouseEnter={() => handleHover(item)}
-              >
-                <strong className="text-info">{item.title}</strong>
-                {user.type === "admin" && (
-                  <div onClick={() => deleteItem(item.id)}>
-                    {item.messageData}
+        {props.notifications.map(item => (
+          <div
+            className="notification-item-container"
+            style={{
+              borderColor:
+                item.seen[user.data.email] === undefined ? "#F2DA82" : "white"
+            }}
+            onMouseEnter={() => handleHover(item)}
+          >
+            <strong className="text-info">{item.title}</strong>
+            {user.type === "admin" && (
+              <div onClick={() => deleteItem(item.id)}>
+                {item.messageData}
 
-                    <Icon
-                      type="delete"
-                      width="100em"
-                      height="100em"
-                      style={{ float: "right", fontSize: "24px" }}
-                    />
-                  </div>
-                )}
-                <small className="text-warning">
-                  {new Date(item.sendDataTime).toLocaleString("tr-TR")}
-                </small>
-                <Divider />
+                <Icon
+                  type="delete"
+                  width="100em"
+                  height="100em"
+                  style={{ float: "right", fontSize: "24px" }}
+                />
               </div>
-            );
-          } else {
-            return (
-              <div
-                className="notification-item-container"
-                style={{
-                  borderColor:
-                    item.seen[user.data.email] === undefined
-                      ? "#F2DA82"
-                      : "white"
-                }}
-              >
-                <strong className="text-info">{item.title}</strong>
-                <div>{item.message}</div>
-                <div
-                  className="notification-menu-accept-reject-buttons"
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    margin: "20px 0px",
-                    padding: "0px 50px"
-                  }}
-                >
-                  <Button
-                    outline
-                    color="success"
-                    onClick={() => handleAccept(item.data)}
-                  >
-                    Kabul Et
-                  </Button>{" "}
-                  <Button
-                    outline
-                    color="danger"
-                    onClick={() => handleReject(item.data)}
-                  >
-                    Reddet
-                  </Button>
-                </div>
-                <small className="text-warning">
-                  {new Date(item.sendDataTime).toLocaleString("tr-TR")}
-                </small>
-                <Divider />
-              </div>
-            );
-          }
-        })}
+            )}
+            <small className="text-warning">
+              {new Date(item.sendDataTime).toLocaleString("tr-TR")}
+            </small>
+            <Divider />
+          </div>
+        ))}
       </div>
     );
     // eslint-disable-next-line
