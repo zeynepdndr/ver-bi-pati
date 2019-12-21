@@ -13,7 +13,7 @@ const Notification = props => {
             <h1>
               {item.title}
               <span aria-label="a rocket blasting off" role="img">
-                🕊
+              ⚡
               </span>
             </h1>
           )}

@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import Navbar from "../Navigation/Navbar/navbar";
 import CustomFrame from "../Shared/customFrame";
 
+
 import "./layout.css";
 
 class Layout extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const { firebase } = this.props;
     return (

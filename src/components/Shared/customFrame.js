@@ -1,17 +1,33 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom'
+import ModalWhoWe from '../Common/modalWhoWe';
 import './customFrame.css';
 
 const CustomFrame = (props) =>{
+
+    const [show, setShow] = React.useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return (
-        <Link to={props.link} className="Button_link">
-            <div className="solid">       
-                    <div ><span><i className={props.icon}></i></span>{props.title}</div>
-                    {/* <div className="modal-body">               
-                        <img className="img-responsive" id={props.id} src={props.imgPath} alt=""/>                                     
-                    </div>             */}
-            </div>
-        </Link>
-    );
+        <div>
+            {(props.link==="/destekol") ? (
+                <Link to={props.link} className="Button_link">
+                <div className="solid">       
+                        <div ><span><i className={props.icon}></i></span>{props.title}</div>
+                </div>
+            </Link>
+            ): 
+            <div className="Button_link whowe"  >
+                <div className="solid">       
+                    <div onClick={handleShow}><span ><i className={props.icon}></i></span>{props.title}</div>
+                    <ModalWhoWe showInfo={show} closeInfo={handleClose} ></ModalWhoWe>           
+                </div>
+             </div>
+            }
+        </div>
+    )
 };
 export default CustomFrame;
