@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CustomButton from "./../Shared/customButton";
 import "./feeding.css";
 import Map from "pigeon-maps";
@@ -6,10 +6,13 @@ import Overlay from "pigeon-overlay";
 import FeedingSchedule from "../FeedingSchedule";
 import AddItemButton from "../Shared/addItemButton";
 import { Popover } from "antd";
+import { withFirebase } from "../Firebase";
+import { UserContext } from "../Auth/UserContext";
 
-const Feeding = () => {
+const FeedingBase = props => {
   const [view, setView] = useState(0);
   const [editMode, setEditMode] = useState(false);
+  const [user] = useContext(UserContext);
 
   return (
     <div>
@@ -19,7 +22,22 @@ const Feeding = () => {
       </div>
       <div className="container-fluid">
         <div className="buttonAlign">
-          <AddItemButton addActivity={() => setEditMode(!editMode)} />
+          <AddItemButton
+            addActivity={() => {
+              props.firebase.database
+                .collection("users")
+                .where("email", "==", user.data.email)
+                .get()
+                .then(snapshot => {
+                  console.log(snapshot.data());
+                  // if (snapshot.doc.feedingTableLock) {
+                  //   setEditMode(!editMode);
+                  // } else {
+                  //   console.log("forbidden action");
+                  // }
+                });
+            }}
+          />
         </div>
         <div>
           {view === 0 && <FeedingSchedule editMode={editMode} />}
@@ -46,5 +64,5 @@ const Feeding = () => {
     </div>
   );
 };
-
+const Feeding = withFirebase(FeedingBase);
 export default Feeding;
