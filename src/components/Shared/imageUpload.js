@@ -16,23 +16,55 @@ class ImageUpload extends Component {
       this.setState(() => ({ image }));
     }
   };
-
-  handleUpload = () => {
+  handleUploadSuccess = filename => {
     const { firebase } = this.props;
     const { image } = this.state;
 
-    // IMAGE KONROLU => TAMAMLANACAK
-    if(image.name === 'bizkimiz.txt') {
-      console.error(`not an image, the image file is a ${typeof(image.name)}`)
-    }
+    this.setState({ image: filename, progress: 100, isUploading: false });
+    firebase
+      .storage()
+      .ref("gallery")
+      .child(filename)
+      .getDownloadURL()
+      .then(function (url) {
+        var firebaseRef=firebase.database().ref("gallery");
+        firebaseRef.push(url).then(function(){
+            console.log("image uploaded to db");
+        }
+      )}
+    )
+  }
+  handleUpload = () => {
+    const { firebase } = this.props;
+    const { image } = this.state;
+    const url=[];
 
-    const uploadRef=firebase.storage.ref(`images/${image.name}`);
+    // IMAGE KONROLU => TAMAMLANACAK
+    // if(image.name === 'bizkimiz.txt') {
+    //   console.error(`not an image, the image file is a ${typeof(image.name)}`)
+    // }
+
+    const uploadRef=firebase.storage.ref(`images/${image}`);
 
 
     const uploadTask= uploadRef.put(image);
+    uploadTask
+    .then(uploadTaskSnapshot => {
+        uploadTaskSnapshot.ref.getDownloadURL().then(function(downloadURL) {
+            // console.log('File available at', downloadURL);
+            // this.setState({url:downloadURL})
+            url.push(downloadURL)
+            console.log('File available at', url[0]); 
+      })    
+    }).then(()=>
+    {
+      this.props.image(url[0]);
+   
+    })
 
-    this.props.image(image.name);
-    
+    // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+      // this.props.image(url[0]);
+    // });    
   };
   render() {
     return (

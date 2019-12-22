@@ -13,6 +13,9 @@
     -ms-transform: scale(1);
     transform: scale(1); 
 }
+.contentGallery > h3{
+  color: white;
+}
 .container-fluid {
     width: 75% !important;
     padding-right: 15px;

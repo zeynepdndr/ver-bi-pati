@@ -16,17 +16,23 @@ const ModalGalleryBase=(props)=>{
     const [galleryInfo, setGalleryInfo] = React.useState(
       {
         title:"", description: "", send_date_time:"", content_type:"", 
-        push_notification:"", image_name:""
+        push_notification:"", image_url:""
       }
     );
 
     const handleChange = (e) =>{
       let form = {
         title:"", description: "", send_date_time:"", content_type:"", 
-        push_notification:"", image_name:""
+        push_notification:"", image_url:""
       };
       form = galleryInfo;
-      form[e.target.id] = e.target.value
+      if(e.target.id==="animal" || e.target.id==="activity")
+       { form[e.target.name] = e.target.value}
+      else
+      {
+        form[e.target.id] = e.target.value
+      }
+      console.log(form)
       setGalleryInfo(form);
     };
 
@@ -47,7 +53,7 @@ const ModalGalleryBase=(props)=>{
     const getImage= (name) =>{
       setGalleryInfo({
         ...galleryInfo,
-        image_name:name});
+        image_url:name});
       console.log(galleryInfo);
     };
 
@@ -60,6 +66,16 @@ const ModalGalleryBase=(props)=>{
           </Modal.Header>
           <Modal.Body>
           <form onSubmit={handleClick} id="galleryForm">
+            <div className="form-group">
+              <div className="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="animal" name="content_type" className="custom-control-input" onChange={handleChange} value="animal"/>
+                <label className="custom-control-label" htmlFor="animal">Kampüs Hayvanlarımız</label>
+              </div>
+              <div className="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="activity" name="content_type" className="custom-control-input" onChange={handleChange} value="activity"/>
+                <label className="custom-control-label" htmlFor="activity">Faaliyetlerimiz</label>
+              </div>
+            </div>
             <div className="form-group">
               <label htmlFor="exampleFormControlInput1">Başlık</label>
               <input className="form-control" name="title" id="title" onChange={handleChange}/>
