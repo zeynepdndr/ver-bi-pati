@@ -37,14 +37,29 @@ const NotificationMenuBase = props => {
     }
   };
 
-  const handleAccept = data => {
+  const handleAccept = notifObj => {
+    let feedingTable = {};
+    let { data, id } = notifObj;
     props.firebase.database
       .collection("feeding")
       .doc("1")
       .get()
       .then(snapshot => {
-        let feedingTable = snapshot.data();
+        feedingTable = snapshot.data();
+        for (let i = 0; i < feedingTable.length; i++) {
+          data[i].forEach(item => {
+            feedingTable[i][item][0] = true;
+          });
+        }
       });
+    // props.firebase.database
+    //   .collection("feeding")
+    //   .doc("1")
+    //   .set(feedingTable);
+    // props.firebase.database
+    //   .collection("notifications")
+    //   .doc(id)
+    //   .delete();
   };
 
   const handleReject = data => {
@@ -111,14 +126,14 @@ const NotificationMenuBase = props => {
                   <Button
                     outline
                     color="success"
-                    onClick={() => handleAccept(item.data)}
+                    onClick={() => handleAccept(item)}
                   >
                     Kabul Et
                   </Button>{" "}
                   <Button
                     outline
                     color="danger"
-                    onClick={() => handleReject(item.data)}
+                    onClick={() => handleReject(item)}
                   >
                     Reddet
                   </Button>
