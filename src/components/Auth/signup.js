@@ -12,7 +12,8 @@ const initialState = {
   email: "",
   department: "",
   phone: "",
-  university_year: ""
+  university_year: "",
+  feedingTableLock: false
 };
 
 const openNotification = (title, message, type) => {

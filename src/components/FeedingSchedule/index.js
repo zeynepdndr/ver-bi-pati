@@ -51,28 +51,7 @@ const FeedingScheduleBase = props => {
   const [tableData, setTableData] = useState([]);
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
-  const [changedList, setChangedList] = useState({
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-    10: [],
-    11: [],
-    12: [],
-    13: [],
-    14: [],
-    15: [],
-    16: [],
-    17: [],
-    18: [],
-    19: []
-  });
+  const [changedList, setChangedList] = useState([]);
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -85,24 +64,53 @@ const FeedingScheduleBase = props => {
   }, [props.firebase.database]);
 
   useEffect(() => {
-    if (!props.editMode && !firstRender) {
-      props.firebase.database
-        .collection("feeding")
-        .doc("1")
-        .set({ rowData: tableData });
-      const notification = {
-        title: "Beslenme Takvimi Uyarısı",
-        message:
-          "Kullanıcı " +
-          user.data.email +
-          " beslenme tablosuna eklenmek istiyor.",
-        type: "feeding",
-        data: changedList,
-        receivedUser: "admin",
-        seen: [],
-        sendDataTime: Date()
-      };
-      props.firebase.doCreateNotification(notification);
+    //TODO: Check whether user is leaving without saving.
+    if (!props.editMode && !firstRender && changedList.length !== 0) {
+      let isAddExist = changedList.find(item => item.type === "add");
+      let isRemoveExist = changedList.find(item => item.type === "remove");
+
+      if (isAddExist !== undefined) {
+        props.firebase.database
+          .collection("feeding")
+          .doc("1")
+          .set({ rowData: tableData });
+        const notification = {
+          title: "Beslenme Takvimi Uyarısı",
+          message:
+            "Kullanıcı " +
+            user.data.email +
+            " beslenme tablosuna eklenmek istiyor.",
+          type: "feeding",
+          data: changedList,
+          receivedUser: "admin",
+          seen: [],
+          sendDataTime: Date(),
+          user: user.data.name
+        };
+        props.firebase.doCreateNotification(notification);
+      }
+
+      if (isRemoveExist !== undefined) {
+        props.firebase.database
+          .collection("feeding")
+          .doc("1")
+          .set({ rowData: tableData });
+
+        const notification = {
+          title: "Beslenme Takvimi Uyarısı",
+          message:
+            "Kullanıcı " +
+            user.data.email +
+            " beslenme tablosundan ismini kaldırdı.",
+          type: "notification",
+          receivedUser: "admin",
+          seen: [],
+          sendDataTime: Date(),
+          user: user.data.name
+        };
+        props.firebase.doCreateNotification(notification);
+      }
+      setChangedList([]);
     }
     //FIXME: Bad Solution
     setFirstRender(false);
@@ -331,12 +339,20 @@ const FeedingScheduleBase = props => {
     id = id.split(",");
     const rowIndex = id[1];
     const columnKey = id[0];
-
     if (e.target.checked) {
-      setChangedList({
-        ...changedList,
-        [rowIndex]: [...changedList[rowIndex], columnKey]
-      });
+      let newList = [...changedList];
+      let index = changedList.findIndex(
+        item => item.row === rowIndex && item.column === columnKey
+      );
+      if (index !== -1) {
+        newList.splice(index, 1);
+        setChangedList(newList);
+      } else {
+        setChangedList([
+          ...changedList,
+          { row: rowIndex, column: columnKey, type: "add" }
+        ]);
+      }
       if (tableData[rowIndex][columnKey] === undefined) {
         const volun = [];
         volun.push({
@@ -354,13 +370,19 @@ const FeedingScheduleBase = props => {
         tableData[rowIndex][columnKey].push(newVolun);
       }
     } else {
-      let newList = { ...changedList };
-      let deletedItemIndex = newList[rowIndex].findIndex(
-        item => item === columnKey
+      let newList = [...changedList];
+      let index = changedList.findIndex(
+        item => item.row === rowIndex && item.column === columnKey
       );
-      console.log(newList[rowIndex]);
-      newList[rowIndex].splice(deletedItemIndex, 1);
-      setChangedList(newList);
+      if (index !== -1) {
+        newList.splice(index, 1);
+        setChangedList(newList);
+      } else {
+        setChangedList([
+          ...changedList,
+          { row: rowIndex, column: columnKey, type: "remove" }
+        ]);
+      }
       tableData[rowIndex][columnKey].pop();
       if (tableData[rowIndex][columnKey].length === 0) {
         delete tableData[rowIndex][columnKey];

@@ -45,25 +45,68 @@ const NotificationMenuBase = props => {
       .doc("1")
       .get()
       .then(snapshot => {
-        feedingTable = snapshot.data();
-        for (let i = 0; i < feedingTable.length; i++) {
-          data[i].forEach(item => {
-            feedingTable[i][item][0] = true;
-          });
-        }
+        feedingTable = { ...snapshot.data() };
+        data.forEach(item => {
+          const { row, column, type } = item;
+          if (type === "add") {
+            if (feedingTable.rowData[row][column].length > 1) {
+              if (
+                feedingTable.rowData[row][column][0]["name"] === notifObj.user
+              ) {
+                feedingTable.rowData[row][column][0]["appState"] = true;
+              } else {
+                feedingTable.rowData[row][column][1]["appState"] = true;
+              }
+            } else {
+              feedingTable.rowData[row][column][0]["appState"] = true;
+            }
+          }
+        });
+        props.firebase.database
+          .collection("feeding")
+          .doc("1")
+          .set(feedingTable);
+        props.firebase.database
+          .collection("notifications")
+          .doc(id)
+          .delete();
       });
-    // props.firebase.database
-    //   .collection("feeding")
-    //   .doc("1")
-    //   .set(feedingTable);
-    // props.firebase.database
-    //   .collection("notifications")
-    //   .doc(id)
-    //   .delete();
   };
-
-  const handleReject = data => {
-    console.log("reject", data);
+  const handleReject = notifObj => {
+    let feedingTable = {};
+    let { data, id } = notifObj;
+    props.firebase.database
+      .collection("feeding")
+      .doc("1")
+      .get()
+      .then(snapshot => {
+        feedingTable = { ...snapshot.data() };
+        data.forEach(item => {
+          const { row, column, type } = item;
+          if (type === "add") {
+            if (feedingTable.rowData[row][column].length > 1) {
+              if (
+                feedingTable.rowData[row][column][0]["name"] === notifObj.user
+              ) {
+                feedingTable.rowData[row][column].splice(0, 1);
+              } else {
+                delete feedingTable.rowData[row][column].splice(1, 1);
+              }
+            } else {
+              delete feedingTable.rowData[row][column];
+            }
+          }
+        });
+        console.log(feedingTable);
+        props.firebase.database
+          .collection("feeding")
+          .doc("1")
+          .set(feedingTable);
+        props.firebase.database
+          .collection("notifications")
+          .doc(id)
+          .delete();
+      });
   };
 
   useEffect(() => {
