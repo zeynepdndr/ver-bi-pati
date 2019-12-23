@@ -1,3 +1,9 @@
 .container-fluid {
     max-width: 75%;
 }
+
+.buttonAlign {
+    display:flex;
+    justify-content: space-around;
+    width: 50%;
+}

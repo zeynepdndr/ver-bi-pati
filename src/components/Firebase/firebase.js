@@ -65,7 +65,7 @@ export default class Firebase {
             loginStatus: true,
             authType: "user",
             message: "Logged as user",
-            userData: doc.data()
+            userData: { ...doc.data(), id: doc.id }
           });
         });
       });
@@ -101,6 +101,7 @@ export default class Firebase {
   doListenNotificationsQuery = (query, callback) => {
     this.detachNotificationsListen = this.database
       .collection("notifications")
+      .orderBy("sendDataTime", "desc")
       .where(query.firstOp, query.comparisonOp, query.secondOp)
       .onSnapshot(function(querySnapshot) {
         var notifications = [];

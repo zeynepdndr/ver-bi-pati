@@ -3,13 +3,22 @@ import "./addItemButton.css";
 
 const AddItemButton = props => {
   return (
-    //TODO: Make button text dynamic with props
     <div className="add-box">
       <div className="row">
         <div className="center-block">
-          <button id="addIconCentered" onClick={props.addActivity}>
-            <i className="fa fa-plus-circle fa-lg" id="withButton"></i>
-            <span>YENİ</span>
+          <button
+            id="addIconCentered"
+            onClick={props.addActivity}
+            style={props.style === undefined ? {} : props.style}
+          >
+            {props.text !== "ONAYLIYORUM" && (
+              <i
+                className="fa fa-plus-circle fa-lg"
+                id={props.style === undefined && "withButton"}
+              ></i>
+            )}
+
+            <span>{props.text === undefined ? "YENİ" : props.text}</span>
           </button>
         </div>
       </div>
