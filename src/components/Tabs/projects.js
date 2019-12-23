@@ -24,13 +24,15 @@ const Projects = ()=>
         <div className="pfblock-line"></div>  
         <p className="lead">
         <ul class="fa-ul">
-          <li><i class="fa-li fa fa-paw"></i>Düzenli beslemeler</li>
-          <li><i class="fa-li fa fa-paw"></i>Okuldaki hayvanların ve sağlık durumlarının takibi</li>
-          <li><i class="fa-li fa fa-paw"></i>Yaralı ya da hasta hayvanların kliniğe götürülmesi, tedavilerinin yapılması ve bu sürecin takip
-            edilmesi</li>
-          <li><i class="fa-li fa fa-paw"></i>Mama ve diğer ihtiyaçlarının temin edilmesi için bağış toplanması</li>
-          <li><i class="fa-li fa fa-paw"></i>Yavru veya muhtaç hayvanların sahiplendirilmesi</li>
-          <li><i class="fa-li fa fa-paw"></i>Barınak ziyaretleri ve yardımları</li>
+          <li><i class="fa-li fa fa-paw"></i>Okuldaki su sisteminin aktif hale getirilerek hayvanların su ihtiyacının düzenli olarak giderilmesi.</li>
+          <li><i class="fa-li fa fa-paw"></i>Arama kurtarma ekibimizin daha donanımlı hale getirilmesi</li>
+          <li><i class="fa-li fa fa-paw"></i>Okulumuza kedi ve köpek kulübelerinin yerleştirilmesi</li>
+          <li><i class="fa-li fa fa-paw"></i>İnsanlar ve hayvanların birlikte yaşamını kolaylaştıracak
+rehabilitasyon çalışmaları</li>
+          <li><i class="fa-li fa fa-paw"></i>Hayvan hakları üzerine farkındalık oluşturacak projeler üretilmesi</li>
+          <li><i class="fa-li fa fa-paw"></i>Okuldaki hayvanların tasmalanması</li>
+          <li><i class="fa-li fa fa-paw"></i>Cezaevindeki çocuklarla kulübe atölyesi</li>
+
         </ul>
         </p> 
       </div>

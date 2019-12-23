@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import emailjs from 'emailjs-com';
+import {notification as NotificationBox,} from "antd";
+
 import './contact.css';
 
-
+const openNotification = (title, message, type) => {
+  NotificationBox[type]({
+    message: title,
+    description: message,
+    placement: "bottomLeft"
+  });
+};
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +18,15 @@ class Contact extends Component {
     this.sendEmail = this.sendEmail.bind(this);
     this.resetForm = this.resetForm.bind(this);
      this.handleChange = this.handleChange.bind(this);
+  }
+  resetForm() {
+    this.setState({
+        user_name: '',
+        user_email: '',
+        message: '',
+    }, () => {
+      document.getElementById("contact-form").reset();
+    })
   }
   sendEmail =(e) => {
     e.preventDefault();
@@ -25,20 +42,23 @@ class Contact extends Component {
 
     emailjs.send('gmail','template_nvAz26LU' ,templateParams, 'user_ZiADeXR9LP1vR2uWxJuJW')
     .then((result) => {
-        console.log(result.text);
+      openNotification(
+        "İşlem Başarılı",
+        "Mesajın iletildi. En kısa sürede geri dönüş sağlayacağız.",
+        "success"
+      );
+      this.resetForm();
+
     }, (error) => {
         console.log(error.text);
     });
+    
 
-     this.resetForm();
+
  }
-  resetForm() {
-    this.setState({
-      user_name: '',
-      user_email: '',
-      message: '',
-    })
-  }
+
+
+  
   handleChange = (param, e) => {
     this.setState({ [param]: e.target.value })
   }
@@ -82,7 +102,7 @@ class Contact extends Component {
                 </div>
                 <br/>
                 <div className="col">
-                  <input type="email" name="user_email" className="form-control" placeholder="E-mail" onChange={this.handleChange.bind(this, 'user_email')}/>
+                  <input type="email" id="user_email"name="user_email" className="form-control" placeholder="E-mail" onChange={this.handleChange.bind(this, 'user_email')}/>
                 </div>   
                 <br/>   
                 <div className="form-group col">

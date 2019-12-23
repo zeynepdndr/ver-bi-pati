@@ -35,7 +35,7 @@ class ImageUpload extends Component {
     )
   }
   handleUpload = () => {
-    const { firebase } = this.props;
+    const { firebase, callback  } = this.props;
     const { image } = this.state;
     const url=[];
 

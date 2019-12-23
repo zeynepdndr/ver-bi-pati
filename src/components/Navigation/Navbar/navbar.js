@@ -104,7 +104,7 @@ const NavbarBase = props => {
             <Link to={ROUTES.DONATION}>Destek Ol</Link>
           </div>
           <div className="link4">
-            <Link to={ROUTES.ANNOUNCEMENTS}>Kayıp&Sahiplendirme</Link>
+            <Link to={ROUTES.ANNOUNCEMENTS}>Kayıp & Sahiplendirme</Link>
           </div>
           <div className="link5">
             <Link to={ROUTES.GALLERY}>Galeri</Link>
