@@ -5,7 +5,7 @@ import Map from "pigeon-maps";
 import Overlay from "pigeon-overlay";
 import FeedingSchedule from "../FeedingSchedule";
 import AddItemButton from "../Shared/addItemButton";
-import { Popover } from "antd";
+import { Popover, notification } from "antd";
 import { withFirebase } from "../Firebase";
 import { UserContext } from "../Auth/UserContext";
 
@@ -13,6 +13,14 @@ const FeedingBase = props => {
   const [view, setView] = useState(0);
   const [editMode, setEditMode] = useState(false);
   const [user] = useContext(UserContext);
+
+  const openNotification = (title, message, type) => {
+    notification[type]({
+      message: title,
+      description: message,
+      placement: "bottomLeft"
+    });
+  };
 
   return (
     <div>
@@ -23,18 +31,24 @@ const FeedingBase = props => {
       <div className="container-fluid">
         <div className="buttonAlign">
           <AddItemButton
+            //FIXME: Implement this in a proper way!
             addActivity={() => {
               props.firebase.database
                 .collection("users")
                 .where("email", "==", user.data.email)
                 .get()
                 .then(snapshot => {
-                  console.log(snapshot.data());
-                  // if (snapshot.doc.feedingTableLock) {
-                  //   setEditMode(!editMode);
-                  // } else {
-                  //   console.log("forbidden action");
-                  // }
+                  snapshot.forEach(doc => {
+                    if (!doc.data().feedingTableLock) {
+                      setEditMode(!editMode);
+                    } else {
+                      openNotification(
+                        "Bu işlemi gerçekleştiremezsiniz!",
+                        "Görünüşe göre bir önceki değişikliğiniz henüz yöneticiler tarafından onaylanmamıştır. Lütfen işleminiz onaylandıktan sonra tekrar deneyiniz.",
+                        "error"
+                      );
+                    }
+                  });
                 });
             }}
           />

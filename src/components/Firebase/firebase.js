@@ -65,7 +65,7 @@ export default class Firebase {
             loginStatus: true,
             authType: "user",
             message: "Logged as user",
-            userData: doc.data()
+            userData: { ...doc.data(), id: doc.id }
           });
         });
       });

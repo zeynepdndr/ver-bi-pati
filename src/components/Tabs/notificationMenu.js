@@ -70,6 +70,10 @@ const NotificationMenuBase = props => {
           .collection("notifications")
           .doc(id)
           .delete();
+        props.firebase.database
+          .collection("users")
+          .doc(notifObj.userid)
+          .set({ feedingTableLock: false }, { merge: true });
       });
   };
   const handleReject = notifObj => {

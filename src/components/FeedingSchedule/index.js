@@ -71,6 +71,10 @@ const FeedingScheduleBase = props => {
 
       if (isAddExist !== undefined) {
         props.firebase.database
+          .collection("users")
+          .doc(user.data.id)
+          .set({ feedingTableLock: true }, { merge: true });
+        props.firebase.database
           .collection("feeding")
           .doc("1")
           .set({ rowData: tableData });
@@ -85,7 +89,8 @@ const FeedingScheduleBase = props => {
           receivedUser: "admin",
           seen: [],
           sendDataTime: Date(),
-          user: user.data.name
+          user: user.data.name,
+          userid: user.data.id
         };
         props.firebase.doCreateNotification(notification);
       }
