@@ -29,7 +29,10 @@ const NotificationMenuBase = props => {
 
   const handleHover = item => {
     if (user.data.email !== undefined) {
+      console.log(user.data.email);
+      console.log(item);
       item.seen[user.data.email] = true;
+      console.log(item);
       props.firebase.database
         .collection("notifications")
         .doc(item.id)
@@ -101,7 +104,6 @@ const NotificationMenuBase = props => {
             }
           }
         });
-        console.log(feedingTable);
         props.firebase.database
           .collection("feeding")
           .doc("1")

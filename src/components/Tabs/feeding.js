@@ -5,7 +5,7 @@ import Map from "pigeon-maps";
 import Overlay from "pigeon-overlay";
 import FeedingSchedule from "../FeedingSchedule";
 import AddItemButton from "../Shared/addItemButton";
-import { Popover, notification } from "antd";
+import { Popover, notification, Modal } from "antd";
 import { withFirebase } from "../Firebase";
 import { UserContext } from "../Auth/UserContext";
 
@@ -13,6 +13,8 @@ const FeedingBase = props => {
   const [view, setView] = useState(0);
   const [editMode, setEditMode] = useState(false);
   const [user] = useContext(UserContext);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [editConfirmed, setEditConfirmed] = useState(false);
 
   const openNotification = (title, message, type) => {
     notification[type]({
@@ -20,6 +22,16 @@ const FeedingBase = props => {
       description: message,
       placement: "bottomLeft"
     });
+  };
+
+  const handleModalOk = () => {
+    setEditConfirmed(true);
+    setShowConfirmModal(!showConfirmModal);
+  };
+
+  const handleModalCancel = () => {
+    setShowConfirmModal(!showConfirmModal);
+    setEditConfirmed(false);
   };
 
   return (
@@ -31,6 +43,8 @@ const FeedingBase = props => {
       <div className="container-fluid">
         <div className="buttonAlign">
           <AddItemButton
+            text={editMode ? "ONAYLIYORUM" : "Bende Beslemek istiyorum!"}
+            style={{ width: "300px" }}
             //FIXME: Implement this in a proper way!
             addActivity={() => {
               props.firebase.database
@@ -50,11 +64,31 @@ const FeedingBase = props => {
                     }
                   });
                 });
+              if (editMode) {
+                setShowConfirmModal(true);
+              }
             }}
           />
+          <Modal
+            title="Değişiklik Onayı"
+            visible={showConfirmModal}
+            onOk={handleModalOk}
+            onCancel={handleModalCancel}
+            okText="Tamam"
+            cancelText="İptal"
+          >
+            <p>
+              Eğer yaptığınız değişiklikleri onaylarsanız, değişiklik isteğiniz
+              site yöneticilerine iletilecektir. Lakin değişiklikleriniz
+              onaylanana kadar yeni bir değişiklik yapamayacaksınız. Devam etmek
+              istiyor musunuz?
+            </p>
+          </Modal>
         </div>
         <div>
-          {view === 0 && <FeedingSchedule editMode={editMode} />}
+          {view === 0 && (
+            <FeedingSchedule editMode={editMode} confirmed={editConfirmed} />
+          )}
           {view === 1 && (
             <div>
               <Map

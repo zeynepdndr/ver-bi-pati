@@ -65,7 +65,12 @@ const FeedingScheduleBase = props => {
 
   useEffect(() => {
     //TODO: Check whether user is leaving without saving.
-    if (!props.editMode && !firstRender && changedList.length !== 0) {
+    if (
+      !props.editMode &&
+      !firstRender &&
+      changedList.length !== 0 &&
+      props.confirmed
+    ) {
       let isAddExist = changedList.find(item => item.type === "add");
       let isRemoveExist = changedList.find(item => item.type === "remove");
 
@@ -120,7 +125,7 @@ const FeedingScheduleBase = props => {
     //FIXME: Bad Solution
     setFirstRender(false);
     // eslint-disable-next-line
-  }, [props.editMode]);
+  }, [props.editMode, props.confirmed]);
 
   const handleRender = (Text, dataIndex) => {
     if (Text !== undefined) {
