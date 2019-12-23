@@ -52,6 +52,7 @@ const FeedingScheduleBase = props => {
   const [user] = useContext(UserContext);
   const [firstRender, setFirstRender] = useState(true);
   const [changedList, setChangedList] = useState([]);
+  const [firstRenderOfFeeding, setFirstRenderOfFeeding] = useState(true);
   useEffect(() => {
     props.firebase.database
       .collection("feeding")
@@ -126,6 +127,17 @@ const FeedingScheduleBase = props => {
     setFirstRender(false);
     // eslint-disable-next-line
   }, [props.editMode, props.confirmed]);
+
+  useEffect(() => {
+    if (!props.editMode && !firstRenderOfFeeding) {
+      props.firebase.database
+        .collection("feeding")
+        .doc("1")
+        .set({ rowData: tableData });
+    }
+    setFirstRenderOfFeeding(false);
+    // eslint-disable-next-line
+  }, [props.feedingMode]);
 
   const handleRender = (Text, dataIndex) => {
     if (Text !== undefined) {
@@ -344,6 +356,24 @@ const FeedingScheduleBase = props => {
     }
   ];
 
+  const handleFeedingBoxChange = e => {
+    let id = e.target.id;
+    id = id.split(",");
+    const rowIndex = id[1];
+    const columnKey = id[0];
+    if (e.target.checked) {
+      let userIndex = tableData[rowIndex][columnKey].findIndex(
+        item => item.name === user.data.name
+      );
+      tableData[rowIndex][columnKey][userIndex].feedingState = true;
+    } else {
+      let userIndex = tableData[rowIndex][columnKey].findIndex(
+        item => item.name === user.data.name
+      );
+      tableData[rowIndex][columnKey][userIndex].feedingState = false;
+    }
+  };
+
   const handleCheckBoxChange = e => {
     let id = e.target.id;
     id = id.split(",");
@@ -402,37 +432,22 @@ const FeedingScheduleBase = props => {
 
   const TableItem = props => {
     if (props.idb !== undefined) {
-      const { record } = props.idb.props;
-      if (record[props.idb.key] !== undefined) {
-        if (props.idb.key === "feedingPlace") {
-          return (
-            <td>
-              <Text style={{ margin: "5% 0px" }}>{record.feedingPlace}</Text>
-            </td>
-          );
-        } else {
-          if (
-            tableData[props.rowid][props.idb.key] !== undefined &&
-            tableData[props.rowid][props.idb.key].length < 2 &&
-            tableData[props.rowid][props.idb.key].find(
-              item => item.name === user.data.name
-            ) === undefined
-          ) {
+      if (props.type === "edit") {
+        const { record } = props.idb.props;
+        if (record[props.idb.key] !== undefined) {
+          if (props.idb.key === "feedingPlace") {
             return (
               <td>
-                <Checkbox
-                  style={{ margin: "0px 45%" }}
-                  disabled={false}
-                  id={props.idb.key + "," + props.rowid}
-                  onChange={e => handleCheckBoxChange(e)}
-                />
+                <Text style={{ margin: "5% 0px" }}>{record.feedingPlace}</Text>
               </td>
             );
           } else {
             if (
+              tableData[props.rowid][props.idb.key] !== undefined &&
+              tableData[props.rowid][props.idb.key].length < 2 &&
               tableData[props.rowid][props.idb.key].find(
                 item => item.name === user.data.name
-              ) !== undefined
+              ) === undefined
             ) {
               return (
                 <td>
@@ -440,59 +455,190 @@ const FeedingScheduleBase = props => {
                     style={{ margin: "0px 45%" }}
                     disabled={false}
                     id={props.idb.key + "," + props.rowid}
-                    defaultChecked
-                    onChange={e => {
-                      handleCheckBoxChange(e);
-                    }}
+                    onChange={e => handleCheckBoxChange(e)}
+                  />
+                </td>
+              );
+            } else {
+              if (
+                tableData[props.rowid][props.idb.key].find(
+                  item => item.name === user.data.name
+                ) !== undefined
+              ) {
+                return (
+                  <td>
+                    <Checkbox
+                      style={{ margin: "0px 45%" }}
+                      disabled={false}
+                      id={props.idb.key + "," + props.rowid}
+                      defaultChecked
+                      onChange={e => {
+                        handleCheckBoxChange(e);
+                      }}
+                    />
+                  </td>
+                );
+              }
+              return (
+                <td>
+                  <Checkbox
+                    style={{ margin: "0px 45%" }}
+                    disabled={true}
+                    id={props.idb.key + "," + props.rowid}
                   />
                 </td>
               );
             }
-            return (
-              <td>
-                <Checkbox
-                  style={{ margin: "0px 45%" }}
-                  disabled={true}
-                  id={props.idb.key + "," + props.rowid}
-                />
-              </td>
-            );
           }
+        } else {
+          return (
+            <td>
+              <Checkbox
+                id={props.idb.key + "," + props.rowid}
+                style={{ margin: "0px 45%" }}
+                onChange={e => handleCheckBoxChange(e)}
+              />
+            </td>
+          );
         }
       } else {
-        return (
-          <td>
-            <Checkbox
-              id={props.idb.key + "," + props.rowid}
-              style={{ margin: "0px 45%" }}
-              onChange={e => handleCheckBoxChange(e)}
-            />
-          </td>
-        );
+        const { record } = props.idb.props;
+        if (record[props.idb.key] !== undefined) {
+          if (props.idb.key === "feedingPlace") {
+            return (
+              <td>
+                <Text style={{ margin: "5% 0px" }}>{record.feedingPlace}</Text>
+              </td>
+            );
+          } else {
+            if (
+              tableData[props.rowid][props.idb.key] !== undefined &&
+              tableData[props.rowid][props.idb.key].find(
+                item => item.name === user.data.name && !item.feedingState
+              ) !== undefined
+            ) {
+              return (
+                <td>
+                  <Checkbox
+                    style={{ margin: "0px 45%" }}
+                    id={props.idb.key + "," + props.rowid}
+                    onChange={e => handleFeedingBoxChange(e)}
+                  />
+                </td>
+              );
+            } else {
+              return (
+                <td>
+                  <Checkbox
+                    style={{ margin: "0px 45%" }}
+                    disabled={true}
+                    id={props.idb.key + "," + props.rowid}
+                  />
+                </td>
+              );
+            }
+          }
+        } else {
+          return (
+            <td>
+              <Checkbox
+                id={props.idb.key + "," + props.rowid}
+                style={{ margin: "0px 45%" }}
+                disabled={true}
+              />
+            </td>
+          );
+        }
       }
     } else {
       return null;
     }
   };
 
-  const TableRow = props => {
+  const TableRow = e => {
+    let checkBoxType = "none";
+    if (props.editMode) {
+      checkBoxType = "edit";
+    } else {
+      checkBoxType = "feeding";
+    }
     return (
       <tr>
-        <TableItem idb={props.children[0]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[1]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[2]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[3]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[4]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[5]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[6]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[7]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[8]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[9]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[10]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[11]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[12]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[13]} rowid={props["data-row-key"]} />
-        <TableItem idb={props.children[14]} rowid={props["data-row-key"]} />
+        <TableItem
+          idb={e.children[0]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[1]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[2]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[3]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[4]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[5]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[6]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[7]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[8]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[9]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[10]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[11]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[12]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[13]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
+        <TableItem
+          idb={e.children[14]}
+          rowid={e["data-row-key"]}
+          type={checkBoxType}
+        />
       </tr>
     );
   };
@@ -507,7 +653,11 @@ const FeedingScheduleBase = props => {
     <Tabs defaultActiveKey="1">
       <TabPane tab="50. Hafta" key="1">
         <Table
-          components={props.editMode === true ? components : undefined}
+          components={
+            props.editMode === true || props.feedingMode === true
+              ? components
+              : undefined
+          }
           columns={columns}
           dataSource={tableData}
           loading={!tableData.length}

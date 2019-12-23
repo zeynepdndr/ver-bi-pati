@@ -11,10 +11,13 @@ const AddItemButton = props => {
             onClick={props.addActivity}
             style={props.style === undefined ? {} : props.style}
           >
-            <i
-              className="fa fa-plus-circle fa-lg"
-              id={props.style === undefined && "withButton"}
-            ></i>
+            {props.text !== "ONAYLIYORUM" && (
+              <i
+                className="fa fa-plus-circle fa-lg"
+                id={props.style === undefined && "withButton"}
+              ></i>
+            )}
+
             <span>{props.text === undefined ? "YENİ" : props.text}</span>
           </button>
         </div>
