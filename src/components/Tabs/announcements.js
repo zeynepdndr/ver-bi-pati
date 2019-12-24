@@ -29,7 +29,7 @@ const AnnouncementsBase = (props)=>{
         <CustomButton label="Sahiplendirme ilanları"></CustomButton>
       </div>  
       <div className="container-fluid">
-          <div className="buttonAlign">
+          <div>
               <ModalAnnouncement></ModalAnnouncement>
           </div>
       </div>

@@ -181,7 +181,7 @@ const GalleryBase = props => {
         <CustomButton label="Faaliyetlerimiz"></CustomButton>
       </div>
       <div className="container-fluid">
-        <div className="buttonAlign">
+        <div>
           <ModalGallery></ModalGallery>
         </div>
       </div>

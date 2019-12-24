@@ -125,7 +125,7 @@ class ActivitiesBase extends Component{
     return (
       <div className="container-fluid">
         <h2>Etkinliklerimiz</h2>
-        <div className="buttonAlign">
+        <div>
             <ModalActivity uid={this.state.selectedUid} callback={this.callback} id={this.state.showEditModal}></ModalActivity>
             <ModalConfirm callbackconfirm={this.callbackconfirm} callback={this.handleCloseDeletionModal} open={this.state.showDeletionModal}></ModalConfirm>
         </div>
