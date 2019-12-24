@@ -134,16 +134,16 @@ const NotificationMenuBase = props => {
                 <strong className="text-info">{item.title}</strong>
                 {user.type === "admin" && (
                   <div onClick={() => deleteItem(item.id)}>
-                    {item.messageData}
 
                     <Icon
                       type="delete"
                       width="100em"
                       height="100em"
                       style={{ float: "right", fontSize: "24px" }}
-                    />
+                      />
                   </div>
                 )}
+                {item.messageData}
                 <small className="text-warning">
                   {new Date(item.sendDataTime).toLocaleString("tr-TR")}
                 </small>
