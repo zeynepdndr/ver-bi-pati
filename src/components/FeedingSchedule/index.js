@@ -139,6 +139,26 @@ const FeedingScheduleBase = props => {
     // eslint-disable-next-line
   }, [props.feedingMode]);
 
+  useEffect(() => {
+    if (props.resetFeeds) {
+      tableData.forEach(row => {
+        Object.keys(row).forEach(cell => {
+          if (cell !== "feedingPlace") {
+            row[cell][0].feedingState = false;
+            if (row[cell][1] !== undefined) {
+              row[cell][1].feedingState = false;
+            }
+          }
+        });
+      });
+      props.firebase.database
+        .collection("feeding")
+        .doc("1")
+        .set({ rowData: tableData });
+      props.setResetFeeds(false);
+    }
+  }, [props, props.resetFeeds, tableData]);
+
   const handleRender = (Text, dataIndex) => {
     if (Text !== undefined) {
       let returnValue = <div></div>;

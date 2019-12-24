@@ -16,6 +16,7 @@ const FeedingBase = props => {
   const [user] = useContext(UserContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [editConfirmed, setEditConfirmed] = useState(false);
+  const [resetFeeds, setResetFeeds] = useState(false);
 
   const openNotification = (title, message, type) => {
     notification[type]({
@@ -81,6 +82,15 @@ const FeedingBase = props => {
               }}
             />
           )}
+          {user.type === "admin" && view === 0 && (
+            <AddItemButton
+              text="Belemeleri Sıfırla!"
+              style={{ width: "200px" }}
+              addActivity={() => {
+                setResetFeeds(true);
+              }}
+            />
+          )}
 
           <Modal
             title="Değişiklik Onayı"
@@ -104,6 +114,8 @@ const FeedingBase = props => {
               editMode={editMode}
               confirmed={editConfirmed}
               feedingMode={feedingMode}
+              resetFeeds={resetFeeds}
+              setResetFeeds={setResetFeeds}
             />
           )}
           {view === 1 && (
