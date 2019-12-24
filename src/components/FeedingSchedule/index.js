@@ -651,7 +651,7 @@ const FeedingScheduleBase = props => {
 
   return (
     <Tabs defaultActiveKey="1">
-      <TabPane tab="50. Hafta" key="1">
+      <TabPane tab="Bu Hafta" key="1">
         <Table
           components={
             props.editMode === true || props.feedingMode === true

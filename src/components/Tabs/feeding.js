@@ -43,7 +43,7 @@ const FeedingBase = props => {
       </div>
       <div className="container-fluid">
         <div className="buttonAlign">
-          {!feedingMode && view === 0 && (
+          {!feedingMode && view === 0 && user.type !== "guest" && (
             <AddItemButton
               text={editMode ? "ONAYLIYORUM" : "Bende Beslemek istiyorum!"}
               style={{ width: "300px" }}
@@ -72,7 +72,7 @@ const FeedingBase = props => {
               }}
             />
           )}
-          {!editMode && view === 0 && (
+          {!editMode && view === 0 && user.type !== "guest" && (
             <AddItemButton
               text={feedingMode ? "ONAYLIYORUM" : "Besleme Yaptım"}
               style={{ width: "200px" }}
