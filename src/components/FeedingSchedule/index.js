@@ -86,7 +86,7 @@ const FeedingScheduleBase = props => {
           .set({ rowData: tableData });
         const notification = {
           title: "Beslenme Takvimi Uyarısı",
-          message:
+          messageData:
             "Kullanıcı " +
             user.data.email +
             " beslenme tablosuna eklenmek istiyor.",
@@ -109,7 +109,7 @@ const FeedingScheduleBase = props => {
 
         const notification = {
           title: "Beslenme Takvimi Uyarısı",
-          message:
+          messageData:
             "Kullanıcı " +
             user.data.email +
             " beslenme tablosundan ismini kaldırdı.",
