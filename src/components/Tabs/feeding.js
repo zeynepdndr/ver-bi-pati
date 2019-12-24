@@ -84,7 +84,7 @@ const FeedingBase = props => {
           )}
           {user.type === "admin" && view === 0 && (
             <AddItemButton
-              text="Belemeleri Sıfırla!"
+              text="Beslemeleri Sıfırla!"
               style={{ width: "200px" }}
               addActivity={() => {
                 setResetFeeds(true);
