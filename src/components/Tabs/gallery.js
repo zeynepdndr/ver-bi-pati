@@ -157,7 +157,7 @@ const GalleryBase = props => {
           <img
             className="img-fluid"
             id="image1"
-            src={require("./../Res/images/gallery/ares.jpg")}
+            src={require("../Res/images/gallery/ares.jpg")}
             alt="Card image cap"
           />
           <div className="contentGallery">
