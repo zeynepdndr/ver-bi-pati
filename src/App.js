@@ -13,6 +13,7 @@ import Donation from "./components/Tabs/donation";
 import Gallery from "./components/Tabs/gallery";
 import Announcements from "./components/Tabs/announcements";
 import Feeding from "./components/Tabs/feeding";
+import MaintenancePage from "./components/MaintenancePage/maintenance-page";
 import Notification from "./components/Tabs/notification";
 
 import { withFirebase } from "./components/Firebase";
@@ -31,6 +32,7 @@ export default class App extends Component {
           />
         </Switch>
         <Route path={ROUTES.HOME} render={props => <HomePage {...props} />} />
+        <Route path={ROUTES.MAINTENANCE} render={props => <MaintenancePage {...props} />} />
         <Route path={ROUTES.CONTACT} render={props => <Contact {...props} />} />
         <Route
           path={ROUTES.ACTIVITIES}
