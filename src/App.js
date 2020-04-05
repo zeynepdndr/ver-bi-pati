@@ -31,6 +31,13 @@ export default class App extends Component {
             render={props => <LayoutFire {...props} />}
           />
         </Switch>
+         
+         {/* <Switch>
+          <Route exact path={ROUTES.MAINTENANCE} render={() => <MaintenancePage />} />
+          <Route
+            path={ROUTES.MAINTENANCE}
+          />
+        </Switch> */}
         <Route path={ROUTES.HOME} render={props => <HomePage {...props} />} />
         <Route path={ROUTES.MAINTENANCE} render={props => <MaintenancePage {...props} />} />
         <Route path={ROUTES.CONTACT} render={props => <Contact {...props} />} />

@@ -17,10 +17,10 @@ import { Popover, Menu, Dropdown, Badge } from "antd";
 const submenu_activities = (
   <Menu>
     <Menu.Item>
-      <Link to="/projeler">Projelerimiz</Link>
+      <Link to="/projeler">Hakkımızda</Link>
     </Menu.Item>
     <Menu.Item>
-      <Link to="/etkinlikler">Etkinliklerimiz</Link>
+      <Link to="/projeler">Projelerimiz</Link>
     </Menu.Item>
   </Menu>
 );
@@ -77,6 +77,8 @@ const NavbarBase = props => {
 
   return (
     <div className="navbar-main-container">
+      <div className="site-navbar__top">
+	    </div>
       <nav className="site-navbar">
         <div className="navbar-banner">
           <Link className="navbar-brand" to="/anasayfa">
@@ -94,8 +96,11 @@ const NavbarBase = props => {
               overlay={submenu_activities}
               overlayStyle={{ width: "200px" }}
             >
-              <Link className="link1">Neler Yapıyoruz?</Link>
+              <Link to={ROUTES.HOME} className="link1">Ana Sayfa</Link>
             </Dropdown>
+          </div>
+          <div className="link5">
+            <Link to={ROUTES.ACTIVITIES}>Etkinliklerimiz</Link>
           </div>
           <div className="link2">
             <Link to={ROUTES.FEEDING}>Besleme Programı</Link>

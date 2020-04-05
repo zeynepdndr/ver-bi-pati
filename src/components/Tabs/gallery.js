@@ -119,6 +119,7 @@ const GalleryBase = props => {
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
           dataArray.push(doc)
+          console.log("useeffect for data array", dataArray);
         })
       }).then(() => {
         const renderItems  = dataArray.map(item => (

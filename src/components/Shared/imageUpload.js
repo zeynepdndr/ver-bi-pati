@@ -29,7 +29,7 @@ class ImageUpload extends Component {
       .then(function (url) {
         var firebaseRef=firebase.database().ref("gallery");
         firebaseRef.push(url).then(function(){
-            console.log("image uploaded to db");
+            console.log("image uploaded to db", url);
         }
       )}
     )
