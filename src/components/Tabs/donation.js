@@ -3,40 +3,33 @@ import './donation.css';
 
 const Donation = ()=>
 <div className="container-fluid text-center">
-  <img className="imageSlider" src={require('./../Res/images/donationSlider.png')} alt="" />       
   {/* <div className="container-fluid"> */}
-    <h2>Desteğinle daha fazlasını mutlu edelim</h2>  
+  <h2>DESTEK OL</h2>
       <div className="row"> 
-        <div className="col-sm-4">
-          <div className="card bg-light mb-3 text-white" id="new-pink">
-            <div className="card-header">Havale/EFT </div>
-            <div className="card-body">
-              <h5 className="card-title">
-                      Banka: Türkiye Vakıflar Bankası <br/>
-                      Şube: İstanbul Teknik Üniversitesi Vakıfbank Osmanbey<br/>
-                      IBAN No: TR38 0001 5001 5800 7294 0140 71<br/>
-                      Açıklama: İTÜ Gönüllülük Kulübü Ver'bi Pati Bağış<br/>
-                      <br/>Tedavi masrafları ve mama alımı bütçemize katkın olsun.
-                      </h5>
-            </div>
-          </div>
+        <div className="col-sm-3">
+        <img className="img-fluid" src={require('./../Res/images/donationicon.jpeg')} alt="Card image cap"/>
+          <h4>Mama Bağışı</h4>
+          <p>
+            İTÜ Kampüslerinde devam eden beslemelerimiz için <a  target="_blank" href={"https://www.ormanamama.com/itu-nun-patileri"}>buraya</a> tıklayarak bize mama gönderebilirsin.
+          </p>
         </div>
-        <div className="col-sm-4">    
-          <div className="card  mb-3 text-white" id="new-orange">
-            <div className="card-header">Mama Bağışı</div>
-            <div className="card-body">
-              <h5 className="card-title"><a  target="_blank" href={"https://www.ormanamama.com/itu-nun-patileri"}>Ormana Mama</a> sitesine girerek kumbara başlığı ardından Verbi'pati seçerek mama gönderebilirsin. Teslimat adresi gerekmeden kumbarada biriken mamalar bize teslim ediliyor.</h5>
-            </div>
-          </div>                
+        <div className="col-sm-3">    
+          <img className="img-fluid" src={require('./../Res/images/donationicon1.jpeg')} alt="Card image cap"/>
+          <h4>Klinik Tedavileri için Destek Ol</h4>
+          <p>
+          Tüm hayvanlarımızın sağlık ihtiyaçlarını eksiksiz bir şekilde karşılamaya çalışıyoruz. Klinik bütçemiz için bize destek olmak için maddi yardımda bulunabilirsin. </p>              
         </div>
-        <div className="col-sm-4">
-          <div className="card text-white" id="new-blue">
-            <div className="card-header">Kulübümüze Üye</div>
-            <div className="card-body">
-              <h5 className="card-title">Kulübümüze üye olarak kampüs hayvanlarımızın beslenme, tedavi gibi ihtiyaçlarını birlikte karşılayabiliriz.
-</h5>
-            </div>
-          </div>
+        <div className="col-sm-3">
+        <img className="img-fluid" src={require('./../Res/images/donationicon2.jpeg')} alt="Card image cap"/>
+          <h4>Koruyucu Aile Ol</h4>
+          <p>
+          Bir kampüs hayvanının maddi ihtiyaçlarına destek olarak evine alamasan da onun ailesi olabilirsin. Koruyucu aile programına katılarak bize destek olmak için aşağıdaki linke tıkla.   </p>
+        </div>
+        <div className="col-sm-3">
+        <img className="img-fluid" src={require('./../Res/images/donationicon3.jpeg')} alt="Card image cap"/>
+          <h4>Üye Ol</h4>
+          <p>
+          Ver Bi' Pati ailesine katıl ve kampüs hayvanlarımızın ihtiyaçlarını hep beraber giderelim. Aramıza katılmak linke tıklayarak başvuru formunu doldur. </p>
         </div>
       </div>
   {/* </div> */}

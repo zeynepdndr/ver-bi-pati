@@ -26,7 +26,11 @@ const app = (
           weights: [400, "400i"]
         },
         {
-          font: "Roboto Mono",
+          font: "Baloo Paaji 2",
+          weights: [400, 700]
+        },        
+        {
+          font: 'Indie Flower',
           weights: [400, 700]
         },
         {

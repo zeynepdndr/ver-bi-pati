@@ -6,11 +6,13 @@
     display: inline-flex;
     background-color: #000000;
 }
-
-#row1{
-    margin-bottom:50px;
+.rightmostContainer{
 }
-h2, h6{
-    font-family:'Nunito Sans';
-    margin-bottom: 5px !important;
+
+.listClass{
+    position: relative!important;
+    margin:0
+}
+.slider{
+    margin-top: -4%;
 }

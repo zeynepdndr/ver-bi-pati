@@ -7,7 +7,7 @@ const Projects = ()=>
     <div className="col-sm-6">                 
       <h4>Neler Yapıyoruz?</h4>
       <div className="pfblock-line"></div>
-      <p className="lead">
+      <p>
         <ul class="fa-ul">
           <li><i class="fa-li fa fa-paw"></i>Düzenli beslemeler</li>
           <li><i class="fa-li fa fa-paw"></i>Okuldaki hayvanların ve sağlık durumlarının takibi</li>
@@ -22,7 +22,7 @@ const Projects = ()=>
       <div className="col-sm-6">
         <h4>Planlarımız</h4>    
         <div className="pfblock-line"></div>  
-        <p className="lead">
+        <p>
         <ul class="fa-ul">
           <li><i class="fa-li fa fa-paw"></i>Okuldaki su sisteminin aktif hale getirilerek hayvanların su ihtiyacının düzenli olarak giderilmesi.</li>
           <li><i class="fa-li fa fa-paw"></i>Arama kurtarma ekibimizin daha donanımlı hale getirilmesi</li>

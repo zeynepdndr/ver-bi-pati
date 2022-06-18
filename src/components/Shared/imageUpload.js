@@ -9,7 +9,7 @@ class ImageUpload extends Component {
       progress: 0
     };
   }
-
+  
   handleChange = e => {
     if (e.target.files[0]) {
       const image = e.target.files[0];

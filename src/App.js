@@ -17,6 +17,7 @@ import MaintenancePage from "./components/MaintenancePage/maintenance-page";
 import Notification from "./components/Tabs/notification";
 
 import { withFirebase } from "./components/Firebase";
+import AboutUs from "./components/Tabs/aboutus";
 
 const LayoutFire = withFirebase(Layout);
 
@@ -24,45 +25,28 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Switch>
+        {/* <Switch>
           <Route exact path={ROUTES.LANDING} render={() => <LandingPage />} />
           <Route
             path={ROUTES.LANDING}
             render={props => <LayoutFire {...props} />}
           />
-        </Switch>
-         
-         {/* <Switch>
-          <Route exact path={ROUTES.MAINTENANCE} render={() => <MaintenancePage />} />
-          <Route
-            path={ROUTES.MAINTENANCE}
-          />
         </Switch> */}
-        <Route path={ROUTES.HOME} render={props => <HomePage {...props} />} />
+        <Route
+          path={ROUTES.HOME}
+          render={props => <LayoutFire {...props} />}
+        />
+        <Route exact path={ROUTES.HOME} render={() => <HomePage />} />
         <Route path={ROUTES.MAINTENANCE} render={props => <MaintenancePage {...props} />} />
         <Route path={ROUTES.CONTACT} render={props => <Contact {...props} />} />
-        <Route
-          path={ROUTES.ACTIVITIES}
-          render={props => <Activities {...props} />}
-        />
-        <Route
-          path={ROUTES.PROJECTS}
-          render={props => <Projects {...props} />}
-        />
-        <Route
-          path={ROUTES.DONATION}
-          render={props => <Donation {...props} />}
-        />
+        <Route path={ROUTES.ACTIVITIES} render={props => <Activities {...props} />}/>
+        <Route path={ROUTES.PROJECTS} render={props => <Projects {...props} />} />
+        <Route path={ROUTES.ABOUTUS} render={props => <AboutUs {...props} />}/>
+        <Route path={ROUTES.DONATION}render={props => <Donation {...props} />}/>
         <Route path={ROUTES.GALLERY} render={props => <Gallery {...props} />} />
-        <Route
-          path={ROUTES.ANNOUNCEMENTS}
-          render={props => <Announcements {...props} />}
-        />
+        <Route path={ROUTES.ANNOUNCEMENTS}render={props => <Announcements {...props} />}/>
         <Route path={ROUTES.FEEDING} render={props => <Feeding {...props} />} />
-        <Route
-          path={ROUTES.NOTIFICATION}
-          render={props => <Notification {...props} />}
-        />
+        <Route path={ROUTES.NOTIFICATION} render={props => <Notification {...props} />}/>
       </div>  
     );
   }

@@ -7,12 +7,15 @@
 }
 .pfblock-line {
     background: #000000;
-    width: 100px;
+    width: 50%;
     height: 1px;
     margin-top:20px;
     margin-bottom:20px;
 }
-
+h4{
+    font-family:'Indie Flower'!important;  
+    font-weight: bold!important;
+}
 .follow{
     font-family: 'Mansalva';
     font-size: 24px;
